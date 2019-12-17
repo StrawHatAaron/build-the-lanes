@@ -11,6 +11,12 @@ import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 
+//font awesome 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faCarCrash, faSmog, faChartLine, faSmileWink} from "@fortawesome/free-solid-svg-icons";
+library.add(faCarCrash, faSmog, faChartLine, faSmileWink);
+
+
 var hist = createBrowserHistory();
 
 ReactDOM.render(
