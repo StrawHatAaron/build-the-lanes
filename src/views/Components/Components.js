@@ -17,8 +17,7 @@ import SectionBasics from "./Sections/SectionBasics.js";
 import SectionTabs from "./Sections/SectionTabs.js";
 import SectionPills from "./Sections/SectionPills.js";
 import SectionCarousel from "./Sections/SectionCarousel.js";
-import SectionCompletedExamples from "./Sections/SectionCompletedExamples.js";
-import SectionExamples from "./Sections/SectionExamples.js";
+
 import SectionDownload from "./Sections/SectionDownload.js";
 
 import styles from "assets/jss/material-kit-react/views/components.js";

@@ -3,11 +3,11 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
-import Face from "@material-ui/icons/Face";
-import Chat from "@material-ui/icons/Chat";
-import Build from "@material-ui/icons/Build";
-//font awseome icons
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import NewReleases from "@material-ui/icons/NewReleases";
+import Cloud from "@material-ui/icons/Cloud";
+import TrendingUp from "@material-ui/icons/TrendingUp";
+import FitnessCenter from "@material-ui/icons/FitnessCenter";
+
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -34,64 +34,65 @@ export default function SectionTabs() {
                 tabs={[
                   {
                     tabName: "Collisions",
-                    tabIcon: Face, //<FontAwesomeIcon icon={"fa-car-crash"}/>,
+                    tabIcon: NewReleases, //<FontAwesomeIcon icon={"fa-car-crash"}/>,
                     tabContent: (
                       <p className={classes.textCenter}>
-                        Vehicle collisions are the leading cause 
-                        of death for those between the ages of 1-44 
-                        and it is growing. 2018 was the third year 
-                        in a row where fatal accidents increased 
-                        to over 40,000. The economic cost of vehicle crashes exceeds 75 billion dollars annually.
+                        Vehicle collisions are the leading cause of death for
+                        those between the ages of 1-44 and it is growing. 2018
+                        was the third year in a row where fatal accidents
+                        increased to over 40,000. The economic cost of vehicle
+                        crashes exceeds 75 billion dollars annually.
                       </p>
                     )
                   },
                   {
                     tabName: "Air Quality",
-                    tabIcon: Chat,
+                    tabIcon: Cloud,
                     tabContent: (
                       <p className={classes.textCenter}>
-                        In states such as California, the transportation 
-                        sector accounts for approximately 40 percent 
-                        of carbon emissions. Besides damaging local 
-                        air quality, it is a significant contributor 
-                        to climate change. Which has the potential 
-                        to cause a worldwide economic and humanitarian 
-                        crisis. The economic cost of air pollution 
-                        from vehicles alone is pegged at 29 billion 
-                        dollars annually. 
+                        In states such as California, the transportation sector
+                        accounts for approximately 40 percent of carbon
+                        emissions. Besides damaging local air quality, it is a
+                        significant contributor to climate change. Which has the
+                        potential to cause a worldwide economic and humanitarian
+                        crisis. The economic cost of air pollution from vehicles
+                        alone is pegged at 29 billion dollars annually.
                       </p>
                     )
                   },
                   {
                     tabName: "Productivity",
-                    tabIcon: Build,
+                    tabIcon: TrendingUp,
                     tabContent: (
                       <p className={classes.textCenter}>
-                         The average American commuter wastes an extra 
-                         54 hours a year due to traffic congestion. 
-                         However, traffic congestion costs more than time. 
-                         Worker productivity, fuel, and cost of consumer 
-                         goods are affected. This adds up to approximately 
-                         305 billion dollars. 
+                        The average American commuter wastes an extra 54 hours a
+                        year due to traffic congestion. However, traffic
+                        congestion costs more than time. Worker productivity,
+                        fuel, and cost of consumer goods are affected. This adds
+                        up to approximately 305 billion dollars.
                       </p>
                     )
                   },
                   {
                     tabName: "Fitness",
-                    tabIcon: Build,
+                    tabIcon: FitnessCenter,
                     tabContent: (
                       <p className={classes.textCenter}>
-                         Obesity is positively correlated with how 
-                         frequently one drives. This medical condition 
-                         now captures approximately 39% of adults and 
-                         costs our nation an extra 147 billion dollars 
-                         a year. 
+                        Obesity is positively correlated with how frequently one
+                        drives. This medical condition now captures
+                        approximately 39% of adults and costs our nation an 
+                        extra 147 billion dollars a year.
                       </p>
                     )
                   }
                 ]}
               />
             </GridItem>
+            <div>
+              Together these problems add up to a staggering 556 billion dollars
+              a year. That’s almost how much the United States spends annually
+              on its military!
+            </div>
           </GridContainer>
         </div>
       </div>
