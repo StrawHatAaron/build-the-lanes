@@ -47,7 +47,7 @@ export default function Components(props) {
               <div className={classes.brand}>
                 <h1 className={classes.title}>Build the Lanes.</h1>
                 <h3 className={classes.subtitle}>
-                  Lets redefine traffic together.
+                  Accelerating the rollout of low stress bicycle networks.
                 </h3>
               </div>
             </GridItem>

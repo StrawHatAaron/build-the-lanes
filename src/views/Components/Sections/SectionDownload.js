@@ -22,14 +22,13 @@ export default function SectionDownload() {
           <i className={classes.socials + " fab fa-twitter"} /> Tweet
         </Button>
         <Button color="facebook">
-          <i className={classes.socials + " fab fa-facebook-square"} /> Share
+          <i className={classes.socials + " fab fa-facebook-square"} /> Like
         </Button>
         <Button color="google">
-          <i className={classes.socials + " fab fa-google-plus-g"} />
-          Share
+          <i className={classes.socials + " fab fa-google-plus-g"} /> Share
         </Button>
-        <Button color="github">
-          <i className={classes.socials + " fab fa-github"} /> Star
+        <Button color="info">
+          <i className={classes.socials + " fab fa-linkedin"} /> Connect
         </Button>
       </div>
     </div>

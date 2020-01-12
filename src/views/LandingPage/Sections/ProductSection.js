@@ -12,6 +12,7 @@ import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
+import { DirectionsBike, MotorcycleOutlined, TrainOutlined } from "@material-ui/icons";
 
 const useStyles = makeStyles(styles);
 
@@ -35,9 +36,9 @@ export default function ProductSection() {
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
-              title="Free Chat"
+              title="Att"
               description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-              icon={Chat}
+              icon={DirectionsBike}
               iconColor="info"
               vertical
             />
@@ -46,7 +47,7 @@ export default function ProductSection() {
             <InfoArea
               title="Verified Users"
               description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-              icon={VerifiedUser}
+              icon={MotorcycleOutlined}
               iconColor="success"
               vertical
             />
@@ -55,7 +56,7 @@ export default function ProductSection() {
             <InfoArea
               title="Fingerprint"
               description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-              icon={Fingerprint}
+              icon={TrainOutlined}
               iconColor="danger"
               vertical
             />

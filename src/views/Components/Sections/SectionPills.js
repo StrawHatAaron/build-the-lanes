@@ -3,9 +3,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
-import Dashboard from "@material-ui/icons/Dashboard";
-import Schedule from "@material-ui/icons/Schedule";
-import List from "@material-ui/icons/List";
+import ErrorOutline from "@material-ui/icons/ErrorOutline";
+import CheckCircleOutline from "@material-ui/icons/CheckCircleOutline";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -33,15 +32,15 @@ export default function SectionPills() {
           <GridContainer>
             <GridItem xs={12} sm={12} md={12} lg={12}>
               <NavPills
-                color="rose"
+                color="success"
                 horizontal={{
                   tabsGrid: { xs: 12, sm: 4, md: 4 },
                   contentGrid: { xs: 12, sm: 8, md: 8 }
                 }}
                 tabs={[
                   {
-                    tabButton: "Dashboard",
-                    tabIcon: Dashboard,
+                    tabButton: "Problem",
+                    tabIcon: ErrorOutline,
                     tabContent: (
                       <span>
                         <p>
@@ -82,43 +81,80 @@ export default function SectionPills() {
                         <br />
                         <p>
                           The construction of complete bike networks in cities
-                          is the best way to tackle the four problems. Per the 
-                          Federal Highway Administration, more than half of all vehicle trips are
-                          between 1-10 miles, which is a distance that is convenient for cycling. But most Americans
-                          don’t, as there is no infrastructure in place that makes the trip safe and convenient. A study
-                          conducted by Breakaway Research Group found approximately 53% of Americans were
-                          interested in commuting via bicycle, but cited safety concerns as what was stopping them. If
-                          continuous bicycle networks were built, a significant portion of this population would switch
-                          from driving to bicycling, which would significantly improve the four problems. Fewer people on
-                          the road would mean a decrease in vehicle collisions, carbon emissions, traffic congestion
-                          would improve. The Netherlands is an excellent example. In cities such as Amsterdam, Delft,
-                          and Grottingen, more than half of all trips are via bicycle. This explains why studies such as the
-                          one conducted by Waze found that Dutch drivers the highest satisfaction rating, by measuring
-                          factors such as road conditions, traffic delays, and likelihood of accidents. Unfortunately, efforts
-                          to build this infrastructure by traditional means would be unsustainably long and expensive.
-                          This is where the non-profit Build the Lanes comes in.                        
+                          is the best way to tackle the four problems. Per the
+                          Federal Highway Administration, more than half of all
+                          vehicle trips are between 1-10 miles, which is a
+                          distance that is convenient for cycling. But most
+                          Americans don’t, as there is no infrastructure in
+                          place that makes the trip safe and convenient. A stud
+                          conducted by Breakaway Research Group found
+                          approximately 53% of Americans were interested in
+                          commuting via bicycle, but cited safety concerns as
+                          what was stopping them. If continuous bicycle networks
+                          were built, a significant portion of this population
+                          would switch from driving to bicycling, which would
+                          significantly improve the four problems. Fewer people
+                          on the road would mean a decrease in vehicle
+                          collisions, carbon emissions, traffic congestion would
+                          improve. The Netherlands is an excellent example. In
+                          cities such as Amsterdam, Delft, and Grottingen, more
+                          than half of all trips are via bicycle. This explains
+                          why studies such as the one conducted by Waze found
+                          that Dutch drivers the highest satisfaction rating, by
+                          measuring factors such as road conditions, traffic
+                          delays, and likelihood of accidents. Unfortunately,
+                          efforts to build this infrastructure by traditional
+                          means would be unsustainably long and expensive. This
+                          is where the non-profit Build the Lanes comes in.
                         </p>
                       </span>
                     )
                   },
                   {
-                    tabButton: "Schedule",
-                    tabIcon: Schedule,
+                    tabButton: "Solution",
+                    tabIcon: CheckCircleOutline,
                     tabContent: (
                       <span>
                         <p>
-                          Efficiently unleash cross-media information without
-                          cross-media value. Quickly maximize timely
-                          deliverables for real-time schemas.
+                          Our mission is to accelerate the rollout of low stress
+                          bicycle networks. The process begins with volunteer
+                          engineer and planners. We approach cities that are
+                          interested in creating better bike infrastructure, but
+                          don’t have the capacity to do all work in house.
+                          Following interest from the city, we set about
+                          designing a master bike plan for the city that builds
+                          upon an existing one, but also incorporates vision
+                          zero as design principles and targets 95% of the
+                          population to be within a 5-minute walk to the closest
+                          bicycle lane. Once network is laid out, our engineers
+                          produce all the design sheets, traffic studies, and
+                          environmental documents need so the city can make
+                          quick revisions and immediately begin construction
+                          work.
                         </p>
                         <br />
                         <p>
-                          Dramatically maintain clicks-and-mortar solutions
-                          without functional solutions. Dramatically visualize
-                          customer directed convergence without revolutionary
-                          ROI. Collaboratively administrate empowered markets
-                          via plug-and-play networks. Dynamically procrastinate
-                          B2C users after installed base benefits.
+                          As the design phase nears completion, our teams
+                          transition to finding financial support for the
+                          cities. Applying to federal grants for funding usually
+                          come with strings attached and can be a very slow and
+                          uncertain process, which can delay critical projects.
+                          Instead, our team link the project funding directly to
+                          those who would benefit most from them. This can be
+                          done two ways. The first is by forming partnerships
+                          with scooter sharing companies such as Jump, Lime, and
+                          Bird which have all expressed interest in helping
+                          cities fund active transportation infrastructure. A
+                          second alternative would be to crowdfund projects with
+                          the help of local businesses, community groups, and
+                          individuals who would all have an interest in seeing
+                          better bike infrastructure built.
+                        </p>
+                        <br />
+                        <p>
+                          This approach is designed to minimize barriers for
+                          local municipalities and to maximize motivation among
+                          local policymakers.
                         </p>
                       </span>
                     )
