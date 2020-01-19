@@ -45,7 +45,7 @@ export default function TeamSection() {
 
   const aboutUsContent = aboutUsData.map((c) => {
     return(
-      <GridItem xs={12} sm={12} md={3}>
+      <GridItem xs={12} sm={12} md={3} lg={3}>
       <Card plain>
         <GridItem xs={12} sm={12} md={12} className={classes.itemGrid}>
           <img 
@@ -60,11 +60,11 @@ export default function TeamSection() {
             {c.title}
           </small>
         </h4>
-        <CardBody>
+        {/* <CardBody>
           <p className={classes.description}>
           {c.description}
           </p>
-        </CardBody>
+        </CardBody> */}
       </Card>
     </GridItem>
     )

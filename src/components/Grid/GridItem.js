@@ -13,7 +13,7 @@ const styles = {
     paddingRight: "15px",
     paddingLeft: "15px",
     flexBasis: "auto",
-    maxWidth:"%100"
+    maxWidth:"%100 !important"
   }
 };
 
