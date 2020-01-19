@@ -30,7 +30,7 @@ export default function HeaderLinks() {
     return(
       <ListItem className={classes.listItem}>
         <Button
-          href="/login-page"
+          href="/profile-page"
           color="transparent"
           className={classes.navLink}>
           {c.page}
@@ -54,16 +54,14 @@ export default function HeaderLinks() {
           buttonIcon={Apps}
           dropdownList={[
             <Link to="/" className={classes.dropdownLink}>
-              Mission
-            </Link>,
-            { divider: true },
-            <Link to="/landing-page" className={classes.dropdownLink}>
               Landing
             </Link>,
             { divider: true },
-            <Link to="/profile-page" className={classes.dropdownLink}>
-              About Us
-            </Link>
+            <Link to="/landing-page" className={classes.dropdownLink}>
+              Your Story
+            </Link>,
+            { divider: true },
+            
           ]}
         />
       </ListItem>
