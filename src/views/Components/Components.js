@@ -13,7 +13,7 @@ import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import SectionBasics from "./Sections/SectionBasics.js";
+
 import SectionTabs from "./Sections/SectionTabs.js";
 import SectionPills from "./Sections/SectionPills.js";
 import SectionCarousel from "./Sections/SectionCarousel.js";
@@ -36,7 +36,9 @@ export default function Components(props) {
         color="transparent"
         changeColorOnScroll={{
           height: 400,
-          color: "white"
+          color: "white",
+          marginLeft:"2em",
+          
         }}
         {...rest}
       />
@@ -45,7 +47,7 @@ export default function Components(props) {
           <GridContainer>
             <GridItem>
               <div className={classes.brand}>
-                <h1 className={classes.title}>Build the Lanes.</h1>
+                <h1 className={classes.title}>Our Mission</h1>
                 <h3 className={classes.subtitle}>
                   Accelerating the rollout of low stress bicycle networks.
                 </h3>
@@ -56,7 +58,6 @@ export default function Components(props) {
       </Parallax>
 
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <SectionBasics />
         <SectionTabs />
         <SectionPills />
         <SectionCarousel />

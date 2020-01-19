@@ -15,6 +15,7 @@ import Drawer from "@material-ui/core/Drawer";
 import Menu from "@material-ui/icons/Menu";
 // core components
 import styles from "assets/jss/material-kit-react/components/headerStyle.js";
+import { Rowing } from "@material-ui/icons";
 
 const useStyles = makeStyles(styles);
 
@@ -61,7 +62,7 @@ export default function Header(props) {
     [classes.fixed]: fixed
   });
   const brandComponent = (
-    <Button href="/" className={classes.title}>
+    <Button href="/">
       {brand}
     </Button>
   );
@@ -78,9 +79,11 @@ export default function Header(props) {
             brandComponent
           )}
         </div>
+
         <Hidden smDown implementation="css">
           {rightLinks}
         </Hidden>
+
         <Hidden mdUp>
           <IconButton
             color="inherit"
