@@ -24,22 +24,22 @@ export default function TeamSection() {
     name:"Steffen Berr",
     title:"Transportation Engineer",
     description:"Planning, traffic analysis, roadway design",
-    pic:"steffen"
+    pic:"steffen.png"
   },{
     name:"Luis",
     title:"Traffic Enginneer",
     description:"Roadway Design",
-    pic:"luis"
+    pic:"luis.png"
   },{
     name:"Life Kelly",
     title:"Envoirmental Engineer",
     description:"Safety and Health Contract Managment",
-    pic:"life"
+    pic:"life.png"
   },{
     name:"Mark Westbrook",
     title:"Envoirmental Engineer",
     description:"Safety and Health Contract Managment",
-    pic:"life"
+    pic:"mark.jpg"
   },]
 
   const aboutUsContent = aboutUsData.map((c) => {
@@ -48,7 +48,7 @@ export default function TeamSection() {
       <Card plain>
         <GridItem xs={12} sm={12} md={12} className={classes.itemGrid}>
           <img 
-            src={require("assets/img/faces/"+c.pic+".png")} 
+            src={require("assets/img/faces/"+c.pic)} 
             alt="..." 
             className={imageClasses} />
         </GridItem>
