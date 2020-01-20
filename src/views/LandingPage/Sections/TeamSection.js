@@ -20,52 +20,49 @@ export default function TeamSection() {
     classes.imgFluid
   );
 
-  const aboutUsData = [{
-    name:"Steffen Berr",
-    title:"Transportation Engineer",
-    description:"Planning, traffic analysis, roadway design",
-    pic:"steffen.png"
-  },{
-    name:"Luis",
-    title:"Traffic Enginneer",
-    description:"Roadway Design",
-    pic:"luis.png"
-  },{
-    name:"Life Kelly",
-    title:"Envoirmental Engineer",
-    description:"Safety and Health Contract Managment",
-    pic:"life.png"
-  },{
-    name:"Mark Westbrook",
-    title:"Envoirmental Engineer",
-    description:"Safety and Health Contract Managment",
-    pic:"mark.jpg"
-  },]
+  const aboutUsData = [
+    {
+      name:"Steffen Berr",
+      title:"Transportation Engineer",
+      description:"Planning, traffic analysis, roadway design",
+      pic:"steffen.png"
+    },{
+      name:"Luis",
+      title:"Traffic Enginneer",
+      description:"Roadway Design",
+      pic:"luis.png"
+    },{
+      name:"Life Kelly",
+      title:"Envoirmental Engineer",
+      description:"Safety and Health Contract Managment",
+      pic:"life.png"
+    },{
+      name:"Mark Westbrook",
+      title:"Civil Engineer",
+      description:"Safety and Health Contract Managment",
+      pic:"mark.jpg"
+    }
+  ];
 
   const aboutUsContent = aboutUsData.map((c) => {
     return(
-      <GridItem xs={12} sm={12} md={3} lg={3}>
-      <Card plain>
-        <GridItem xs={12} sm={12} md={12} className={classes.itemGrid}>
-          <img 
-            src={require("assets/img/faces/"+c.pic)} 
-            alt="..." 
-            className={imageClasses} />
-        </GridItem>
-        <h4 className={classes.cardTitle}>
-          {c.name}
-          <br />
-          <small className={classes.smallTitle}>
-            {c.title}
-          </small>
-        </h4>
-        {/* <CardBody>
-          <p className={classes.description}>
-          {c.description}
-          </p>
-        </CardBody> */}
-      </Card>
-    </GridItem>
+      <GridItem xs={12} sm={12} md={6}>
+        <Card plain>
+          <GridItem xs={12} sm={12} md={12} className={classes.itemGrid}>
+            <img 
+              src={require("assets/img/faces/"+c.pic)} 
+              alt="..." 
+              className={imageClasses} />
+          </GridItem>
+          <h4 className={classes.cardTitle}>
+            {c.name}
+            <br />
+            <small className={classes.smallTitle}>
+              {c.title}
+            </small>
+          </h4>
+        </Card>
+      </GridItem>
     )
   })
 
