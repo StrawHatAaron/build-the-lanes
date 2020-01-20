@@ -19,18 +19,23 @@ export default function HeaderLinks() {
   const classes = useStyles();
 
   const headerData = [
-    {page:"Our Mission"},
-    {page:"Why Bikes"},
-    {page:"Project Delivery"},
-    {page:"Current Project"},
-    {page:"About Us"},
+    {
+      page: "Our Mission",
+      link: "our-mission"
+    },{
+      page: "Why Bikes",
+      link: "why-bikes"
+    },{
+      page: "About Us",
+      link: "about-us"
+    },
   ];
 
   const headerContent = headerData.map((c) => {
     return(
       <ListItem className={classes.listItem}>
         <Button
-          href="/profile-page"
+          href={`/${c.link}`}
           color="transparent"
           className={classes.navLink}>
           {c.page}
@@ -54,11 +59,11 @@ export default function HeaderLinks() {
           buttonIcon={Apps}
           dropdownList={[
             <Link to="/" className={classes.dropdownLink}>
-              Landing
+              Login
             </Link>,
             { divider: true },
             <Link to="/landing-page" className={classes.dropdownLink}>
-              Your Story
+              Sign Up
             </Link>,
             { divider: true },
             

@@ -60,12 +60,7 @@ export default function Header(props) {
     [classes.absolute]: absolute,
     [classes.fixed]: fixed
   });
-  
-  const brandComponent = (
-    <Button href="/">
-      {brand}
-    </Button>
-  );
+  const brandComponent = <Button className={classes.brand} href="/"> {brand} </Button>;
 
   return (
     <AppBar className={appBarClasses}>
@@ -87,7 +82,7 @@ export default function Header(props) {
 
         <Hidden mdUp>
           <IconButton
-            color="inherit"
+            color="success"
             aria-label="open drawer"
             onClick={handleDrawerToggle}
           >
@@ -120,17 +115,7 @@ Header.defaultProp = {
 };
 
 Header.propTypes = {
-  color: PropTypes.oneOf([
-    "primary",
-    "info",
-    "success",
-    "warning",
-    "danger",
-    "transparent",
-    "white",
-    "rose",
-    "dark"
-  ]),
+  color: PropTypes.oneOf(["success"]),
   rightLinks: PropTypes.node,
   leftLinks: PropTypes.node,
   brand: PropTypes.string,
@@ -144,16 +129,6 @@ Header.propTypes = {
   // props.color (see above)
   changeColorOnScroll: PropTypes.shape({
     height: PropTypes.number.isRequired,
-    color: PropTypes.oneOf([
-      "primary",
-      "info",
-      "success",
-      "warning",
-      "danger",
-      "transparent",
-      "white",
-      "rose",
-      "dark"
-    ]).isRequired
+    color: PropTypes.oneOf(["success"]).isRequired
   })
 };

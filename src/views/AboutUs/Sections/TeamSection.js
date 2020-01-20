@@ -22,25 +22,25 @@ export default function TeamSection() {
 
   const aboutUsData = [
     {
-      name:"Steffen Berr",
-      title:"Transportation Engineer",
-      description:"Planning, traffic analysis, roadway design",
-      pic:"steffen.png"
+      name: "Steffen Berr",
+      title: "Transportation Engineer",
+      description: "Planning, traffic analysis, roadway design",
+      pic: "steffen.png"
     },{
-      name:"Luis",
-      title:"Traffic Enginneer",
-      description:"Roadway Design",
-      pic:"luis.png"
+      name: "Luis Martin",
+      title: "Transportation Enginneer",
+      description: "Roadway Design",
+      pic: "luis.png"
     },{
-      name:"Life Kelly",
-      title:"Envoirmental Engineer",
-      description:"Safety and Health Contract Managment",
-      pic:"life.png"
+      name: "Life Kelly",
+      title: "Envoirmental Engineer",
+      description: "Safety and Health Contract Managment",
+      pic: "life.png"
     },{
-      name:"Mark Westbrook",
-      title:"Civil Engineer",
-      description:"Safety and Health Contract Managment",
-      pic:"mark.jpg"
+      name: "Mark Westbrook",
+      title: "Civil Engineer",
+      description: "Safety and Health Contract Managment",
+      pic: "mark.jpg"
     }
   ];
 

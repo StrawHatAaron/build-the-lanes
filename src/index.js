@@ -6,9 +6,9 @@ import { Router, Route, Switch } from "react-router-dom";
 import "assets/scss/material-kit-react.scss?v=1.8.0";
 
 // pages for this product
-import Components from "views/Components/Components.js";
-import LandingPage from "views/LandingPage/LandingPage.js";
-import ProfilePage from "views/ProfilePage/ProfilePage.js";
+import OurMission from "views/OurMission/OurMission.js";
+import WhyBikes from "views/WhyBikes/WhyBikes.js";
+import AboutUs from "views/AboutUs/AboutUs.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 
 //font awesome 
@@ -22,10 +22,10 @@ var hist = createBrowserHistory();
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
-      <Route path="/landing-page" component={LandingPage} />
-      <Route path="/profile-page" component={ProfilePage} />
+      <Route path="/why-bikes" component={WhyBikes} />
+      <Route path="/about-us" component={AboutUs} />
       <Route path="/login-page" component={LoginPage} />
-      <Route path="/" component={Components} />
+      <Route path="/" component={OurMission} />
     </Switch>
   </Router>,
   document.getElementById("root")

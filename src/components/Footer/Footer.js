@@ -33,28 +33,20 @@ export default function Footer(props) {
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="http://buildthelanes.com/profile-page"
+                href="http://buildthelanes.com/about-us"
                 className={classes.block}
                 target="_blank">
                 About us
               </a>
             </ListItem>
-            {/* <ListItem className={classes.inlineBlock}>
+            <ListItem className={classes.inlineBlock}>
               <a
-                href="http://blog.creative-tim.com/?ref=mkr-footer"
+                href="https://www.patreon.com/buildthelanes"
                 className={classes.block}
                 target="_blank">
-                Blog
+                Support Us
               </a>
-            </ListItem> */}
-            {/* <ListItem className={classes.inlineBlock}>
-              <a 
-                href="https://www.creative-tim.com/license?ref=mkr-footer"
-                className={classes.block}
-                target="_blank">
-                Licenses
-              </a>
-            </ListItem> */}
+            </ListItem>
           </List>
         </div>
         <div className={classes.right}>

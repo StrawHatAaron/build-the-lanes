@@ -13,13 +13,10 @@ import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.js";
-
-import SectionTabs from "./Sections/SectionTabs.js";
+import WorkSection from "./Sections/WorkSection.js";
 import SectionPills from "./Sections/SectionPills.js";
 import SectionCarousel from "./Sections/SectionCarousel.js";
-
 import SectionDownload from "./Sections/SectionDownload.js";
-
 import styles from "assets/jss/material-kit-react/views/components.js";
  
 const useStyles = makeStyles(styles);
@@ -37,12 +34,11 @@ export default function Components(props) {
         changeColorOnScroll={{
           height: 400,
           color: "white",
-          marginLeft:"2em",
-          
+          marginLeft: "2em"
         }}
         {...rest}
       />
-      <Parallax image={require("assets/img/bicyclist-down.jpg")}>
+      <Parallax image={require("assets/img/our-mission3.jpeg")}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem>
@@ -58,10 +54,10 @@ export default function Components(props) {
       </Parallax>
 
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <SectionTabs />
         <SectionPills />
         <SectionCarousel />
         <SectionDownload />
+        <WorkSection />
       </div>
       <Footer />
     </div>

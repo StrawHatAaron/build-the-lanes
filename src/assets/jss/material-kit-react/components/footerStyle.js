@@ -1,4 +1,4 @@
-import { container, primaryColor } from "assets/jss/material-kit-react.js";
+import { container, successColor } from "assets/jss/material-kit-react.js";
 
 const footerStyle = {
   block: {
@@ -10,7 +10,10 @@ const footerStyle = {
     borderRadius: "3px",
     textDecoration: "none",
     position: "relative",
-    display: "block"
+    display: "block",
+    "&:hover,&:focus":{
+      color: successColor
+    }
   },
   left: {
     float: "left!important",
@@ -29,7 +32,7 @@ const footerStyle = {
     position: "relative"
   },
   a: {
-    color: primaryColor,
+    color: successColor,
     textDecoration: "none",
     backgroundColor: "transparent"
   },
@@ -48,6 +51,7 @@ const footerStyle = {
     display: "inline-block",
     padding: "0px",
     width: "auto"
+    
   },
   icon: {
     width: "18px",
