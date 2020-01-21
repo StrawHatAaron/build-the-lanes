@@ -13,7 +13,6 @@ import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import WorkSection from "./Sections/WorkSection.js";
 import SectionPills from "./Sections/SectionPills.js";
 import SectionCarousel from "./Sections/SectionCarousel.js";
 import SectionDownload from "./Sections/SectionDownload.js";
@@ -57,7 +56,6 @@ export default function Components(props) {
         <SectionPills />
         <SectionCarousel />
         <SectionDownload />
-        <WorkSection />
       </div>
       <Footer />
     </div>

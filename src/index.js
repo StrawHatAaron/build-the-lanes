@@ -10,7 +10,7 @@ import OurMission from "views/OurMission/OurMission.js";
 import WhyBikes from "views/WhyBikes/WhyBikes.js";
 import AboutUs from "views/AboutUs/AboutUs.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
-
+import ContactUs from "views/ContactUs/ContactUs.js";
 //font awesome 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCarCrash, faSmog, faChartLine, faSmileWink} from "@fortawesome/free-solid-svg-icons";
@@ -22,9 +22,10 @@ var hist = createBrowserHistory();
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
-      <Route path="/why-bikes" component={WhyBikes} />
-      <Route path="/about-us" component={AboutUs} />
-      <Route path="/login-page" component={LoginPage} />
+      <Route exact path="/why-bikes" component={WhyBikes} />
+      <Route exact path="/login-page" component={LoginPage} />
+      <Route exact path="/about-us" component={AboutUs} />
+      <Route exact path="/contact-us" component={ContactUs} />
       <Route path="/" component={OurMission} />
     </Switch>
   </Router>,

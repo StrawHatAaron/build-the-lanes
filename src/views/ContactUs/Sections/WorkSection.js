@@ -20,7 +20,7 @@ export default function WorkSection() {
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem cs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Work with us</h2>
+          <h2 className={classes.title}>Send a Message</h2>
           <h4 className={classes.description}>
             Lets make the best examples for bike paths
           </h4>
