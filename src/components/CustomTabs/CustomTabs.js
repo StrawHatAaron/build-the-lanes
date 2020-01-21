@@ -35,6 +35,8 @@ export default function CustomTabs(props) {
       <CardHeader color={"success"} plain={plainTabs}>
         {title !== undefined ? <div className={cardTitle}>{title}</div> : null}
         <Tabs
+          variant={ 'scrollable' }
+          scrollButtons={ 'on' }
           value={value}
           onChange={handleChange}
           classes={{

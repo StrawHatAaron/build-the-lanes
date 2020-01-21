@@ -3,7 +3,8 @@ const tabsStyle = {
     padding: "70px 0"
   },
   textEdges: {
-    color: "#000"
+    color: "#000",
+    padding: "5px 20px"
   },
   textCenter: {
     textAlign: "center"

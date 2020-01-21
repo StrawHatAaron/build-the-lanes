@@ -21,12 +21,12 @@ export default function SectionTabs() {
   const classes = useStyles();
   return (
     <div className={classes.section}>
-      <h3 className={classes.textEdges} >Why should we want to change?</h3>
+    <h3 className={classes.textEdges} >Let{"'"}s talk numbers</h3>
       <GridContainer>
         <GridItem xs={12} sm={12} md={12}>
-          <h3>
+          {/* <h3>
             <small>Well here are the numbers</small>
-          </h3>
+          </h3> */}
           <CustomTabs
             headerColor="primary"
             tabs={[
@@ -87,9 +87,16 @@ export default function SectionTabs() {
           />
         </GridItem>
         <div className={classes.textEdges}>
-          Together these problems add up to a staggering 556 billion dollars
-          a year. That’s almost how much the United States spends annually
-          on its military!
+        Savings at the pump for families and on vehicle payments
+        The Netherlands is an excellent case study. In the late seventies, Dutch cities
+        began prioritizing the construction of bicycle infrastructure over car and the
+        government offered subsidies and tax breaks towards those who cycled to
+        work. More than thirty years later, approximately half of all trips in cities
+        such as Amsterdam, Delft, and Gottingen are done by bicycle. Traffic deaths
+        per 100,000 inhabitants are around three times lower than the United States
+        according to an AM J public Health Study and a recent study conducted by
+        Waze found that Dutch drivers have the highest satisfaction rating, by
+        measuring factors such as road conditions and traffic delays.
         </div>
       </GridContainer>
     </div>
