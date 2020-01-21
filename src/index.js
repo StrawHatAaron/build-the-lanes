@@ -11,6 +11,7 @@ import WhyBikes from "views/WhyBikes/WhyBikes.js";
 import AboutUs from "views/AboutUs/AboutUs.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import ContactUs from "views/ContactUs/ContactUs.js";
+import UnderConstruction from "views/UnderConstruction/UnderConstruction";
 //font awesome 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCarCrash, faSmog, faChartLine, faSmileWink} from "@fortawesome/free-solid-svg-icons";
@@ -26,6 +27,8 @@ ReactDOM.render(
       <Route exact path="/login-page" component={LoginPage} />
       <Route exact path="/about-us" component={AboutUs} />
       <Route exact path="/contact-us" component={ContactUs} />
+      <Route exact path="/login" component={UnderConstruction} />
+      <Route exact path="/sign-up" component={UnderConstruction} />
       <Route path="/" component={OurMission} />
     </Switch>
   </Router>,

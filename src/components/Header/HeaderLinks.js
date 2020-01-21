@@ -61,11 +61,11 @@ export default function HeaderLinks() {
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <Link to="/" className={classes.dropdownLink}>
+            <Link to="/login" className={classes.dropdownLink}>
               Login
             </Link>,
             { divider: true },
-            <Link to="/landing-page" className={classes.dropdownLink}>
+            <Link to="/sign-up" className={classes.dropdownLink}>
               Sign Up
             </Link>,
             { divider: true },

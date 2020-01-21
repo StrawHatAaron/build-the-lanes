@@ -16,16 +16,10 @@ export default function SectionDownload() {
     <div className={classes.section}>
         <div className={classes.textCenter + " " + classes.sharingArea}>
         <GridContainer justify="center">
-          <h3>Thank you for supporting us!</h3>
+          <h3>Support us!</h3>
         </GridContainer>
-        <Button color="twitter">
-          <i className={classes.socials + " fab fa-twitter"} /> Tweet
-        </Button>
-        <Button color="facebook">
-          <i className={classes.socials + " fab fa-facebook-square"} /> Like
-        </Button>
         <Button color="google">
-          <i className={classes.socials + " fab fa-google-plus-g"} /> Share
+          <i className={classes.socials + " fab fa-patreon"} /> Donate
         </Button>
         <Button color="info">
           <i className={classes.socials + " fab fa-linkedin"} /> Connect
