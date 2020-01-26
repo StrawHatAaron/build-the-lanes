@@ -144,8 +144,13 @@ export default function SectionPills() {
 
   return (
     <GridContainer justify="center" className={classes.root}>
-    <GridItem xs={12} sm={12} md={6} style={{padding:"70px"}}>
+    <GridItem xs={12} sm={12} md={6}>
       <h1>Outdated Approach</h1>
+      <div>
+        The biggest barrier to rapid mode shift in transportation is the delivery process that leads to high costs
+        and excessive delays. By donating work, Build the Lanes aims to implement a different delivery
+        mechanism to ultimately reduce time and costs by a factor of 10.
+      </div>
         <Stepper activeStep={activeStepOld} orientation="vertical">
           {stepsOld.map((label, index) => (
             <Step key={label}>
@@ -186,8 +191,13 @@ export default function SectionPills() {
     </GridItem>
 
 
-    <GridItem xs={12} sm={12} md={6} style={{padding:"70px"}}>
+    <GridItem xs={12} sm={12} md={6} >
     <h1>Build The Lanes Approach</h1>
+        <div>
+          Because we give away our work, we must be efficient and keep quality high. By donating,
+          sidestepping most of the delays and cost overruns is possible. Fewer studies are also needed as the
+          low-cost method poses fewer risks for the city.
+        </div>
         <Stepper activeStep={activeStepBuildLanes} orientation="vertical">
           {stepsBuildLanes.map((label, index) => (
             <Step key={label}>

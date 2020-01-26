@@ -29,8 +29,8 @@ export default function HeaderLinks() {
       page: "About Us",
       link: "about-us"
     },{
-      page:"Contact Us",
-      link:"contact-us"
+      page: "Contact Us",
+      link: "contact-us"
     }
   ];
 

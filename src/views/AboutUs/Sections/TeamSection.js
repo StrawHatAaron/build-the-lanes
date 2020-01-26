@@ -68,7 +68,13 @@ export default function TeamSection() {
 
   return (
     <div className={classes.section}>
-      <h2 className={classes.title}>Here is our team</h2>
+      <h2 className={classes.title}>About Us</h2>
+      <div className={classes.section}>
+        We are a 501(c)(3) organization that specializes in implementing unfunded and overlooked bicycle
+        infrastructure in American cities. We partner with your local towns to donate the needed engineering work
+        to bring projects to life and coordinate private funding to fastrack construction.
+        Our team is made up of CSU Sacramento alumni and graduating seniors.
+      </div>
       <GridContainer>
         {aboutUsContent}
       </GridContainer>

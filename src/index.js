@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
-import { Router, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 
 import "assets/scss/material-kit-react.scss?v=1.8.0";
 
@@ -17,11 +17,10 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCarCrash, faSmog, faChartLine, faSmileWink} from "@fortawesome/free-solid-svg-icons";
 library.add(faCarCrash, faSmog, faChartLine, faSmileWink);
  
-
 var hist = createBrowserHistory();
 
 ReactDOM.render(
-  <Router history={hist}>
+  <HashRouter history={hist}>
     <Switch>
       <Route 
         key="why-bikes"
@@ -38,21 +37,20 @@ ReactDOM.render(
       <Route 
         key="contact-us"
         exact path="/contact-us" 
-        compo
-          nent={ContactUs} />
+        component={ContactUs} />
       <Route 
         key="login"
-        exact path="/login" 
+        exact path="/login"
         component={UnderConstruction} />
       <Route 
         key="sign-up"
-        exact path="/sign-up" 
+        exact path="/sign-up"
         component={UnderConstruction} />
       <Route 
-        key="home-home-home-home"
+        key="home-page"
         exact path="/" 
         component={OurMission} />
     </Switch>
-  </Router>,
+  </HashRouter>,
   document.getElementById("root")
 );

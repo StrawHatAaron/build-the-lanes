@@ -18,10 +18,10 @@ export default function SectionDownload() {
         <GridContainer justify="center">
           <h3>Support us!</h3>
         </GridContainer>
-        <Button color="google">
+        <Button href="https://www.patreon.com/buildthelanes/posts" color="google">
           <i className={classes.socials + " fab fa-patreon"} /> Donate
         </Button>
-        <Button color="info">
+        <Button href="https://www.linkedin.com/in/steffenberr/" color="linkedin">
           <i className={classes.socials + " fab fa-linkedin"} /> Connect
         </Button>
       </div>
