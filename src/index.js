@@ -16,7 +16,7 @@ import UnderConstruction from "views/UnderConstruction/UnderConstruction";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCarCrash, faSmog, faChartLine, faSmileWink} from "@fortawesome/free-solid-svg-icons";
 library.add(faCarCrash, faSmog, faChartLine, faSmileWink);
-
+ 
 
 var hist = createBrowserHistory();
 
