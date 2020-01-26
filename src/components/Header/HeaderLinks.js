@@ -69,7 +69,6 @@ export default function HeaderLinks() {
               Sign Up
             </Link>,
             { divider: true },
-            
           ]}
         />
       </ListItem>
