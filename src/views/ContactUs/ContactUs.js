@@ -31,7 +31,6 @@ function ContactUs(props) {
                 fixed
                 color="transparent"
                 changeColorOnScroll={{
-                    height: 400,
                     color: "white",
                     marginLeft: "2em"
                 }}
@@ -42,13 +41,11 @@ function ContactUs(props) {
                     <GridContainer>
                         <GridItem>
                         <div className={classes.brand}>
-                            <h1 
-                                className={classes.title} 
+                            <h1 className={classes.title} 
                                 style={{
                                     backgroundColor:"#4caf50",
                                     padding: "20px",
                                     borderRadius: "20px"
-
                                 }}>
                                 Contact Us
                             </h1>

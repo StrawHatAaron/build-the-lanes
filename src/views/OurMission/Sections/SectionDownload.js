@@ -14,15 +14,12 @@ export default function SectionDownload() {
   const classes = useStyles();
   return (
     <div className={classes.section}>
-        <div className={classes.textCenter + " " + classes.sharingArea}>
+        <div className={classes.textCenter} style={{padding:"-1em -1em"}}>
         <GridContainer justify="center">
-          <h3>Support us!</h3>
+          <h1>Support us on Patreon!</h1>
         </GridContainer>
-        <Button href="https://www.patreon.com/buildthelanes/posts" color="google">
+        <Button style={{padding:"20px 40px", fontSize:"1.25rem"}} href="https://www.patreon.com/buildthelanes/posts" color="google">
           <i className={classes.socials + " fab fa-patreon"} /> Donate
-        </Button>
-        <Button href="https://www.linkedin.com/in/steffenberr/" color="linkedin">
-          <i className={classes.socials + " fab fa-linkedin"} /> Connect
         </Button>
       </div>
     </div>

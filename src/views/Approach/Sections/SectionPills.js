@@ -145,8 +145,8 @@ export default function SectionPills() {
   return (
     <GridContainer justify="center" className={classes.root}>
     <GridItem xs={12} sm={12} md={6}>
-      <h1>Outdated Approach</h1>
-      <div>
+      <h1 style={{padding:"10px"}}>Outdated Approach</h1>
+      <div style={{padding:"10px"}}>
         The biggest barrier to rapid mode shift in transportation is the delivery process that leads to high costs
         and excessive delays. By donating work, Build the Lanes aims to implement a different delivery
         mechanism to ultimately reduce time and costs by a factor of 10.
@@ -168,7 +168,6 @@ export default function SectionPills() {
                     </Button>
                     <Button
                       variant="contained"
-                      color="#f44336"
                       onClick={handleNextOld}
                       className={classes.button}
                     >

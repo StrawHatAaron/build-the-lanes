@@ -28,12 +28,12 @@ export default function TeamSection() {
       pic: "steffen.png"
     },{
       name: "Luis Martin",
-      title: "Transportation Enginneer",
+      title: "Transportation Engineer",
       description: "Roadway Design",
       pic: "luis.png"
     },{
       name: "Life Kelly",
-      title: "Envoirmental Engineer",
+      title: "Environmental Engineer",
       description: "Safety and Health Contract Managment",
       pic: "life.png"
     },{
@@ -41,6 +41,11 @@ export default function TeamSection() {
       title: "Civil Engineer",
       description: "Safety and Health Contract Managment",
       pic: "mark.jpg"
+    },{
+      name: "Aaron Miller",
+      title: "Software Developer and Systems Analyst",
+      description: "Safety and Health Contract Managment",
+      pic: "aaron.png"
     }
   ];
 
@@ -70,10 +75,7 @@ export default function TeamSection() {
     <div className={classes.section}>
       <h2 className={classes.title}>About Us</h2>
       <div className={classes.section}>
-        We are a 501(c)(3) organization that specializes in implementing unfunded and overlooked bicycle
-        infrastructure in American cities. We partner with your local towns to donate the needed engineering work
-        to bring projects to life and coordinate private funding to fastrack construction.
-        Our team is made up of CSU Sacramento alumni and graduating seniors.
+      We are a 501(c)(3) corporation committed to lowering costs and delivery time for bicycle infrastructure projects in American cities. We partner with your town to donate the required engineering work to bring unfunded projects to life and fastrack their construction. 
       </div>
       <GridContainer>
         {aboutUsContent}

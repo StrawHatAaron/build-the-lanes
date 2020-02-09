@@ -11,6 +11,7 @@ import WhyBikes from "views/WhyBikes/WhyBikes.js";
 import AboutUs from "views/AboutUs/AboutUs.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import ContactUs from "views/ContactUs/ContactUs.js";
+import Approach from "views/Approach/Approach.js";
 import UnderConstruction from "views/UnderConstruction/UnderConstruction";
 //font awesome 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -34,7 +35,7 @@ ReactDOM.render(
         key="about-us"
         exact path="/about-us" 
         component={AboutUs} />
-      <Route 
+      <Route  
         key="contact-us"
         exact path="/contact-us" 
         component={ContactUs} />
@@ -50,6 +51,10 @@ ReactDOM.render(
         key="home-page"
         exact path="/" 
         component={OurMission} />
+      <Route
+        key="approach"
+        exact path="/approach" 
+        component={Approach} />
     </Switch>
   </HashRouter>,
   document.getElementById("root")

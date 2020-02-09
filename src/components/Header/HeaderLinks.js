@@ -23,11 +23,15 @@ export default function HeaderLinks() {
       page: "Our Mission",
       link: ""
     },{
-      page: "Why Bikes",
-      link: "why-bikes"
-    },{
       page: "About Us",
       link: "about-us"
+    },{
+      page: "Why Bikes",
+      link: "why-bikes"
+    },
+    {
+      page: "Approach",
+      link: "approach"
     },{
       page: "Contact Us",
       link: "contact-us"

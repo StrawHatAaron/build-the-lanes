@@ -37,7 +37,7 @@ export default function Header(props) {
   const headerColorChange = () => {
     const { color, changeColorOnScroll } = props;
     const windowsScrollTop = window.pageYOffset;
-    if (windowsScrollTop > changeColorOnScroll.height) {
+    if (windowsScrollTop > 1) {
       document.body
         .getElementsByTagName("header")[0]
         .classList.remove(classes[color]);

@@ -37,7 +37,6 @@ export default function LandingPage(props) {
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
-          height: 400,
           color: "white"
         }}
         {...rest}
@@ -48,11 +47,7 @@ export default function LandingPage(props) {
             <GridItem xs={12} sm={12} md={6}>
               <h1 className={classes.title}>Why Bikes?</h1>
               <h4>
-                The transportation system is involved in more than a trillion
-                dollars of cost, losses, and waste that exists in the economy.
-                It has also been implicated as a major source of pollution,
-                source of obesity, and one of the leading causes of death in the
-                US.
+                The transportation system costs the economy more than a trillion dollars annually through excessive losses and waste. Globally, our roads kill more people per year than AIDS and are pushing us into a climate catastrophe.
               </h4>
               <br />
             </GridItem>

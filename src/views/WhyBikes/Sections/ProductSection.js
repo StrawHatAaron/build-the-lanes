@@ -17,7 +17,7 @@ export default function ProductSection() {
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title}>It{"'"}s Time to Make a Difference</h2>
+          <h2 className={classes.title}>Let's Make a Difference</h2>
           <h5 className={classes.description}>
             Low stress bike networks are the best way to solve these problems at
             the same time According to the FHA, more than half of all vehicle

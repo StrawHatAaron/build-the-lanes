@@ -13,14 +13,13 @@ import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.js";
-
-
-import SectionDownload from "./Sections/SectionDownload.js";
+import SectionPills from "./Sections/SectionPills.js";
+import SectionCarousel from "./Sections/SectionCarousel.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
  
 const useStyles = makeStyles(styles);
 
-export default function OurMission(props) {
+export default function Approach(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
@@ -52,7 +51,8 @@ export default function OurMission(props) {
       </Parallax>
 
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <SectionDownload />
+        <SectionPills />
+        {/* <SectionCarousel /> */}
       </div>
       <Footer />
     </div>
