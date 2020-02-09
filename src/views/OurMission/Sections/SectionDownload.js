@@ -16,7 +16,7 @@ export default function SectionDownload() {
     <div className={classes.section}>
         <div className={classes.textCenter} style={{padding:"-1em -1em"}}>
         <GridContainer justify="center">
-          <h1>Support us on Patreon!</h1>
+          <h2>Support Us on Patreon!</h2>
         </GridContainer>
         <Button style={{padding:"20px 40px", fontSize:"1.25rem"}} href="https://www.patreon.com/buildthelanes/posts" color="google">
           <i className={classes.socials + " fab fa-patreon"} /> Donate

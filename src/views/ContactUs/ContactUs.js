@@ -45,7 +45,8 @@ function ContactUs(props) {
                                 style={{
                                     backgroundColor:"#4caf50",
                                     padding: "20px",
-                                    borderRadius: "20px"
+                                    borderRadius: "20px",
+                                    opacity: ".8",
                                 }}>
                                 Contact Us
                             </h1>

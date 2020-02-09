@@ -40,9 +40,9 @@ export default function OurMission(props) {
         <div className={classes.container}>
           <GridContainer>
             <GridItem>
-              <div className={classes.brand}>
+              <div className={classes.brand} style={{marginTop:"7em"}}>
                 <h1 className={classes.title}>Our Mission</h1>
-                <h3 className={classes.subtitle}>
+                <h3 className={classes.subtitle} style={{marginTop:"-0.5em", color:"#000", background:"#CCC", opacity:"0.85", borderRadius: "6px", boxShadow: "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"}}>
                   Accelerating the rollout of low stress bicycle networks.
                 </h3>
               </div>

@@ -52,61 +52,62 @@ function getStepsOld() {
 
 function getStepsBuildLanes(){
   return [
-    'Build the Lanes and the city agree on a project of mutual interest.', 
-    'Build The Lanes submits 35% plans to the city for feedback. Free of charge.', 
-    'BTL finishes plan to completion.',
-    'City signs an agreement to build the project.',
-    'City constructs project'
+    'Build the Lanes (BTL) and the city select an unfunded project.', 
+    'BTL submits 30% plans to the city for feedback.', 
+    'BTL finishes design.',
+    'City signs an agreement to build the project by a reasonable deadline and use donations for the project itself.',
+    'Money earmarked for the project is transferred to the city upon the signing.',
+    'City constructs project.'
   ];
 }
 
 function getStepContentOld(step) {
   switch (step) {
     case 0:
-      return `City recognizes the need for a bike facility or is persuaded to the need by a citizen group`;
+      return ``;
     case 1:
-      return `This can cost the city millions of dollars in tax payer money`;
+      return ``;
     case 2:
-      return `Most cities do not have enough staff our resources to do much of their engineering in house, prompting steps 4, 5 and 6`;
+      return ``;
     case 3:
-      return `This publicly announces for private companies to submit their bids for the project`;
+      return ``;
     case 4:
-      return `City reviews proposals and selects top 3. By law they are not allowed to choose based on price. Only after the top 3 are selected, are the bid amounts opened and then negotiated.`;
+      return ``;
     case 5:
-      return `Designer submits plans to city at various stages of completion (35,65,90,95,100) percent. Due to the length of this process and its slowness, consultants are usually working on multiple projects at the same time to remain profitable. This slows the process even more `;
+      return ``;
     case 6:
-      return `Consultants are also usually paid on a “as work progresses basis” with a cap usually negotiated between the consultant and the city. That means every engineer working on the project is assigned a billing rate. Better more experienced engineers have higher billing rates whereas younger less experienced engineers have lower billing rates.`;
+      return ``;
     case 7:
-      return `This is a terrible system for two important reasons. The first is that there is no incentive for the consulting firm to become more efficient and invest in research and better practices. A lower bill for the city simply means less money for the consultant. This is a major contributor to why many projects nowadays ultimately end up being over budget as it is in the consultants interest to get to as near to the cap as possible or justify project add on to blow past the cap. The second is that it prevents high quality engineers from focusing on a single project as their high billing rates would quickly push a project over budget. This leaves the work to more inexperienced workers, which slows the work time and the quality of the end product. Just imagine if this system was used by an innovative company like Tesla. Elon Musk would no longer be able to be personally involved in`;
+      return ``;
     case 8:
-      return `City applies for grants to help cover funding for the project.`;
+      return ``;
     case 9:
-      return `It is possible that contractors could fall through even at this point.`;
+      return ``;
     case 10:
-      return `For small cities they may find that they could even be unable to do the project to due all the contractor costs they paid. This causes a big waste.`;
+      return ``;
     case 11:
-      return `Addendum or project changes are coordinated with the city as many design engineers often produce design concepts that make no practical sense in physical construction.`;
+      return ``;
     case 12:
-      return `If this process seems excessively long and unreasonable, thats because it is. This is why building a new bike trail can end up costing more than a million dollars a mile and take years before construction is finished.`;
+      return ``;
     default:
-      return 'Unknown step';
+      return '';
   }
 }
 
 function getStepContentBuildLanes(step){
   switch (step){
     case 0:
-      return "City agrees to let BTL develop plans to 35% completion while under no contractual obligation.";
+      return "City agrees to let BTL develop plans to 30% completion under no contractual obligation.";
     case 1:
-      return "If approved BTL solicits a cost estimate and proceeds with finishing design. Since the concept is finalized at this stage, BTL begins soliciting corporate sponsorship of the project These companies could vary from local bike shops to large companies such as REI or UPS.  BTL posts project on its website and begins crowdfunding for its construction.. Funding is earmarked for the construction. If project falls through or is overfunded donors will have a choice to have their donation returned, send it to another project or donate it to help cover BTL’s operating budget";
+      return "If approved, BTL estimates project costs and finishes the design. At the same time, BTL coordinates corporate sponsorship of the project BTL posts project on its website and begins crowdfunding for its construction. ";
     case 2:
-      return "We focus on designing project in a manner to minimize the number of permits ultimately needed for construction.";
+      return "";
     case 3:
-      return "Build The Lanes will commit to construct the project by a reasonable deadline and to only use donations for the project itself. Money earmarked for the project is transferred to the city upon the signing.";
+      return "";
     case 4:
-      return "That is it. Build The Lanes will even consult to help city choose the proper land developer organization"
+      return ""
     default:
-      return "out of bounds. This is a developer error.";
+      return "";
   }
 }
 
@@ -145,11 +146,9 @@ export default function SectionPills() {
   return (
     <GridContainer justify="center" className={classes.root}>
     <GridItem xs={12} sm={12} md={6}>
-      <h1 style={{padding:"10px"}}>Outdated Approach</h1>
+      <h1 style={{padding:"10px"}}>Conventional Approach</h1>
       <div style={{padding:"10px"}}>
-        The biggest barrier to rapid mode shift in transportation is the delivery process that leads to high costs
-        and excessive delays. By donating work, Build the Lanes aims to implement a different delivery
-        mechanism to ultimately reduce time and costs by a factor of 10.
+        
       </div>
         <Stepper activeStep={activeStepOld} orientation="vertical">
           {stepsOld.map((label, index) => (
@@ -181,22 +180,41 @@ export default function SectionPills() {
         </Stepper>
         {activeStepOld === stepsOld.length && (
           <Paper square elevation={0} className={classes.resetContainer}>
-            <Typography>All steps completed for old fashion way - you&apos;re finished</Typography>
+            <Typography></Typography>
             <Button onClick={handleResetOld} className={classes.button}>
               Reset
             </Button>
           </Paper>
         )}
+
+
+      <div style={{padding:"15px"}}>
+      <h3>What’s wrong with this?</h3>
+        <p>
+          1. This approach can make sense for massive projects such as the new Bay Bridge in California.
+          But it can burden smaller projects with excessive costs and delays. A new bike trail can end up
+          costing more than a million dollars a mile and take years to complete.
+        </p>
+        <br/>
+        <p>
+          2. Consultants are hired with a pre negotiated cost cap. However, they are compensated on a
+          “pay as they work basis”. There is no incentive for the consulting firm to be more efficient.
+          Lower costs mean less money for the consultant.
+        </p>
+        <br/>
+        <p>
+          3. Every consultant engineer is assigned a billing rate by their firm. More experienced engineers
+          have higher rates whereas those with less experience have lower ones. To stay under budget,
+          great engineers are not able to concentrate on a single project and work is left to those with
+          lower rates. This slows down projects and negatively affects project quality.
+        </p>
+      </div>
+
     </GridItem>
 
 
     <GridItem xs={12} sm={12} md={6} >
     <h1>Build The Lanes Approach</h1>
-        <div>
-          Because we give away our work, we must be efficient and keep quality high. By donating,
-          sidestepping most of the delays and cost overruns is possible. Fewer studies are also needed as the
-          low-cost method poses fewer risks for the city.
-        </div>
         <Stepper activeStep={activeStepBuildLanes} orientation="vertical">
           {stepsBuildLanes.map((label, index) => (
             <Step key={label}>
@@ -228,12 +246,19 @@ export default function SectionPills() {
         </Stepper>
         {activeStepBuildLanes === stepsBuildLanes.length && (
           <Paper square elevation={0} className={classes.resetContainer}>
-            <Typography>All steps completed for old fashion way - you&apos;re finished</Typography>
+            <Typography></Typography>
             <Button onClick={handleResetBuildLanes} className={classes.button}>
               Reset
             </Button>
           </Paper>
         )}
+
+        <div style={{padding:"10px"}}>
+          Because we give away our work, we must be efficient and keep quality high. By donating,
+          sidestepping most of the delays and cost overruns is possible. Fewer studies are also needed as the
+          low-cost method poses fewer risks for the city.
+        </div>
+
     </GridItem>
     </GridContainer>
   );

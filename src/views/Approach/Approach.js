@@ -35,15 +35,17 @@ export default function Approach(props) {
         }}
         {...rest}
       />
-      <Parallax image={require("assets/img/our-mission5.jpeg")}>
+      <Parallax image={require("assets/img/approach.jpeg")}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem>
               <div className={classes.brand}>
-                <h1 className={classes.title}>Our Mission</h1>
-                <h3 className={classes.subtitle}>
-                  Accelerating the rollout of low stress bicycle networks.
-                </h3>
+                <h1 className={classes.title}>Approach</h1>
+                <div style={{background:"#000", opacity:"0.8"}}>
+                  <h4>
+                    The barrier to change is the excessive costs and delays in the conventional project delivery process. We aim to ultimately reduce these by a factor of ten.
+                  </h4>
+                </div>
               </div>
             </GridItem>
           </GridContainer>

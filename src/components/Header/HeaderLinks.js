@@ -54,7 +54,7 @@ export default function HeaderLinks() {
   return (
     <List className={classes.list}>
       {headerContent}
-      <ListItem className={classes.listItem}>
+      {/* <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
           buttonText="More"
@@ -75,7 +75,7 @@ export default function HeaderLinks() {
             { divider: true },
           ]}
         />
-      </ListItem>
+      </ListItem> */}
     </List>
   );
 }
