@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -17,21 +17,22 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
-
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
-
-import image from "assets/img/bg7.jpg";
+import image from "assets/img/green-screen-feature-image-1024x576.jpg";
 
 const useStyles = makeStyles(styles);
 
 export default function LoginPage(props) {
+
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
   const { ...rest } = props;
-  var start
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div>
       <Header
@@ -89,6 +90,7 @@ export default function LoginPage(props) {
                   <p className={classes.divider}>Enter your Credentials</p>
                   <CardBody>
                     <CustomInput
+                      // onChange={(e) => setEmail(e.target.value)
                       labelText="Email..."
                       id="email"
                       formControlProps={{
@@ -104,6 +106,7 @@ export default function LoginPage(props) {
                       }}
                     />
                     <CustomInput
+                      // onChange={(e) => setPassword(e.target.value)
                       labelText="Password"
                       id="pass"
                       formControlProps={{
