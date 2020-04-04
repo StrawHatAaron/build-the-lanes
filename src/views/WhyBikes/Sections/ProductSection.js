@@ -7,7 +7,7 @@ import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
-import { TrafficOutlined, DriveEtaOutlined, FitnessCenterOutlined, LocalGasStationOutlined, TrendingDownOutlined, AttachMoneyOutlined, CloudOutlined } from "@material-ui/icons";
+import { TrafficOutlined, FitnessCenterOutlined, LocalGasStationOutlined, TrendingDownOutlined, AttachMoneyOutlined, CloudOutlined } from "@material-ui/icons";
 
 const useStyles = makeStyles(styles);
 

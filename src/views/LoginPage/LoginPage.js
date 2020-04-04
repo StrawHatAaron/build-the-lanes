@@ -37,7 +37,7 @@ export default function LoginPage(props) {
     <div>
       <Header
         absolute
-        color="transparent"
+        color="success"
         brand="Build the Lanes"
         rightLinks={<HeaderLinks />}
         {...rest}
@@ -55,7 +55,7 @@ export default function LoginPage(props) {
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
+                  <CardHeader color="success" className={classes.cardHeader}>
                     <h4>Login</h4>
                     <div className={classes.socialLine}>
                       <Button
@@ -90,13 +90,13 @@ export default function LoginPage(props) {
                   <p className={classes.divider}>Enter your Credentials</p>
                   <CardBody>
                     <CustomInput
-                      // onChange={(e) => setEmail(e.target.value)
                       labelText="Email..."
                       id="email"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
+                        defaultValue: email,
                         type: "email",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -126,7 +126,10 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg">
+                    <Button
+                      simple color="primary"
+                      size="lg"
+                      onClick={() => console.log(email)}>
                       Get started
                     </Button>
                   </CardFooter>

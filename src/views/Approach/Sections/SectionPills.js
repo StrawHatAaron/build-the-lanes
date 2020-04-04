@@ -1,9 +1,6 @@
 import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
-import ErrorOutline from "@material-ui/icons/ErrorOutline";
-import CheckCircleOutline from "@material-ui/icons/CheckCircleOutline";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -34,8 +31,8 @@ const useStyles = makeStyles(theme => ({
 
 function getStepsOld() {
   return [
-    'City recognizes the need for a bike facility or is persuaded to the need by a citizen group', 
-    'City commissions a feasibility study', 
+    'City recognizes the need for a bike facility or is persuaded to the need by a citizen group',
+    'City commissions a feasibility study',
     'City commissions impact studies ',
     'City releases a Request for Proposals (RFP)',
     'City selects best potential prospects',
@@ -52,8 +49,8 @@ function getStepsOld() {
 
 function getStepsBuildLanes(){
   return [
-    'Build the Lanes (BTL) and the city select an unfunded project.', 
-    'BTL submits 30% plans to the city for feedback.', 
+    'Build the Lanes (BTL) and the city select an unfunded project.',
+    'BTL submits 30% plans to the city for feedback.',
     'BTL finishes design.',
     'City signs an agreement to build the project by a reasonable deadline and use donations for the project itself.',
     'Money earmarked for the project is transferred to the city upon the signing.',
@@ -148,7 +145,7 @@ export default function SectionPills() {
     <GridItem xs={12} sm={12} md={6}>
       <h1 style={{padding:"10px"}}>Conventional Approach</h1>
       <div style={{padding:"10px"}}>
-        
+
       </div>
         <Stepper activeStep={activeStepOld} orientation="vertical">
           {stepsOld.map((label, index) => (

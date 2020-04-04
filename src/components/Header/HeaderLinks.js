@@ -9,7 +9,6 @@ import ListItem from "@material-ui/core/ListItem";
 import { Apps } from "@material-ui/icons";
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
-import Button from "components/CustomButtons/Button.js";
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
 
 const useStyles = makeStyles(styles);
@@ -44,7 +43,8 @@ export default function HeaderLinks() {
         <Link
           to={`/${c.link}`}
           color="transparent"
-          className={classes.navLink}>
+          className={classes.navLink}
+          key={"dsvshead-link-"+c.link}>
           {c.page}
         </Link>
       </ListItem>
@@ -65,17 +65,23 @@ export default function HeaderLinks() {
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <Link to="/login" className={classes.dropdownLink}>
+            <Link
+              to="/login"
+              className={classes.dropdownLink}
+              key={"header-link-login"}>
               Login
             </Link>,
             { divider: true },
-            <Link to="/sign-up" className={classes.dropdownLink}>
+            <Link
+              to="/sign-up"
+              className={classes.dropdownLink}
+              key={"header-link-sign-up"}>
               Sign Up
             </Link>,
             { divider: true },
           ]}
         />
-      </ListItem> 
+      </ListItem>
     </List>
   );
 }
