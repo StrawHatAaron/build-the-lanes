@@ -17,8 +17,12 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
+import TextField from '@material-ui/core/TextField';
+import {CssTextField} from "assets/jss/Constants.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/green-screen-feature-image-1024x576.jpg";
+
+
 
 const useStyles = makeStyles(styles);
 
@@ -30,8 +34,11 @@ export default function LoginPage(props) {
   }, 700);
   const classes = useStyles();
   const { ...rest } = props;
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  
 
   return (
     <div>
@@ -89,41 +96,23 @@ export default function LoginPage(props) {
                   </CardHeader>
                   <p className={classes.divider}>Enter your Credentials</p>
                   <CardBody>
-                    <CustomInput
-                      labelText="Email..."
+                  <CssTextField
+                      variant="outlined"
+                      margin="normal"
                       id="email"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        defaultValue: email,
-                        type: "email",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Email className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-                    <CustomInput
-                      // onChange={(e) => setPassword(e.target.value)
-                      labelText="Password"
-                      id="pass"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "password",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Icon className={classes.inputIconsColor}>
-                              lock_outline
-                            </Icon>
-                          </InputAdornment>
-                        ),
-                        autoComplete: "off"
-                      }}
-                    />
+                      label="Email Address"
+                      name="email"
+                      autoComplete="email"
+                      onChange={(e) => setEmail(e.target.value)} />
+                  <CssTextField
+                      type = "password"
+                      variant="outlined"
+                      margin="normal"
+                      id="password"
+                      label="Password"
+                      name="password"
+                      autoComplete="current-password"
+                      onChange={(e) => setPassword(e.target.value)}/>
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                     <Button

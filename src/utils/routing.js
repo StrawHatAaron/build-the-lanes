@@ -1,12 +1,10 @@
-    
-    
 export routes = [{
     key:"why-bikes",
     path:"/why-bikes",
-},{  
+},{
     key:"login-page",
     path:"/login-page",
-},{ 
+},{
     key:"about-us",
     path:"/about-us",
 },{
@@ -25,5 +23,3 @@ export routes = [{
     key:"approach",
     path:"/approach",
 }];
-    
-     
