@@ -11,7 +11,7 @@ import ContactUs from "views/ContactUs/ContactUs.js";
 import Approach from "views/Approach/Approach.js";
 import UnderConstruction from "views/UnderConstruction/UnderConstruction";
 //uses the history part
-import {history} from '../src/helpers/history';
+import {history, Role} from './helpers/history';
 
 
 function App(){
