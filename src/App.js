@@ -14,62 +14,69 @@ import UnderConstruction from "views/UnderConstruction/UnderConstruction";
 import {history} from './helpers/history';
 import {Role} from './helpers/role'
 import {authenticationService} from './services/authentication.service';
+import {PrivateRoute} from './utils/PrivateRoute';
 
 
-function App(){
+class App extends React.Component {
 
-  // const [currentUser, setCurrentUser] = useState({
-  //   currentUser: null,
-  //   isAdmin: false
-  // });
-  // const [isAdmin, setIsAdmin] = useState(false);
-  //
-  // useEffect(() => {
-  //   authenticationService.currentUser.subscribe(x => setCurrentUser({
-  //     currentUser: x,
-  //     isAdmin: x && x.role === Role.Admin
-  //   }));
-  // })
-  //
-  // function logout() {
-  //   authenticationService.logout();
-  //   history.push('/login');
-  // }
+  constructor(props) {
+      super(props);
 
-  return(
-    <HashRouter history={history}>
-      <Switch>
-        <Route
-          key="why-bikes"
-          exact path="/why-bikes"
-          component={WhyBikes} />
-        <Route
-          key="login-page"
-          exact path="/login"
-          component={LoginPage} />
-        <Route
-          key="sign-up"
-          exact path="/sign-up"
-          component={UnderConstruction} />
-        <Route
-          key="about-us"
-          exact path="/about-us"
-          component={AboutUs} />
-        <Route
-          key="contact-us"
-          exact path="/contact-us"
-          component={ContactUs} />
-        <Route
-          key="home-page"
-          exact path="/"
-          component={OurMission} />
-        <Route
-          key="approach"
-          exact path="/approach"
-          component={Approach} />
-      </Switch>
-    </HashRouter>
-  )
+      this.state = {
+          currentUser: null,
+          isAdmin: false
+      };
+  }
+
+  componentDidMount() {
+      authenticationService.currentUser.subscribe(x => this.setState({
+          currentUser: x,
+          isAdmin: x && x.role === Role.Admin
+      }));
+  }
+
+  logout() {
+      authenticationService.logout();
+      history.push('/login');
+  }
+
+  render(){
+    const { currentUser, isAdmin } = this.state;
+    return(
+      <HashRouter history={history}>
+        <Switch>
+          <Route
+            key="why-bikes"
+            exact path="/why-bikes"
+            component={WhyBikes} />
+          <Route
+            key="login-page"
+            exact path="/login"
+            component={LoginPage} />
+          <Route
+            key="sign-up"
+            exact path="/sign-up"
+            component={UnderConstruction} />
+          <Route
+            key="about-us"
+            exact path="/about-us"
+            component={AboutUs} />
+          <Route
+            key="contact-us"
+            exact path="/contact-us"
+            component={ContactUs} />
+          <Route
+            key="home-page"
+            exact path="/"
+            component={OurMission} />
+          <Route
+            key="approach"
+            exact path="/approach"
+            component={Approach} />
+        </Switch>
+      </HashRouter>
+    )
+  }
 }
 
 export default App;
