@@ -1,5 +1,6 @@
-import config from 'config';
-import { authHeader, handleResponse } from '/helpers';
+import { UserURL } from 'utils/ApiConstants';
+import { handleResponse } from 'helpers/handle-response';
+import { authHeader } from 'helpers/auth-header';
 
 export const userService = {
     getAll,
@@ -8,10 +9,10 @@ export const userService = {
 
 function getAll() {
     const requestOptions = { method: 'GET', headers: authHeader() };
-    return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse);
+    return fetch(UserURL, requestOptions).then(handleResponse);
 }
 
 function getById(id) {
     const requestOptions = { method: 'GET', headers: authHeader() };
-    return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
+    return fetch(`${UserURL}/${id}`, requestOptions).then(handleResponse);
 }

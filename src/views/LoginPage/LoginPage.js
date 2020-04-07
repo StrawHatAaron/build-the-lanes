@@ -1,10 +1,6 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
-import Email from "@material-ui/icons/Email";
 // core components
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
@@ -16,12 +12,11 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
-import TextField from '@material-ui/core/TextField';
 import {CssTextField} from "assets/jss/Constants.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/green-screen-feature-image-1024x576.jpg";
-
+import {history} from "helpers/history";
+import {authenticationService} from "services/authentication.service"
 
 
 const useStyles = makeStyles(styles);
@@ -38,7 +33,13 @@ export default function LoginPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  
+
+
+  useEffect(() => {
+    if (authenticationService.currentUserValue) {
+      history.push('/');
+    }
+  })
 
   return (
     <div>
@@ -118,7 +119,23 @@ export default function LoginPage(props) {
                     <Button
                       simple color="primary"
                       size="lg"
-                      onClick={() => console.log(email)}>
+                      onClick={() => {
+                        if(email.trim() == ""){
+                          alert("Email Cannot Be Empty")
+                        } else if(password.trim() == ""){
+                          alert("Password Cannot Be Empty")
+                        } else {
+                          authenticationService.login(email, password)
+                          .then(
+                            user => {
+                              history.push("/home");
+                            },
+                            error => {
+                              alert("Aaron, " + error);
+                            }
+                          );
+                        }
+                      }}>
                       Get started
                     </Button>
                   </CardFooter>
