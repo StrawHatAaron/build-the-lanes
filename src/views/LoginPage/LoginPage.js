@@ -33,8 +33,6 @@ export default function LoginPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
-
   useEffect(() => {
     if (authenticationService.currentUserValue) {
       history.push('/');
@@ -120,6 +118,8 @@ export default function LoginPage(props) {
                       simple color="primary"
                       size="lg"
                       onClick={() => {
+                        console.log(email);
+                        console.log(password);
                         if(email.trim() == ""){
                           alert("Email Cannot Be Empty")
                         } else if(password.trim() == ""){
