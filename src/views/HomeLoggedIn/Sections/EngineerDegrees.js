@@ -15,8 +15,35 @@ export default function EngineerDegrees() {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
+  function postData(){
+    const data = {
+      Email: state.Email,
+      Degree: state.Degree
+    };
+
+    fetch('https://example.com/profile', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
+
   return (
     <div >
+      <Button
+        onClick={() => postData()}
+        primary color="info">
+        INSERT/POST
+      </Button>
       <Button
         primary color="success">
         SELECT/GET Users

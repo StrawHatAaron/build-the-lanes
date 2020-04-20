@@ -5,7 +5,8 @@ import "components/Tables/Table.css";
 import Button from "components/CustomButtons/Button.js";
 
 import { withStyles } from '@material-ui/core/styles';
-import { green } from '@material-ui/core/colors';
+import { green, } from '@material-ui/core/colors';
+
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -14,11 +15,11 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 
-const GreenCheckbox = withStyles({
+const RoseCheckbox = withStyles({
   root: {
-    color: green[400],
+    color: "#e91e63",
     '&$checked': {
-      color: green[600],
+      color: "#ef1f6f",
     },
   },
   checked: {},
@@ -64,11 +65,6 @@ export default function Table(props){
 
   return(
     <div>
-      <Button
-        onClick={() => {}}
-        primary color="success">
-        SELECT/GET Users
-      </Button>
       <table id="customers">
         <tr>
           <th>Select</th>
@@ -81,7 +77,7 @@ export default function Table(props){
               styles={{marginLeft:"20px"}}
               label="Custom icon"
               onChange={handleChange}
-              control={<GreenCheckbox
+              control={<RoseCheckbox
                 icon={<FavoriteBorder />}
                 checked={state.checked}
                 checkedIcon={<Favorite />}
