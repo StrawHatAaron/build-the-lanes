@@ -26,7 +26,7 @@ const GreenCheckbox = withStyles({
 export default function Columns(){
 
   const [state, setState] = React.useState({
-    checkedA: true,
+    checked: true,
   });
 
   const handleChange = (event) => {
@@ -42,9 +42,9 @@ export default function Columns(){
         onChange={handleChange}
         control={<GreenCheckbox
           icon={<FavoriteBorder />}
-          checked={state.checkedA}
+          checked={state.checked}
           checkedIcon={<Favorite />}
-          name="checkedA"/>}
+          name="checked"/>}
         />
       </td>
       <td>Alfreds Futterkiste</td>

@@ -3,8 +3,18 @@ import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js"
 
 
-
 export default function Responsibilities() {
+
+  const [state, setState] = React.useState({
+    number:"Number",
+    staffEmail:"Staff Eamil",
+    projectNumber:"Project Numbers"
+  });
+
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
+
   return (
     <div >
       <Button
@@ -19,7 +29,7 @@ export default function Responsibilities() {
         primary color="warning">
         UPDATE/PUT Users
       </Button>
-      <Table/>
+      <Table columns={state}/>
     </div>
   );
 }

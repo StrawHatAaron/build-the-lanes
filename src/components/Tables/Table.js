@@ -3,17 +3,24 @@ import React from "react";
 import Columns from "components/Tables/Columns.js";
 import "components/Tables/Table.css";
 
-export default function Table(){
+export default function Table(props){
 
+  console.log(props.columns)
+  console.log(Object.keys(props.columns))
+  console.log(Object.values(props.columns))
+
+  var TopColumns = Object.values(props.columns).map((c) => {
+    return(
+      <th>{c}</th>
+    )
+  })
 
   return(
     <div>
       <table id="customers">
         <tr>
           <th>Select</th>
-          <th>Number</th>
-          <th>Staff's Email</th>
-          <th>Project Number</th>
+          {TopColumns}
         </tr>
         <Columns/>
       </table>
