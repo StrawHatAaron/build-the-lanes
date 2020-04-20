@@ -6,9 +6,11 @@ import Table from "components/Tables/Table.js"
 export default function Projects() {
 
   const [state, setState] = React.useState({
-    number:"Number",
-    staffEmail:"Staff Eamil",
-    projectNumber:"Project Numbers"
+    ProjectNum:"Project Number",
+    StartDate:"Start Date",
+    Status:"Status",
+    City:"City",
+    ZipCode:"Zip Code",
   });
 
   const handleChange = (event) => {

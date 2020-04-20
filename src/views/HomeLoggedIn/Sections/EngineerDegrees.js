@@ -6,9 +6,8 @@ import Table from "components/Tables/Table.js"
 export default function EngineerDegrees() {
 
   const [state, setState] = React.useState({
-    number:"Number",
-    staffEmail:"Staff Eamil",
-    projectNumber:"Project Numbers"
+    Email:"Email",
+    Degree:"Degree",
   });
 
   const handleChange = (event) => {

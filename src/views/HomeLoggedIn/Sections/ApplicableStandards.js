@@ -6,9 +6,9 @@ import Table from "components/Tables/Table.js"
 export default function ApplicableStandards() {
 
   const [state, setState] = React.useState({
-    number:"Number",
-    staffEmail:"Staff Eamil",
-    projectNumber:"Project Numbers"
+    DataLink: "Data Link",
+    ProjectNum: "Project Number",
+    PhotoName: "Photo Name",
   });
 
   const handleChange = (event) => {

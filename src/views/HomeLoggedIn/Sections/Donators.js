@@ -6,9 +6,15 @@ import Table from "components/Tables/Table.js"
 export default function Donators() {
 
   const [state, setState] = React.useState({
-    number:"Number",
-    staffEmail:"Staff Eamil",
-    projectNumber:"Project Numbers"
+    Id:"Id",
+    Email:"Email",
+    PasswordSalt:"Password Salt",
+    PasswordHash:"Password Hash",
+    Token:"Token",
+    FName:"First Name",
+    LName:"Last Name",
+    Roles:"Roles",
+    AmountDonated:"Amount Donated",
   });
 
   const handleChange = (event) => {

@@ -6,9 +6,17 @@ import Table from "components/Tables/Table.js"
 export default function Staffs() {
 
   const [state, setState] = React.useState({
-    number:"Number",
-    staffEmail:"Staff Eamil",
-    projectNumber:"Project Numbers"
+    Id:"Id",
+    Email:"Email",
+    PasswordSalt:"Password Salt",
+    PasswordHash:"Password Hash",
+    Token:"Token",
+    FName:"First Name",
+    LName:"Last Name",
+    Roles:"Roles",
+    Title:"Title",
+    Type:"Type",
+    Created:"Created",
   });
 
   const handleChange = (event) => {

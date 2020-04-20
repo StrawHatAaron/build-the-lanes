@@ -6,9 +6,9 @@ import Table from "components/Tables/Table.js"
 export default function Donates() {
 
   const [state, setState] = React.useState({
-    number:"Number",
-    staffEmail:"Staff Eamil",
-    projectNumber:"Project Numbers"
+    Link:"Link",
+    ProjectNum:"Project Number",
+    DonatorsEmail:"Donator's Email",
   });
 
   const handleChange = (event) => {
