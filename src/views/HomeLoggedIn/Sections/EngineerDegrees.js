@@ -29,7 +29,7 @@ export default function EngineerDegrees() {
         primary color="warning">
         UPDATE/PUT Users
       </Button>
-      <Table columns={state}/>
+      <Table columns={state} url={EngineerDegreesURL}/>
     </div>
   );
 }
