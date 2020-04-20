@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js"
+import {StaffsURL} from "utils/ApiConstants.js"
 
 
 export default function Staffs() {
@@ -37,7 +38,7 @@ export default function Staffs() {
         primary color="warning">
         UPDATE/PUT Users
       </Button>
-      <Table columns={state}/>
+      <Table columns={state} url={StaffsURL}/>
     </div>
   );
 }

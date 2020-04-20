@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js"
+import {EngineerDegreesURL} from "utils/ApiConstants.js"
 
 
 export default function EngineerDegrees() {

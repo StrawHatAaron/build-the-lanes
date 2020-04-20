@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js"
-
+import {ApplicableStandardsURL} from "utils/ApiConstants.js"
 
 export default function ApplicableStandards() {
 
@@ -29,7 +29,9 @@ export default function ApplicableStandards() {
         primary color="warning">
         UPDATE/PUT Users
       </Button>
-      <Table columns={state}/>
+      <Table
+        columns={state}
+        url={ApplicableStandardsURL}/>
     </div>
   );
 }

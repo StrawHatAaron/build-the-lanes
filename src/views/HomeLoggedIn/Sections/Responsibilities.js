@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js"
+import {ResponsibilitiesURL} from "utils/ApiConstants.js"
 
 
 export default function Responsibilities() {
@@ -29,7 +30,7 @@ export default function Responsibilities() {
         primary color="warning">
         UPDATE/PUT Users
       </Button>
-      <Table columns={state}/>
+      <Table columns={state} url={ResponsibilitiesURL}/>
     </div>
   );
 }

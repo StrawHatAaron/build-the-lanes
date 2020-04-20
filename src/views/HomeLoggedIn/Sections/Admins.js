@@ -30,7 +30,7 @@ export default function Admins() {
       </Button>
       <Table
         columns={columns}
-        section="admin"/>
+        url={AdminsURL}/>
     </div>
   );
 }

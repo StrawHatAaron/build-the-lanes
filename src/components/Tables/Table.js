@@ -2,7 +2,6 @@
 import React, {useState, useEffect,} from "react";
 import Rows from "components/Tables/Rows.js";
 import "components/Tables/Table.css";
-import {AdminsURL} from "utils/ApiConstants.js"
 import Button from "components/CustomButtons/Button.js";
 
 import { withStyles } from '@material-ui/core/styles';
@@ -27,9 +26,11 @@ const GreenCheckbox = withStyles({
 
 export default function Table(props){
 
+  console.log(props)
+
   const [data, setData] = useState({});
   useEffect(() => {
-    fetch(AdminsURL, {
+    fetch(props.url, {
       method: 'GET', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
