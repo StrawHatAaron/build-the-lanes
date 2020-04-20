@@ -16,13 +16,14 @@ function login(username, password) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ "email":username, "password":password })
     };
 
-    return fetch(AuthenticateUserURL, requestOptions)
+    return fetch("http://localhost:4000/apiv1/users/authenticate", requestOptions)
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
+            console.log("success!");
             localStorage.setItem('currentUser', JSON.stringify(user));
             currentUserSubject.next(user);
             return user;

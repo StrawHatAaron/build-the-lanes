@@ -5,11 +5,25 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import Button from "@material-ui/core/Button";
 // @material-ui/icons
 import { Apps } from "@material-ui/icons";
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
+import {successColor} from "assets/jss/material-kit-react.js";
+//model section components
+import Donators from "views/HomeLoggedIn/Sections/Donators.js";
+import EngineerCertifications from "views/HomeLoggedIn/Sections/EngineerCertifications.js";
+import EngineerDegrees from "views/HomeLoggedIn/Sections/EngineerDegrees.js";
+import Projects from "views/HomeLoggedIn/Sections/Projects.js";
+import Responsibilities from "views/HomeLoggedIn/Sections/Responsibilities.js";
+import Staffs from "views/HomeLoggedIn/Sections/Staffs.js";
+import ApplicableStandards from "views/HomeLoggedIn/Sections/ApplicableStandards.js";
+import Donates from "views/HomeLoggedIn/Sections/Donates.js";
+import Users from "views/HomeLoggedIn/Sections/Users.js";
+import Admins from "views/HomeLoggedIn/Sections/Admins.js"
+import Engineers from "views/HomeLoggedIn/Sections/Engineers.js"
 
 const useStyles = makeStyles(styles);
 
@@ -85,3 +99,83 @@ export default function HeaderLinks() {
     </List>
   );
 }
+
+
+//******DATABASE SECTION******
+export const homeLoggedInPath = "/home-logged-in/"
+
+export const DatabasePages = [{
+  title:'Users',
+  path:homeLoggedInPath+'users',
+  explanation:'Info',
+  componentSection:Users
+},{
+  title:'Admins',
+  path:homeLoggedInPath+'admins',
+  explanation:'Info',
+  componentSection:Admins
+},{
+  title: 'Staffs',
+  path:homeLoggedInPath+'staffs',
+  explanation:'Info',
+  componentSection:Staffs
+},{
+  title:'Engineers',
+  path:homeLoggedInPath+'engineers',
+  explanation:'Info',
+  componentSection:Engineers
+},{
+  title:'Donators',
+  path:homeLoggedInPath+'donators',
+  explanation:' Info',
+  componentSection:Donators
+},{
+  title:'Projects',
+  path:homeLoggedInPath+'projects',
+  explanation:' Info',
+  componentSection:Projects
+},{
+  title:'Responsibilities',
+  path:homeLoggedInPath+'responsibilities',
+  explanation:' Info',
+  componentSection:Responsibilities
+},{
+  title:'Donates',
+  path:homeLoggedInPath+'donates',
+  explanation:' Info',
+  componentSection:Donates
+},{
+  title:'Applicable Standards',
+  path:homeLoggedInPath+'applicable-standards',
+  explanation:' Info',
+  componentSection:ApplicableStandards
+},{
+  title:'Engineer Certifications',
+  path:homeLoggedInPath+'engineer-certifications',
+  explanation:'Engineer Database Info',
+  componentSection:EngineerCertifications
+},{
+  title:'Engineer Degrees',
+  path:homeLoggedInPath+'engineer-degrees',
+  explanation:'Engineer Database Info',
+  componentSection:EngineerDegrees
+},]
+
+const DatabaseButtonStyle = {
+  background:"#4caf50",
+  margin:"20px"
+}
+
+export const MapedDatabasePages = DatabasePages.map((c) => {
+  return(
+    <Link to={c.path}>
+      <Button
+        style={DatabaseButtonStyle}
+        simple color="success"
+        size="sm"
+        onClick={console.log("Hello Engineer Certs!")}>
+        {c.title}
+      </Button>
+    </Link>
+  )
+})

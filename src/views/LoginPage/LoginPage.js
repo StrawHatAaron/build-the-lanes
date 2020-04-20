@@ -128,7 +128,7 @@ export default function LoginPage(props) {
                           authenticationService.login(email, password)
                           .then(
                             user => {
-                              history.push("/home");
+                              history.push("/about-us");
                             },
                             error => {
                               alert("Aaron, " + error);

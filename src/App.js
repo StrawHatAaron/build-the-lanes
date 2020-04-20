@@ -11,8 +11,9 @@ import Approach from "views/Approach/Approach.js";
 import UnderConstruction from "views/UnderConstruction/UnderConstruction";
 
 import LoginPage from "views/LoginPage/LoginPage.js";
-import HomePage from "views/HomeLoggedIn/HomePage.js";
+import HomeLoggedIn from "views/HomeLoggedIn/HomeLoggedIn.js";
 import AdminPage from "views/AdminLoggedIn/AdminPage.js";
+
 
 //uses the history part
 import {history} from 'helpers/history';
@@ -50,15 +51,11 @@ class App extends React.Component {
       <HashRouter history={history}>
         <Switch>
           <PrivateRoute
-            key="home-authed"
-            exact path="/home"
-            component={HomePage} />
-          <PrivateRoute
             key="admin-authed"
             path="/admin"
             roles={[Role.Admin]}
             component={AdminPage} />
-            
+
           <Route
             key="why-bikes"
             exact path="/why-bikes"
@@ -80,13 +77,18 @@ class App extends React.Component {
             exact path="/contact-us"
             component={ContactUs} />
           <Route
-            key="home-page"
+            key="our-mission"
             exact path="/"
             component={OurMission} />
           <Route
             key="approach"
             exact path="/approach"
             component={Approach} />
+
+          <Route
+            key="home-page"
+            path="/home-logged-in"
+            component={HomeLoggedIn} />
         </Switch>
       </HashRouter>
     )
