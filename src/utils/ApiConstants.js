@@ -1,9 +1,15 @@
 const BaseURL = 'http://localhost:4000/apiv1/'
 
-//User URLs
-export const UserURL = BaseURL + 'users/'
 export const RegisterURL = UserURL + 'register/'
 export const AuthenticateUserURL = UserURL + 'authenticate/'
 
-//Project URLs
-export const ProjectURL = BaseURL + 'project/'
+export const UserURL = BaseURL + 'users/'
+export const AdminsURL = BaseURL + 'admins/'
+export const DonatorsURL = BaseURL + 'donators/'
+export const StaffsURL = BaseURL + 'staffs/'
+export const ApplicableStandardsURL = BaseURL + 'applicable-standards/'
+export const EngineerCertifications = BaseURL + 'engineer-certifications/'
+export const EngineerDegrees = BaseURL + 'engineer-degrees/'
+export const Projects = BaseURL + 'projects/'
+export const Responsibilities = BaseURL + 'responsibilities/'
+export const Donates = BaseURL + 'donates/'

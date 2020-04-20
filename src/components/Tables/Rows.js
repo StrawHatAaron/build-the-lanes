@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import "components/Tables/Table.css";
 // import Columns from "components/Tables/Columns.js";
-import "components/Tables/Table.css";
 //Material UI
 import { withStyles } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
@@ -23,7 +22,7 @@ const GreenCheckbox = withStyles({
   checked: {},
 })((props) => <Checkbox color="default" {...props} />);
 
-export default function Columns(){
+export default function Rows(props){
 
   const [state, setState] = React.useState({
     checked: true,
@@ -32,6 +31,8 @@ export default function Columns(){
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
+
+
 
   return(
     <tr>
@@ -51,6 +52,5 @@ export default function Columns(){
       <td>Maria Anders</td>
       <td>Germany</td>
     </tr>
-
   )
 }
