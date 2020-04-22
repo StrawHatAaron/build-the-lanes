@@ -35,6 +35,10 @@ export default function Table(props){
       method: 'GET', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache',
+        'Accept': '*/*',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Connection': 'keep-alive',
       }
       })
     .then((response) => response.json())
