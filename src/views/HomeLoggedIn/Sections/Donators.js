@@ -7,6 +7,10 @@ import {DonatorsM, Headers} from "views/HomeLoggedIn/Models.js";
 export default function Donators() {
 
   const columns = DonatorsM;
+  const [state, setState] = useState(DonatorsM)
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.value });
+  };
 
   return (
     <div >

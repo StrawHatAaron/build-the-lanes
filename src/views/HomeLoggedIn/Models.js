@@ -6,6 +6,20 @@ export const Headers = {
   'Connection': 'keep-alive',
 }
 
+export function postData(url, data){
+  fetch(url, {
+    method: 'POST', // or 'PUT'
+    headers: Headers,
+    body: JSON.stringify(data),
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
 
 export const AdminsM = {
   Id: "Id",
@@ -75,6 +89,19 @@ export const StaffsM = {
   Type:"Type",
   Created:"Created",
 }
+
+export const ApplicableStandardsM = {
+  DataLink: "Data Link",
+  ProjectNum: "Project Number",
+  PhotoName: "Photo Name",
+}
+
+export const DonatesM = {
+  Link:"Link",
+  ProjectNum:"Project Number",
+  DonatorsEmail:"Donator's Email",
+}
+
 export const UsersM = {
   Id:"Id",
   Email:"Email",
@@ -89,13 +116,15 @@ export const UsersM = {
   Type:"Type",
   Created:"Created",
 }
-export const ApplicableStandardsM = {
-  DataLink: "Data Link",
-  ProjectNum: "Project Number",
-  PhotoName: "Photo Name",
-}
-export const DonatesM = {
-  Link:"Link",
-  ProjectNum:"Project Number",
-  DonatorsEmail:"Donator's Email",
+
+export const UsersSignUpM = {
+  Email:"Email",
+  Password: "Password",
+  FName:"First Name",
+  LName:"Last Name",
+  Roles:"Roles",
+  AmountDonated:"Amount Donated",
+  Title:"Title",
+  Type:"Type",
+  Created:"Created",
 }

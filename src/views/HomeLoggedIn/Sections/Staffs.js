@@ -7,7 +7,11 @@ import {StaffsM, Headers} from "views/HomeLoggedIn/Models.js";
 
 export default function Staffs() {
 
-  const columns = Staffs
+  const columns = StaffsM
+  const [state, setState] = useState(StaffsM)
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.value });
+  };
 
   return (
     <div >

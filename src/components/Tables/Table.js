@@ -29,8 +29,6 @@ const RoseCheckbox = withStyles({
 
 export default function Table(props){
 
-  console.log(props)
-
   const [data, setData] = useState({});
   useEffect(() => {
     fetch(props.url, {
@@ -74,15 +72,17 @@ export default function Table(props){
         {Object.values(data).map((row, row_i) => {
           return(
             <tr>
-            <FormControlLabel
-              styles={{marginLeft:"20px"}}
-              label="Custom icon"
-              onChange={handleChange}
-              control={<RoseCheckbox
-                icon={<FavoriteBorder />}
-                checked={state.checked}
-                checkedIcon={<Favorite />}
-                name="checked"/>}/>
+              <FormControlLabel
+                styles={{marginLeft:"20px"}}
+                label="Custom icon"
+                onChange={handleChange}
+                control={<RoseCheckbox
+                  icon={<FavoriteBorder />}
+                  checked={state.checked}
+                  checkedIcon={<Favorite />}
+                  name="checkedA"/>
+                }
+              />
               {Object.values(row).map((cell, cell_i) => {
                 return(
                   <td>{cell}</td>

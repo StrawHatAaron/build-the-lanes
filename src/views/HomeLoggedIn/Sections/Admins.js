@@ -8,6 +8,10 @@ import {AdminsM, Headers} from "views/HomeLoggedIn/Models.js";
 export default function Admins() {
 
   const columns = AdminsM;
+  const [state, setState] = useState(AdminsM)
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.value });
+  };
 
   return (
     <div >

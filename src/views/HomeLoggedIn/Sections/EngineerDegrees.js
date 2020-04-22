@@ -3,7 +3,7 @@ import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js";
 import {EngineerDegreesURL} from "utils/ApiConstants.js";
 import {CssTextField} from "assets/jss/Constants.js";
-import {EngineerDegreesM, Headers} from "views/HomeLoggedIn/Models.js";
+import {EngineerDegreesM, postData} from "views/HomeLoggedIn/Models.js";
 
 export default function EngineerDegrees() {
 
@@ -11,25 +11,8 @@ export default function EngineerDegrees() {
 
   const [state, setState] = useState(EngineerDegreesM)
   const handleChange = (event) => {
-    console.log("state: ", state)
     setState({ ...state, [event.target.name]: event.target.value });
   };
-
-  function postData(){
-    const data = state;
-    fetch(EngineerDegreesURL, {
-      method: 'POST', // or 'PUT'
-      headers: Headers,
-      body: JSON.stringify(data),
-    })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log('Success:', data);
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-  }
 
   return (
     <div >
@@ -46,7 +29,7 @@ export default function EngineerDegrees() {
         )
       })}
       <Button
-        onClick={() => postData()}
+        onClick={() => postData(EngineerDegreesURL, state)}
         primary color="info">
         INSERT/POST
       </Button>
