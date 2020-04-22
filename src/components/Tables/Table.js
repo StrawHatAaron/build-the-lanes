@@ -2,6 +2,7 @@
 import React, {useState, useEffect,} from "react";
 import Rows from "components/Tables/Rows.js";
 import "components/Tables/Table.css";
+import {Headers} from "views/HomeLoggedIn/Models.js"
 import Button from "components/CustomButtons/Button.js";
 
 import { withStyles } from '@material-ui/core/styles';
@@ -14,6 +15,7 @@ import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
+
 
 const RoseCheckbox = withStyles({
   root: {
@@ -33,20 +35,14 @@ export default function Table(props){
   useEffect(() => {
     fetch(props.url, {
       method: 'GET', // or 'PUT'
-      headers: {
-        'Content-Type': 'application/json',
-        'Cache-Control': 'no-cache',
-        'Accept': '*/*',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Connection': 'keep-alive',
-      }
+      headers:  Headers
       })
     .then((response) => response.json())
     .then((data) => {
       setData(data);
-      console.log('data:', data);
-      console.log('data values:', Object.values(data)[0]);
-      console.log('data keys:', Object.keys(data)[1]);
+      // console.log('data:', data);
+      // console.log('data values:', Object.values(data)[0]);
+      // console.log('data keys:', Object.keys(data)[1]);
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -55,6 +51,7 @@ export default function Table(props){
 
   const [state, setState] = React.useState({
     checked: true,
+    becked:false
   });
 
   const handleChange = (event) => {

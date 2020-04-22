@@ -173,7 +173,7 @@ export const MapedDatabasePages = DatabasePages.map((c) => {
         style={DatabaseButtonStyle}
         simple color="success"
         size="sm"
-        onClick={console.log("Hello Engineer Certs!")}>
+        onClick={() => {}}>
         {c.title}
       </Button>
     </Link>

@@ -2,18 +2,12 @@ import React, {useState, useEffect} from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js"
 import {DonatesURL} from "utils/ApiConstants.js"
+import {DonatesM, Headers} from "views/HomeLoggedIn/Models.js";
+
 
 export default function Donates() {
 
-  const [state, setState] = React.useState({
-    Link:"Link",
-    ProjectNum:"Project Number",
-    DonatorsEmail:"Donator's Email",
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
+  const columns = DonatesM;
 
   return (
     <div >
@@ -29,7 +23,7 @@ export default function Donates() {
         primary color="warning">
         UPDATE/PUT Users
       </Button>
-      <Table columns={state} url={DonatesURL}/>
+      <Table columns={columns} url={DonatesURL}/>
     </div>
   );
 }

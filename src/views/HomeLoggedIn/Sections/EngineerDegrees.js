@@ -1,41 +1,25 @@
 import React, {useState, useEffect} from 'react';
 import Button from "components/CustomButtons/Button.js";
-import Table from "components/Tables/Table.js"
-import {EngineerDegreesURL} from "utils/ApiConstants.js"
+import Table from "components/Tables/Table.js";
+import {EngineerDegreesURL} from "utils/ApiConstants.js";
 import {CssTextField} from "assets/jss/Constants.js";
-
-
+import {EngineerDegreesM, Headers} from "views/HomeLoggedIn/Models.js";
 
 export default function EngineerDegrees() {
 
-  const [state, setState] = useState({
-    Email:"Email",
-    Degree:"Degree",
-  });
+  const columns = EngineerDegreesM;
+
+  const [state, setState] = useState(EngineerDegreesM)
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+    console.log("state: ", state)
+    setState({ ...state, [event.target.name]: event.target.value });
   };
 
-  const [email, setEmail] = useState('');
-  const [degree, setDegree] = useState('');
-
   function postData(){
-    const data = {
-      Email: email,
-      Degree: degree
-    };
-
-    console.log("data to POST",data)
-
+    const data = state;
     fetch(EngineerDegreesURL, {
       method: 'POST', // or 'PUT'
-      headers: {
-        'Content-Type': 'application/json',
-        'Cache-Control': 'no-cache',
-        'Accept': '*/*',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Connection': 'keep-alive',
-      },
+      headers: Headers,
       body: JSON.stringify(data),
     })
     .then((response) => response.json())
@@ -49,23 +33,18 @@ export default function EngineerDegrees() {
 
   return (
     <div >
-    <CssTextField
-        variant="outlined"
-        margin="normal"
-        id="email"
-        label="Email Address"
-        name="email"
-        autoComplete="email"
-        onChange={(e) => setEmail(e.target.value)} />
-    <CssTextField
-        type = "degree"
-        variant="outlined"
-        margin="normal"
-        id="degree"
-        label="Degree"
-        name="degree"
-        autoComplete="current-password"
-        onChange={(e) => setDegree(e.target.value)}/>
+      {Object.keys(columns).map((c, i) => {
+        return(
+          <CssTextField
+              variant="outlined"
+              margin="normal"
+              id={c}
+              label={Object.values(columns)[i]}
+              name={c}
+              autoComplete="email"
+              onChange={handleChange} />
+        )
+      })}
       <Button
         onClick={() => postData()}
         primary color="info">
@@ -73,17 +52,17 @@ export default function EngineerDegrees() {
       </Button>
       <Button
         primary color="success">
-        SELECT/GET Users
+        SELECT/GET
       </Button>
       <Button
         primary color="danger">
-        DELETE Users
+        DELETE
       </Button>
       <Button
         primary color="warning">
-        UPDATE/PUT Users
+        UPDATE/PUT
       </Button>
-      <Table columns={state} url={EngineerDegreesURL}/>
+      <Table columns={columns} url={EngineerDegreesURL}/>
     </div>
   );
 }

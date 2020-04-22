@@ -2,43 +2,21 @@ import React, {useState, useEffect} from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js"
 import {StaffsURL} from "utils/ApiConstants.js"
+import {StaffsM, Headers} from "views/HomeLoggedIn/Models.js";
 
 
 export default function Staffs() {
 
-  const [state, setState] = React.useState({
-    Id:"Id",
-    Email:"Email",
-    PasswordSalt:"Password Salt",
-    PasswordHash:"Password Hash",
-    Token:"Token",
-    FName:"First Name",
-    LName:"Last Name",
-    Roles:"Roles",
-    Title:"Title",
-    Type:"Type",
-    Created:"Created",
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
+  const columns = Staffs
 
   return (
     <div >
+      We will only select from Materialized View Engineers
       <Button
         primary color="success">
         SELECT/GET Users
       </Button>
-      <Button
-        primary color="danger">
-        DELETE Users
-      </Button>
-      <Button
-        primary color="warning">
-        UPDATE/PUT Users
-      </Button>
-      <Table columns={state} url={StaffsURL}/>
+      <Table columns={columns} url={StaffsURL}/>
     </div>
   );
 }

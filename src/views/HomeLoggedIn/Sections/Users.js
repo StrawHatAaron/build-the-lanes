@@ -2,28 +2,12 @@ import React, {useState, useEffect} from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js"
 import {UserURL} from "utils/ApiConstants.js"
+import {UsersM, Headers} from "views/HomeLoggedIn/Models.js";
 
 
 export default function Users() {
 
-  const [state, setState] = React.useState({
-    Id:"Id",
-    Email:"Email",
-    PasswordSalt:"Password Salt",
-    PasswordHash:"Password Hash",
-    Token:"Token",
-    FName:"First Name",
-    LName:"Last Name",
-    Roles:"Roles",
-    AmountDonated:"Amount Donated",
-    Title:"Title",
-    Type:"Type",
-    Created:"Created",
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
+  const columns = UsersM
 
   return (
     <div >
@@ -39,7 +23,7 @@ export default function Users() {
         primary color="warning">
         UPDATE/PUT Users
       </Button>
-      <Table columns={state} url={UserURL}/>
+      <Table columns={columns} url={UserURL}/>
     </div>
   );
 }

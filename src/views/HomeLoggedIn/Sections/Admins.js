@@ -2,34 +2,22 @@ import React, {useState} from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js"
 import {AdminsURL} from "utils/ApiConstants.js"
+import {AdminsM, Headers} from "views/HomeLoggedIn/Models.js";
+
 
 export default function Admins() {
 
-  const [columns, setColumns] = useState({
-    Id: "Id",
-    Email: "Email",
-    PasswordSalt: "Password Salt",
-    PasswordHash: "Password Hash",
-    Token: "Token",
-    FName: "First Name",
-    LName: "Last Name",
-    Roles: "Roles",
-    Title: "Title",
-    Created: "Created"
-  });
+  const columns = AdminsM;
 
   return (
     <div >
-      <Button
-        primary color="danger">
-        DELETE Users
-      </Button>
-      <Button
-        primary color="warning">
-        UPDATE/PUT Users
-      </Button>
+    We will only select from Materialized View Engineers
+    <Button
+      primary color="success">
+      SELECT/GET Users
+    </Button>
       <Table
-        columns={columns}
+        columns={AdminsM}
         url={AdminsURL}/>
     </div>
   );

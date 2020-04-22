@@ -2,18 +2,11 @@ import React, {useState, useEffect} from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js"
 import {EngineerCertificationsURL} from "utils/ApiConstants.js"
-
+import {EngineerCertificationsM, Headers} from "views/HomeLoggedIn/Models.js";
 
 export default function EngineerCertifications() {
 
-  const [state, setState] = React.useState({
-    Email:"Email",
-    Certification:"Certification",
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
+  const columns = EngineerCertificationsM;
 
   return (
     <div >
@@ -29,7 +22,7 @@ export default function EngineerCertifications() {
         primary color="warning">
         UPDATE/PUT Users
       </Button>
-      <Table columns={state} url={EngineerCertificationsURL}/>
+      <Table columns={columns} url={EngineerCertificationsURL}/>
     </div>
   );
 }

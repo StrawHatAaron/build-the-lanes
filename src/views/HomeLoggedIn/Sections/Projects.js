@@ -2,21 +2,12 @@ import React, {useState, useEffect} from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js"
 import {ProjectsURL} from "utils/ApiConstants.js"
+import {ProjectsM, Headers} from "views/HomeLoggedIn/Models.js";
 
 
 export default function Projects() {
 
-  const [state, setState] = React.useState({
-    ProjectNum:"Project Number",
-    StartDate:"Start Date",
-    Status:"Status",
-    City:"City",
-    ZipCode:"Zip Code",
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
+  const columns = ProjectsM;
 
   return (
     <div >
@@ -37,7 +28,7 @@ export default function Projects() {
         primary color="warning">
         UPDATE/PUT Users
       </Button>
-      <Table columns={state} url={ProjectsURL}/>
+      <Table columns={columns} url={ProjectsURL}/>
     </div>
   );
 }

@@ -2,18 +2,12 @@ import React, {useState, useEffect} from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js"
 import {ApplicableStandardsURL} from "utils/ApiConstants.js"
+import {ApplicableStandardsM, Headers} from "views/HomeLoggedIn/Models.js";
+
 
 export default function ApplicableStandards() {
 
-  const [state, setState] = React.useState({
-    DataLink: "Data Link",
-    ProjectNum: "Project Number",
-    PhotoName: "Photo Name",
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
+  const columns = ApplicableStandardsM;
 
   return (
     <div >
@@ -30,7 +24,7 @@ export default function ApplicableStandards() {
         UPDATE/PUT Users
       </Button>
       <Table
-        columns={state}
+        columns={columns}
         url={ApplicableStandardsURL}/>
     </div>
   );
