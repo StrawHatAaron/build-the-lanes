@@ -29,31 +29,36 @@ const RoseCheckbox = withStyles({
 
 export default function Table(props){
 
+  const str = "";
+
+  const [state, setState] = React.useState({
+    checkedA:false,
+    checkedB:false,
+    checkedC:false
+  });
+
   const [data, setData] = useState({});
   useEffect(() => {
     fetch(props.url, {
-      method: 'GET', // or 'PUT'
+      method: 'GET',
       headers:  Headers
       })
     .then((response) => response.json())
     .then((data) => {
       setData(data);
-      // console.log('data:', data);
-      // console.log('data values:', Object.values(data)[0]);
-      // console.log('data keys:', Object.keys(data)[1]);
+      setState(Object.values(data).map((row, row_i) => {
+        return {[`checked${row_i}`]: false};
+      }));
     })
     .catch((error) => {
       console.error('Error:', error);
     })
   }, [])
 
-  const [state, setState] = React.useState({
-    checked: true,
-    becked:false
-  });
-
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
+    //delete array from top to bottom
+    console.log("The data's indicies to be deleted at", state)
   };
 
   var TopColumns = Object.values(props.columns).map((c) => {
@@ -66,28 +71,28 @@ export default function Table(props){
     <div>
       <table id="customers">
         <tr>
-          <th>Select</th>
+          <th>Check the heart box(s) to delete</th>
           {TopColumns}
         </tr>
+
         {Object.values(data).map((row, row_i) => {
           return(
             <tr>
-              <FormControlLabel
-                styles={{marginLeft:"20px"}}
-                label="Custom icon"
-                onChange={handleChange}
-                control={<RoseCheckbox
-                  icon={<FavoriteBorder />}
-                  checked={state.checked}
-                  checkedIcon={<Favorite />}
-                  name="checkedA"/>
-                }
-              />
-              {Object.values(row).map((cell, cell_i) => {
-                return(
-                  <td>{cell}</td>
-                )
-              })}
+            <FormControlLabel
+              label="Custom icon"
+              onChange={handleChange}
+              control={<RoseCheckbox
+                icon={<FavoriteBorder />}
+                checked={state.checked}
+                checkedIcon={<Favorite />}
+                name={`checked${row_i}`}/>
+              }
+            />
+            {Object.values(row).map((cell, cell_i) => {
+              return(
+                <td>{cell}</td>
+              )
+            })}
             </tr>
           )
         })}
