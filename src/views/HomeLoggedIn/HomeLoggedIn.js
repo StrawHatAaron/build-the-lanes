@@ -8,7 +8,7 @@ import HeaderLoggedIn from "components/Header/HeaderLoggedIn.js"
 export default function HomeLoggedIn() {
   return (
         <div>
-            <h1>Build The Lanes Web App - CSc 174</h1>
+            <h1 style={{marginTop:'2em'}}>CSc 174 - Team 3 ⌨️  🖥 🖱</h1>
             <p>You're logged in already!!!</p>
             <HeaderLoggedIn></HeaderLoggedIn>
         </div>

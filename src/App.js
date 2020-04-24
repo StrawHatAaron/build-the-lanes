@@ -26,16 +26,16 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 export function App(){
   return(
     <HashRouter history={history}>
-      <Header
-        color="transparent"
-        brand="Build the Lanes"
-        rightLinks={<HeaderLinks />}
-        fixed
-        changeColorOnScroll={{
-          height: 400,
-          color: "white"
-        }}
-      />
+        <Header
+          color="transparent"
+          brand="Build the Lanes"
+          rightLinks={<HeaderLinks />}
+          fixed
+          changeColorOnScroll={{
+            height: 400,
+            color: "white"
+          }}
+        />
       <Switch>
         <Route
           key="why-bikes"
