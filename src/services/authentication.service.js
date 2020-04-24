@@ -27,7 +27,7 @@ function login(email, password) {
 }
 
 function logout() {
-    localStorage.setItem('loggedIn', false);
+    localStorage.setItem('loggedIn', false); 
 }
 
 
