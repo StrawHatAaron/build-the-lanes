@@ -4,7 +4,10 @@ import Rows from "components/Tables/Rows.js";
 import "components/Tables/Table.css";
 import {Headers} from "views/HomeLoggedIn/Models.js"
 import Button from "components/CustomButtons/Button.js";
-import * as Models from "views/HomeLoggedIn/Models.js"
+
+import * as Models from "views/HomeLoggedIn/Models.js";
+import * as ApiConstants from "utils/ApiConstants.js";
+
 import { withStyles } from '@material-ui/core/styles';
 import { green, } from '@material-ui/core/colors';
 
@@ -37,11 +40,7 @@ export default function Table(props){
     )
   })
 
-  const [state, setState] = React.useState({
-    checkedA:false,
-    checkedB:false,
-    checkedC:false
-  });
+  const [state, setState] = React.useState({});
 
   const [data, setData] = useState({});
   useEffect(() => {
@@ -52,9 +51,11 @@ export default function Table(props){
     .then((response) => response.json())
     .then((data) => {
       setData(data);
-      setState(Object.values(data).map((row, row_i) => {
-        return {[`checked${row_i}`]: false};
-      }));
+      setState(
+        Object.values(data).map((row, row_i) => {
+          return {[`checked${row_i}`]: false};
+        })
+      );
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -68,29 +69,19 @@ export default function Table(props){
   };
 
   const handleDelete = () => {
+    const deleteIndicies = [];
     switch (props.columns){
-      case Models.AdminsM:
-        Models.deleteData()
-        break;
-      case Models.DonatorsM:
-        Models.deleteData()
-        break;
       case Models.EngineerCertificationsM:
-        Models.deleteData()
+        console.log("deleting: ", data[1]);
+        Models.deleteData(ApiConstants.EngineerCertificationsURL, data[1]);
         break;
       case Models.EngineerDegreesM:
-        Models.deleteData()
-        break;
-      case Models.EngineersM:
         Models.deleteData()
         break;
       case Models.ProjectsM:
         Models.deleteData()
         break;
       case Models.ResponsibilitiesM:
-        Models.deleteData()
-        break;
-      case Models.StaffsM:
         Models.deleteData()
         break;
       case Models.ApplicableStandardsM:
@@ -102,16 +93,13 @@ export default function Table(props){
       case Models.UsersM:
         Models.deleteData()
         break;
-      case Models.UsersSignUpM:
-        Models.deleteData()
-        break;
     }
   }
 
   return(
     <div>
       <Button
-        onClick={() => handleDelete}
+        onClick={() => handleDelete()}
         primary color="danger">
         DELETE Users
       </Button>
