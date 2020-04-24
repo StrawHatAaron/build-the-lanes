@@ -159,7 +159,7 @@ export const DatabasePages = [{
   path:homeLoggedInPath+'engineer-degrees',
   explanation:'Engineer Database Info',
   componentSection:EngineerDegrees
-},]
+}];
 
 const DatabaseButtonStyle = {
   background:"#4caf50",

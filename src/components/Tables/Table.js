@@ -53,7 +53,7 @@ export default function Table(props){
       setData(data);
       setState(
         Object.values(data).map((row, row_i) => {
-          return {[`checked${row_i}`]: false};
+          return {checked: false};
         })
       );
     })
@@ -62,37 +62,62 @@ export default function Table(props){
     })
   }, [])
 
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-    //delete array from top to bottom
-    console.log("The data's indicies to be deleted at ", state);
+  const handleChange = row_i => (event) => {
+    //true = checked = delete
+    setState({...state, [`${row_i}`]:{[event.target.name]: event.target.checked }});
   };
 
   const handleDelete = () => {
-    const deleteIndicies = [];
-    switch (props.columns){
-      case Models.EngineerCertificationsM:
-        console.log("deleting: ", data[1]);
-        Models.deleteData(ApiConstants.EngineerCertificationsURL, data[1]);
-        break;
-      case Models.EngineerDegreesM:
-        Models.deleteData()
-        break;
-      case Models.ProjectsM:
-        Models.deleteData()
-        break;
-      case Models.ResponsibilitiesM:
-        Models.deleteData()
-        break;
-      case Models.ApplicableStandardsM:
-        Models.deleteData()
-        break;
-      case Models.DonatesM:
-        Models.deleteData()
-        break;
-      case Models.UsersM:
-        Models.deleteData()
-        break;
+
+
+    var foundCheck, moreThanOneChecked, foundOneCheck = false;
+    Object.values(state).map((c) => {
+      //check if any boxes are checked
+      if(c.checked===true) foundCheck = true;
+      //check if there is more than one box checked
+      if(c.checked===true && foundOneCheck===true){
+        moreThanOneChecked = true;
+      } else if(c.checked===true){
+        foundOneCheck = true;
+      }
+    })
+    //find the index to delete at
+    var indexToDeleteAt;
+    if(foundCheck && !moreThanOneChecked){
+      Object.values(state).map((c, i) => {
+            if(c.checked==true) indexToDeleteAt = i;
+      })
+    }
+
+    if (!foundCheck){
+      alert("Please check a box to be deleted.");
+    } else if (moreThanOneChecked){
+      alert("Please only select one row at a time to be deleted safely.")
+    } else {
+      switch (props.columns){
+        case Models.EngineerCertificationsM:
+          console.log("index to delete at:", indexToDeleteAt);
+          Models.deleteData(ApiConstants.EngineerCertificationsURL, data[indexToDeleteAt]);
+          break;
+        case Models.EngineerDegreesM:
+          Models.deleteData()
+          break;
+        case Models.ProjectsM:
+          Models.deleteData()
+          break;
+        case Models.ResponsibilitiesM:
+          Models.deleteData()
+          break;
+        case Models.ApplicableStandardsM:
+          Models.deleteData()
+          break;
+        case Models.DonatesM:
+          Models.deleteData()
+          break;
+        case Models.UsersM:
+          Models.deleteData()
+          break;
+      }
     }
   }
 
@@ -109,7 +134,7 @@ export default function Table(props){
       </Button>
       <table id="customers">
         <tr>
-          <th>Check the heart box(s) to delete</th>
+          <th>Check a heart box and click the delete button to remove row. <br/>Note: this column is not a part of the database. It is only used in frontend.</th>
           {TopColumns}
         </tr>
 
@@ -117,13 +142,13 @@ export default function Table(props){
           return(
             <tr>
             <FormControlLabel
-              label="Custom icon"
-              onChange={handleChange}
+              label={row_i}
+              onChange={handleChange(row_i)}
               control={<RoseCheckbox
                 icon={<FavoriteBorder />}
                 checked={state.checked}
                 checkedIcon={<Favorite />}
-                name={`checked${row_i}`}/>
+                name={`checked`}/>
               }
             />
             {Object.values(row).map((cell, cell_i) => {
