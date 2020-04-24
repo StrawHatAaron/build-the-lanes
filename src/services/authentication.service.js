@@ -8,32 +8,26 @@ const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('
 export const authenticationService = {
     login,
     logout,
-    currentUser: currentUserSubject.asObservable(),
-    get currentUserValue () { return currentUserSubject.value }
+    get loggedIn () { localStorage.getItem('loggedIn') }
 };
 
-function login(username, password) {
+function login(email, password) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ "email":username, "password":password })
+        body: JSON.stringify({ "email":email, "password":password })
     };
 
     return fetch("http://localhost:4000/apiv1/users/authenticate", requestOptions)
         .then(handleResponse)
         .then(user => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            console.log("success!");
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            currentUserSubject.next(user);
+            localStorage.setItem('loggedIn', true);
             return user;
         });
 }
 
 function logout() {
-    // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
-    currentUserSubject.next(null);
+    localStorage.setItem('loggedIn', false);
 }
 
 

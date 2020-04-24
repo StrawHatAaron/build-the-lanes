@@ -11,7 +11,6 @@ import { Apps } from "@material-ui/icons";
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
-import {successColor} from "assets/jss/material-kit-react.js";
 //model section components
 import Donators from "views/HomeLoggedIn/Sections/Donators.js";
 import EngineerCertifications from "views/HomeLoggedIn/Sections/EngineerCertifications.js";
@@ -174,7 +173,7 @@ export const MapedDatabasePages = DatabasePages.map((c) => {
         simple color="success"
         size="sm"
         onClick={() => {}}>
-        {c.title}
+        {"Select "+c.title}
       </Button>
     </Link>
   )

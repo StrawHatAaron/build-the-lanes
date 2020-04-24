@@ -3,6 +3,11 @@ import React from "react";
 import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+// import Button from "components/CustomButtons/Button.js"
+// import {authenticationService} from 'services/authentication.service';
+// import {history} from 'helpers/history';
+
+
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -61,6 +66,16 @@ export default function Header(props) {
     [classes.fixed]: fixed
   });
   const brandComponent = <Button className={classes.brand} href="/"> {brand} </Button>;
+
+  // const LogInOutButton = () => {
+  //   if(authenticationService.loggedIn) return(<Button>Log Out</Button>)
+  //   else return (<Button>Log In</Button>)
+  // }
+
+  // function logout() {
+  //     authenticationService.logout();
+  //     history.push('/login');
+  // }
 
   return (
     <AppBar className={appBarClasses}>

@@ -26,7 +26,7 @@ export default function LoginPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
     setCardAnimation("");
-  }, 700);
+  }, 1000);
   const classes = useStyles();
   const { ...rest } = props;
 
@@ -120,18 +120,18 @@ export default function LoginPage(props) {
                       onClick={() => {
                         console.log(email);
                         console.log(password);
-                        if(email.trim() == ""){
+                        if(email.trim() === ""){
                           alert("Email Cannot Be Empty")
-                        } else if(password.trim() == ""){
+                        } else if(password.trim() === ""){
                           alert("Password Cannot Be Empty")
                         } else {
                           authenticationService.login(email, password)
                           .then(
                             user => {
-                              history.push("/about-us");
+                              history.push("/home-logged-in/users");
                             },
                             error => {
-                              alert("Aaron, " + error);
+                              alert("Error, " + error);
                             }
                           );
                         }

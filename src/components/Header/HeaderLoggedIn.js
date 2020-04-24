@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import { HashRouter, Route, Link} from 'react-router-dom';
+import React from 'react';
+import { Route} from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "components/CustomButtons/Button.js";
 import {MapedDatabasePages, homeLoggedInPath, DatabasePages} from "components/Header/HeaderLinks.js";

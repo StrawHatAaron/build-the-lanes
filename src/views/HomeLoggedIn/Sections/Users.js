@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState,} from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js"
 import {UserURL} from "utils/ApiConstants.js"

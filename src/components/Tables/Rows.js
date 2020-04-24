@@ -4,7 +4,6 @@ import "components/Tables/Table.css";
 //Material UI
 import { withStyles } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
-import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
@@ -24,7 +23,7 @@ const GreenCheckbox = withStyles({
 
 export default function Rows(props){
 
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     checked: true,
   });
 

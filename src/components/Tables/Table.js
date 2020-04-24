@@ -134,7 +134,7 @@ export default function Table(props){
       </Button>
       <table id="customers">
         <tr>
-          <th>Check a heart box and click the delete button to remove row. <br/>Note: this column is not a part of the database. It is only used in frontend.</th>
+          <th>Check a heart box and click the delete button to remove row. <br/>Note: this column is not a part of the database. It is only used in frontend to easily select database keys.</th>
           {TopColumns}
         </tr>
 
