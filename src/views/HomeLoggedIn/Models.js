@@ -21,6 +21,36 @@ export function postData(url, data){
   });
 }
 
+export function deleteData(url, data){
+  fetch(url, {
+    method: 'DELETE', // or 'PUT'
+    headers: Headers,
+    body: JSON.stringify(data),
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+
+export function deleteDataId(url, id){
+  fetch(url, {
+    method: 'DELETE', // or 'PUT'
+    headers: Headers,
+    body: JSON.stringify(id),
+  })
+  .then((response) => response.json())
+  .then((id) => {
+    console.log('Success:', id);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+
 export const AdminsM = {
   Id: "Id",
   Email: "Email",

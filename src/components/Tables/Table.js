@@ -4,7 +4,7 @@ import Rows from "components/Tables/Rows.js";
 import "components/Tables/Table.css";
 import {Headers} from "views/HomeLoggedIn/Models.js"
 import Button from "components/CustomButtons/Button.js";
-
+import * as Models from "views/HomeLoggedIn/Models.js"
 import { withStyles } from '@material-ui/core/styles';
 import { green, } from '@material-ui/core/colors';
 
@@ -30,6 +30,12 @@ const RoseCheckbox = withStyles({
 export default function Table(props){
 
   const str = "";
+
+  var TopColumns = Object.values(props.columns).map((c) => {
+    return(
+      <th>{c}</th>
+    )
+  })
 
   const [state, setState] = React.useState({
     checkedA:false,
@@ -58,17 +64,61 @@ export default function Table(props){
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
     //delete array from top to bottom
-    console.log("The data's indicies to be deleted at", state)
+    console.log("The data's indicies to be deleted at ", state);
   };
 
-  var TopColumns = Object.values(props.columns).map((c) => {
-    return(
-      <th>{c}</th>
-    )
-  })
+  const handleDelete = () => {
+    switch (props.columns){
+      case Models.AdminsM:
+        Models.deleteData()
+        break;
+      case Models.DonatorsM:
+        Models.deleteData()
+        break;
+      case Models.EngineerCertificationsM:
+        Models.deleteData()
+        break;
+      case Models.EngineerDegreesM:
+        Models.deleteData()
+        break;
+      case Models.EngineersM:
+        Models.deleteData()
+        break;
+      case Models.ProjectsM:
+        Models.deleteData()
+        break;
+      case Models.ResponsibilitiesM:
+        Models.deleteData()
+        break;
+      case Models.StaffsM:
+        Models.deleteData()
+        break;
+      case Models.ApplicableStandardsM:
+        Models.deleteData()
+        break;
+      case Models.DonatesM:
+        Models.deleteData()
+        break;
+      case Models.UsersM:
+        Models.deleteData()
+        break;
+      case Models.UsersSignUpM:
+        Models.deleteData()
+        break;
+    }
+  }
 
   return(
     <div>
+      <Button
+        onClick={() => handleDelete}
+        primary color="danger">
+        DELETE Users
+      </Button>
+      <Button
+        primary color="warning">
+        UPDATE/PUT Users
+      </Button>
       <table id="customers">
         <tr>
           <th>Check the heart box(s) to delete</th>
