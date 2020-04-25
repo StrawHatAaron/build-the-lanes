@@ -11,6 +11,7 @@ import Approach from "views/Approach/Approach.js";
 import UnderConstruction from "views/UnderConstruction/UnderConstruction";
 
 import LoginPage from "views/LoginPage/LoginPage.js";
+import SignUp from "views/SignUp/SignUp.js";
 import HomeLoggedIn from "views/HomeLoggedIn/HomeLoggedIn.js";
 import AdminPage from "views/AdminLoggedIn/AdminPage.js";
 
@@ -48,7 +49,7 @@ export function App(){
         <Route
           key="sign-up"
           exact path="/sign-up"
-          component={UnderConstruction} />
+          component={SignUp} />
         <Route
           key="about-us"
           exact path="/about-us"
@@ -65,6 +66,10 @@ export function App(){
           key="approach"
           exact path="/approach"
           component={Approach} />
+        <Route
+          key="home-page"
+          path="/home-logged-in"
+          component={HomeLoggedIn} />
         <Route
           key="home-page"
           path="/home-logged-in"

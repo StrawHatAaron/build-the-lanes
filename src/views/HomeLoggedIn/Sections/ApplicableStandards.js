@@ -32,18 +32,6 @@ export default function ApplicableStandards() {
         primary color="info">
         INSERT/POST
       </Button>
-      <Button
-        primary color="success">
-        SELECT/GET Users
-      </Button>
-      <Button
-        primary color="danger">
-        DELETE Users
-      </Button>
-      <Button
-        primary color="warning">
-        UPDATE/PUT Users
-      </Button>
       <Table
         columns={columns}
         url={ApplicableStandardsURL}/>

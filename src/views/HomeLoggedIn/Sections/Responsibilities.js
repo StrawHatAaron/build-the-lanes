@@ -49,18 +49,6 @@ export default function Responsibilities() {
         primary color="info">
         INSERT/POST
       </Button>
-      <Button
-        primary color="success">
-        SELECT/GET
-      </Button>
-      <Button
-        primary color="danger">
-        DELETE
-      </Button>
-      <Button
-        primary color="warning">
-        UPDATE/PUT
-      </Button>
       <Table columns={columns} url={ResponsibilitiesURL}/>
     </div>
   );

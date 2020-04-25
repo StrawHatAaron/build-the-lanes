@@ -15,12 +15,15 @@ export default function Admins() {
 
   return (
     <div >
-    We will only select from Materialized View Engineers
+    <h2>
+    We should only select from the Materialized View Engineers
+    </h2>
     <Button
       primary color="success">
       SELECT/GET Users
     </Button>
       <Table
+        buttons={false}
         columns={AdminsM}
         url={AdminsURL}/>
     </div>

@@ -34,14 +34,6 @@ export default function EngineerDegrees() {
         INSERT/POST
       </Button>
       <Button
-        primary color="success">
-        SELECT/GET
-      </Button>
-      <Button
-        primary color="danger">
-        DELETE
-      </Button>
-      <Button
         primary color="warning">
         UPDATE/PUT
       </Button>
