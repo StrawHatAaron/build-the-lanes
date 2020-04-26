@@ -17,25 +17,13 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 
 import SectionDownload from "./Sections/SectionDownload.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
- 
+
 const useStyles = makeStyles(styles);
 
 export default function OurMission(props) {
   const classes = useStyles();
-  const { ...rest } = props;
   return (
     <div>
-      <Header
-        brand="Build the Lanes"
-        rightLinks={<HeaderLinks />}
-        fixed
-        color="transparent"
-        changeColorOnScroll={{
-          color: "white",
-          marginLeft: "2em"
-        }}
-        {...rest}
-      />
       <Parallax image={require("assets/img/our-mission5.jpeg")}>
         <div className={classes.container}>
           <GridContainer>

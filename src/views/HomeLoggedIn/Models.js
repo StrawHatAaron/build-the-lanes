@@ -53,6 +53,29 @@ export function deleteDataId(url, id){
   });
 }
 
+export const RoleBasedUsers = [{
+  value:'d',
+  label:'Donator'
+},{
+  value:'s',
+  label:'Staff'
+},{
+  value:'e',
+  label:'Engineer'
+},{
+  value:'a',
+  label:'Admin'
+},{
+  value:'sd',
+  label:'Staff Donator'
+},{
+  value:'ed',
+  label:'Engineer Donator'
+},{
+  value:'ad',
+  label:'Admin Donator'
+},]
+
 export const AdminsM = {
   Id: "Id",
   Email: "Email",

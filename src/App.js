@@ -28,7 +28,7 @@ export function App(){
   return(
     <HashRouter history={history}>
         <Header
-          color="transparent"
+          color="success"
           brand="Build the Lanes"
           rightLinks={<HeaderLinks />}
           fixed
@@ -66,10 +66,6 @@ export function App(){
           key="approach"
           exact path="/approach"
           component={Approach} />
-        <Route
-          key="home-page"
-          path="/home-logged-in"
-          component={HomeLoggedIn} />
         <Route
           key="home-page"
           path="/home-logged-in"

@@ -24,20 +24,8 @@ const useStyles = makeStyles(styles);
 
 export default function LandingPage(props) {
   const classes = useStyles();
-  const { ...rest } = props;
   return (
     <div>
-      <Header
-        color="transparent"
-        routes={dashboardRoutes}
-        brand="Build the Lanes"
-        rightLinks={<HeaderLinks />}
-        fixed
-        changeColorOnScroll={{
-          color: "white"
-        }}
-        {...rest}
-      />
       <Parallax filter image={require("assets/img/landing-path.jpeg")}>
         <div className={classes.container}>
           <GridContainer>

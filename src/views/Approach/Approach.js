@@ -23,17 +23,6 @@ export default function Approach(props) {
   const { ...rest } = props;
   return (
     <div>
-      <Header
-        brand="Build the Lanes"
-        rightLinks={<HeaderLinks />}
-        fixed
-        color="transparent"
-        changeColorOnScroll={{
-          color: "white",
-          marginLeft: "2em"
-        }}
-        {...rest}
-      />
       <Parallax image={require("assets/img/approach.jpeg")}>
         <div className={classes.container}>
           <GridContainer>

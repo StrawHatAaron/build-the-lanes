@@ -2,7 +2,7 @@ import React, {useState,} from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js"
 import {UserURL} from "utils/ApiConstants.js"
-import {UsersM, UsersSignUpM, Headers} from "views/HomeLoggedIn/Models.js";
+import {UsersM, UsersSignUpM, Headers, RoleBasedUsers} from "views/HomeLoggedIn/Models.js";
 import {CssTextField} from "assets/jss/Constants.js";
 import MenuItem from '@material-ui/core/MenuItem';
 
@@ -20,28 +20,7 @@ export default function Users() {
   const intAttributes = ["Id"]
   const dateAttributes = ["Created"]
   const money = ["Amount Donated"]
-  const roleBasedUsers = [{
-    value:'d',
-    label:'Donator'
-  },{
-    value:'s',
-    label:'Staff'
-  },{
-    value:'e',
-    label:'Engineer'
-  },{
-    value:'a',
-    label:'Admin'
-  },{
-    value:'sd',
-    label:'Staff Donator'
-  },{
-    value:'ed',
-    label:'Engineer Donator'
-  },{
-    value:'ad',
-    label:'Admin Donator'
-  },]
+
 
   const [state, setState] = useState(UsersSignUpM)
   const handleChange = (event) => {
@@ -72,7 +51,7 @@ export default function Users() {
       {Object.keys(inputCols).map((key, i) => {
         if(dontDisplay.contains(key)){}//do nothing because we don't want it displayed
         else if(key==="Roles") {return(
-          <CssTextField
+          [<CssTextField
             variant="outlined"
             margin="normal"
             id={key}
@@ -81,12 +60,12 @@ export default function Users() {
             name={key}
             onChange={handleChange}
             helperText="User type choosen will trigger the material user views to be populated">
-            {roleBasedUsers.map((option) => (
+            {RoleBasedUsers.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
             ))}
-          </CssTextField>
+          </CssTextField>]
         )} else if (intAttributes.contains(key)) {return(
           <CssTextField
             variant="outlined"
@@ -105,7 +84,7 @@ export default function Users() {
             name={key}
             label="Next appointment"
             type="datetime-local"
-            defaultValue="2017-05-24T10:30"
+            defaultValue="2017-05-24T09:18:54.092Z"
             InputLabelProps={{shrink: true,}}
             onChange={handleChange}/>
         )} else {return(

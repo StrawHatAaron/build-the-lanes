@@ -126,11 +126,11 @@ export default function Table(props){
       <Button
         onClick={() => handleDelete()}
         primary color="danger">
-        DELETE Users
+        DELETE
       </Button>
       <Button
         primary color="warning">
-        UPDATE/PUT Users
+        UPDATE/PUT
       </Button>
       <table id="customers">
         <tr>

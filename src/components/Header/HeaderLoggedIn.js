@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "components/CustomButtons/Button.js";
 import {MapedDatabasePages, homeLoggedInPath, DatabasePages} from "components/Header/HeaderLinks.js";
 import Users from "views/HomeLoggedIn/Sections/Users.js"
+import Parallax from "components/Parallax/Parallax.js";
 
 const DatabaseButtonsWrapperStyle = {
   display: "grid",
@@ -11,18 +12,21 @@ const DatabaseButtonsWrapperStyle = {
 }
 
 const DataRoutesStyle = {
-  margin:"100px"
+  margin:"100px",
+    background:"#EFEFEF",
+    borderRadius:"4px",
+    padding:"2em",
 }
 
 const DataRoutes = DatabasePages.map((c) => {
   return(
-    <>
+  <>
     <Route
       key={c.path}
       exact path={c.path}
       component={c.componentSection}
     />
-    </>
+  </>
   )
 })
 

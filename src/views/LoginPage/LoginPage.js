@@ -14,9 +14,9 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import {CssTextField} from "assets/jss/Constants.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
-import image from "assets/img/green-screen-feature-image-1024x576.jpg";
 import {history} from "helpers/history";
 import {authenticationService} from "services/authentication.service"
+import image from "assets/img/sign-in.jpeg";
 
 
 const useStyles = makeStyles(styles);
@@ -128,7 +128,7 @@ export default function LoginPage(props) {
                           authenticationService.login(email, password)
                           .then(
                             user => {
-                              history.push("/home-logged-in/users");
+                              history.push("/home-logged-in/projects");
                             },
                             error => {
                               alert("Error, " + error);

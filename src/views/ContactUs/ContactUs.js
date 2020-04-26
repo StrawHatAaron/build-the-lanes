@@ -21,27 +21,16 @@ const useStyles = makeStyles(styles);
 function ContactUs(props) {
 
     const classes = useStyles();
-    const { ...rest } = props;
+    
 
     return (
         <>
-            <Header
-                brand="Build the Lanes"
-                rightLinks={<HeaderLinks />}
-                fixed
-                color="transparent"
-                changeColorOnScroll={{
-                    color: "white",
-                    marginLeft: "2em"
-                }}
-                {...rest}
-            />
             <Parallax image={require("assets/img/our-mission.jpeg")}>
                 <div className={classes.container}>
                     <GridContainer>
                         <GridItem>
                         <div className={classes.brand}>
-                            <h1 className={classes.title} 
+                            <h1 className={classes.title}
                                 style={{
                                     backgroundColor:"#4caf50",
                                     padding: "20px",

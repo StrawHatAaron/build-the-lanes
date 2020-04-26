@@ -33,10 +33,6 @@ export default function EngineerDegrees() {
         primary color="info">
         INSERT/POST
       </Button>
-      <Button
-        primary color="warning">
-        UPDATE/PUT
-      </Button>
       <Table columns={columns} url={EngineerDegreesURL}/>
     </div>
   );

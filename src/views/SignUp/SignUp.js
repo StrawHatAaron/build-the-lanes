@@ -12,11 +12,13 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
+import MenuItem from '@material-ui/core/MenuItem';
 import {CssTextField} from "assets/jss/Constants.js";
+import {RoleBasedUsers} from "views/HomeLoggedIn/Models.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
-import image from "assets/img/bike-sign-up.jpg";
 import {history} from "helpers/history";
 import {authenticationService} from "services/authentication.service";
+import image from "assets/img/bike-sign-up.jpg";
 
 const useStyles = makeStyles(styles);
 
@@ -61,7 +63,7 @@ export default function SignUp(props){
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
                   <CardHeader color="success" className={classes.cardHeader}>
-                    <h4>Sign Up</h4>
+                    <h2>Sign Up</h2   >
                     <div className={classes.socialLine}>
                       <Button
                         justIcon
@@ -130,16 +132,18 @@ export default function SignUp(props){
                       autoComplete="current-password"
                       onChange={(e) => setPassword(e.target.value)}/>
                   <CssTextField
-                      type = "password"
-                      variant="outlined"
-                      margin="normal"
-                      id="password"
-                      label="Roles"
-                      name="password"
-                      autoComplete="current-password"
-                      onChange={(e) => setPassword(e.target.value)}/>
-
-
+                    variant="outlined"
+                    margin="normal"
+                    id={"Roles"}
+                    select label="Choose Type of User"
+                    name={"Roles"}
+                    helperText="User type choosen will trigger the material user views to be populated">
+                    {RoleBasedUsers.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                    ))}
+                  </CssTextField>
 
                   <CssTextField
                       type = "password"

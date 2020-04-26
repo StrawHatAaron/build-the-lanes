@@ -22,19 +22,9 @@ const useStyles = makeStyles(styles);
 export default function ProfilePage(props) {
   const classes = useStyles();
   const { ...rest } = props;
-  
+
   return (
     <div>
-      <Header
-        color="transparent"
-        brand="Build the Lanes"
-        rightLinks={<HeaderLinks />}
-        fixed
-        changeColorOnScroll={{
-          color: "white"
-        }}
-        {...rest}
-      />
       <Parallax small filter image={require("assets/img/about-us.jpeg")} />
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div>
