@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 // @material-ui/core components
@@ -11,6 +11,8 @@ import { Apps } from "@material-ui/icons";
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
+import {authenticationService} from 'services/authentication.service';
+import {history} from 'helpers/history';
 //model section components
 import Donators from "views/HomeLoggedIn/Sections/Donators.js";
 import EngineerCertifications from "views/HomeLoggedIn/Sections/EngineerCertifications.js";
@@ -29,6 +31,21 @@ const useStyles = makeStyles(styles);
 export default function HeaderLinks() {
 
   const classes = useStyles();
+  const [loggedIn, setLoggedIn] = useState(authenticationService.loggedIn);
+
+  const SignInOutButton = () => {
+    if(authenticationService.loggedIn){
+       authenticationService.logout();
+      return(<>Sign Out</>)
+    } else {
+      return (<>Sign In</>)
+    }
+  }
+
+  function logout() {
+      authenticationService.logout();
+      history.push('/login');
+  }
 
   const headerData = [
     {
@@ -71,7 +88,7 @@ export default function HeaderLinks() {
         <CustomDropdown
           noLiPadding
           buttonText="More"
-          dropdownHeader="Pages"
+          dropdownHeader="User Pages"
           buttonProps={{
             className: classes.navLink,
             color: "transparent"
@@ -82,7 +99,7 @@ export default function HeaderLinks() {
               to="/login"
               className={classes.dropdownLink}
               key={"header-link-login"}>
-              Login
+              <SignInOutButton/>
             </Link>,
             { divider: true },
             <Link

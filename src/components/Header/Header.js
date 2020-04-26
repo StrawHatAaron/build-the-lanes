@@ -67,15 +67,7 @@ export default function Header(props) {
   });
   const brandComponent = <Button className={classes.brand} href="/"> {brand} </Button>;
 
-  // const LogInOutButton = () => {
-  //   if(authenticationService.loggedIn) return(<Button>Log Out</Button>)
-  //   else return (<Button>Log In</Button>)
-  // }
 
-  // function logout() {
-  //     authenticationService.logout();
-  //     history.push('/login');
-  // }
 
   return (
     <AppBar className={appBarClasses}>

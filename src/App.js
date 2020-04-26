@@ -8,28 +8,30 @@ import WhyBikes from "views/WhyBikes/WhyBikes.js";
 import AboutUs from "views/AboutUs/AboutUs.js";
 import ContactUs from "views/ContactUs/ContactUs.js";
 import Approach from "views/Approach/Approach.js";
-import UnderConstruction from "views/UnderConstruction/UnderConstruction";
-
+import UnderConstruction from "views/UnderConstruction/UnderConstruction.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import SignUp from "views/SignUp/SignUp.js";
 import HomeLoggedIn from "views/HomeLoggedIn/HomeLoggedIn.js";
 import AdminPage from "views/AdminLoggedIn/AdminPage.js";
-
 //uses the history part
 import {history} from 'helpers/history';
 import {Role} from 'helpers/role'
 import {authenticationService} from 'services/authentication.service';
 import {PrivateRoute} from 'utils/PrivateRoute';
-
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 
+import Button from "@material-ui/core/Button";
+
 export function App(){
+
+
+
   return(
     <HashRouter history={history}>
         <Header
           color="success"
-          brand="Build the Lanes"
+          brand="Build The Lanes˚"
           rightLinks={<HeaderLinks />}
           fixed
           changeColorOnScroll={{
