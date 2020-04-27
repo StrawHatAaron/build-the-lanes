@@ -2,8 +2,8 @@ export routes = [{
     key:"why-bikes",
     path:"/why-bikes",
 },{
-    key:"login-page",
-    path:"/login-page",
+    key:"signin-page",
+    path:"/signin-page",
 },{
     key:"about-us",
     path:"/about-us",
@@ -11,8 +11,8 @@ export routes = [{
     key:"contact-us",
     path:"/contact-us",
 },{
-    key:"login",
-    path:"/login",
+    key:"signin",
+    path:"/signin",
 },{
     key:"sign-up",
     path:"/sign-up",

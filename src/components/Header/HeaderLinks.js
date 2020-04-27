@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 // @material-ui/core components
@@ -23,29 +23,77 @@ import Staffs from "views/HomeLoggedIn/Sections/Staffs.js";
 import ApplicableStandards from "views/HomeLoggedIn/Sections/ApplicableStandards.js";
 import Donates from "views/HomeLoggedIn/Sections/Donates.js";
 import Users from "views/HomeLoggedIn/Sections/Users.js";
-import Admins from "views/HomeLoggedIn/Sections/Admins.js"
-import Engineers from "views/HomeLoggedIn/Sections/Engineers.js"
+import Admins from "views/HomeLoggedIn/Sections/Admins.js";
+import Engineers from "views/HomeLoggedIn/Sections/Engineers.js";
+
+
 
 const useStyles = makeStyles(styles);
 
 export default function HeaderLinks() {
 
   const classes = useStyles();
-  const [loggedIn, setLoggedIn] = useState(authenticationService.loggedIn);
 
-  const SignInOutButton = () => {
-    if(authenticationService.loggedIn){
-       authenticationService.logout();
-      return(<>Sign Out</>)
+  // localStorage.setItem(authenticationService.signedIn(), false)
+
+  console.log("token:", localStorage.getItem("token"))
+
+  const [signedIn, setSignedIn] = useState(localStorage.getItem(authenticationService.signedIn()));
+  const [toUrl, setToUrl] = useState('/signin');
+  const [btnTxt, setBtnTxt] = useState("Sign In")
+  useEffect(() => {
+    authenticationService.signin(
+      localStorage.getItem("email"),
+      localStorage.getItem("password"))
+    .then(
+      user => {
+        console.log("user email:", localStorage.getItem("email"));
+        console.log("user passw:", localStorage.getItem("password"));
+        console.log("user token:", user["token"]);
+        setBtnTxt("Sign Out");
+      },
+      error => {
+        setBtnTxt("Sign In");
+        alert("Error, " + error);
+      }
+    );
+  },[])
+
+  console.log("signedIn:", signedIn)
+
+  const handleSignInOutClick = () => {
+    console.log("sign in and out button clicked");
+    console.log("am i signed in here:", signedIn);
+    if(signedIn){
+      setBtnTxt("Sign Out")
+      setToUrl("/signin");
+      localStorage.setItem(authenticationService.signedIn(), false)
+
     } else {
-      return (<>Sign In</>)
+      setBtnTxt("Sign In");
+      setToUrl("/signin");
     }
   }
 
-  function logout() {
-      authenticationService.logout();
-      history.push('/login');
+  const SignInOutBtn = () => {
+    if(signedIn===true) {return(
+      <div>Sign Out</div>
+    )} else {return(
+      <div>Sign In</div>
+    )}
   }
+
+  const SignInOutLink = () => {
+    console.log("signedIn2:", signedIn);
+    return (
+      <Link
+        to={toUrl}
+        className={classes.dropdownLink}
+        key={"header-link-signin"}
+        onClick={handleSignInOutClick}>
+        <SignInOutBtn/>
+      </Link>
+  )}
 
   const headerData = [
     {
@@ -95,12 +143,7 @@ export default function HeaderLinks() {
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <Link
-              to="/login"
-              className={classes.dropdownLink}
-              key={"header-link-login"}>
-              <SignInOutButton/>
-            </Link>,
+            <SignInOutLink/>,
             { divider: true },
             <Link
               to="/sign-up"

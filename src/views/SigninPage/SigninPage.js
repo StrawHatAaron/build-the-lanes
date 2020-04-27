@@ -13,7 +13,7 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import {CssTextField} from "assets/jss/Constants.js";
-import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import styles from "assets/jss/material-kit-react/views/signinPage.js";
 import {history} from "helpers/history";
 import {authenticationService} from "services/authentication.service"
 import image from "assets/img/sign-in.jpeg";
@@ -21,7 +21,7 @@ import image from "assets/img/sign-in.jpeg";
 
 const useStyles = makeStyles(styles);
 
-export default function LoginPage(props) {
+export default function SigninPage(props) {
 
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
@@ -32,12 +32,6 @@ export default function LoginPage(props) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  useEffect(() => {
-    if (authenticationService.currentUserValue) {
-      history.push('/');
-    }
-  })
 
   return (
     <div>
@@ -125,10 +119,11 @@ export default function LoginPage(props) {
                         } else if(password.trim() === ""){
                           alert("Password Cannot Be Empty")
                         } else {
-                          authenticationService.login(email, password)
+                          authenticationService.signin(email, password)
                           .then(
                             user => {
                               history.push("/home-logged-in/projects");
+                              window.location.reload();
                             },
                             error => {
                               alert("Error, " + error);

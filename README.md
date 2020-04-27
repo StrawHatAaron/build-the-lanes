@@ -54,7 +54,7 @@ This new design has elements that have been the result of research regarding ink
 
 | Login Page | Landing Page | Profile Page  |
 | --- | --- | ---  |
-| [![Login Page](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-kit-react/login-page.png)](https://demos.creative-tim.com/material-kit/#/login-page)  | [![Landing Page](https://github.com/creativetimofficial/public-assets/blob/master/material-kit-react/landing-page.png?raw=true)](https://demos.creative-tim.com/material-kit-react/#/landing-page)  | [![Profile Page](https://github.com/creativetimofficial/public-assets/blob/master/material-kit-react/profile-page.png?raw=true)](https://demos.creative-tim.com/material-kit/#/profile-page)  
+| [![Login Page](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-kit-react/signin-page.png)](https://demos.creative-tim.com/material-kit/#/signin-page)  | [![Landing Page](https://github.com/creativetimofficial/public-assets/blob/master/material-kit-react/landing-page.png?raw=true)](https://demos.creative-tim.com/material-kit-react/#/landing-page)  | [![Profile Page](https://github.com/creativetimofficial/public-assets/blob/master/material-kit-react/profile-page.png?raw=true)](https://demos.creative-tim.com/material-kit/#/profile-page)  
 
 [View More](https://demos.creative-tim.com/material-kit/index.html)
 

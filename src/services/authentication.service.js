@@ -6,12 +6,12 @@ import { handleResponse } from 'helpers/handle-response';
 const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
 
 export const authenticationService = {
-    login,
-    logout,
-    get loggedIn () { localStorage.getItem('loggedIn') }
+    signin,
+    signOut,
+    signedIn,
 };
 
-function login(email, password) {
+function signin(email, password) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -21,11 +21,19 @@ function login(email, password) {
     return fetch("http://localhost:4000/apiv1/users/authenticate", requestOptions)
         .then(handleResponse)
         .then(user => {
-            localStorage.setItem('loggedIn', true);
+            localStorage.setItem(signedIn(), true);
+
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', password);
+
             return user;
         });
 }
 
-function logout() {
-    localStorage.setItem('loggedIn', false);
+function signOut() {
+    localStorage.setItem(signedIn(), false);
+}
+
+function signedIn(){
+  return 'singedIn'
 }

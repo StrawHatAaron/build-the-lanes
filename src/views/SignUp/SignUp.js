@@ -15,7 +15,7 @@ import CardFooter from "components/Card/CardFooter.js";
 import MenuItem from '@material-ui/core/MenuItem';
 import {CssTextField} from "assets/jss/Constants.js";
 import {RoleBasedUsers} from "views/HomeLoggedIn/Models.js";
-import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import styles from "assets/jss/material-kit-react/views/signinPage.js";
 import {history} from "helpers/history";
 import {authenticationService} from "services/authentication.service";
 import image from "assets/img/bike-sign-up.jpg";
@@ -176,7 +176,7 @@ export default function SignUp(props){
                         } else if(password.trim() === ""){
                           alert("Password Cannot Be Empty")
                         } else {
-                          authenticationService.login(email, password)
+                          authenticationService.signin(email, password)
                           .then(
                             user => {
                               history.push("/home-logged-in/users");

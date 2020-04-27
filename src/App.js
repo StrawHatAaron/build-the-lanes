@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { HashRouter, Route, Switch, Link } from "react-router-dom";
 //template designs from material ui and creative time
 import "assets/scss/material-kit-react.scss?v=1.8.0";
@@ -9,7 +9,7 @@ import AboutUs from "views/AboutUs/AboutUs.js";
 import ContactUs from "views/ContactUs/ContactUs.js";
 import Approach from "views/Approach/Approach.js";
 import UnderConstruction from "views/UnderConstruction/UnderConstruction.js";
-import LoginPage from "views/LoginPage/LoginPage.js";
+import SigninPage from "views/SigninPage/SigninPage.js";
 import SignUp from "views/SignUp/SignUp.js";
 import HomeLoggedIn from "views/HomeLoggedIn/HomeLoggedIn.js";
 import AdminPage from "views/AdminLoggedIn/AdminPage.js";
@@ -24,6 +24,7 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import Button from "@material-ui/core/Button";
 
 export function App(){
+
 
 
 
@@ -45,9 +46,9 @@ export function App(){
           exact path="/why-bikes"
           component={WhyBikes} />
         <Route
-          key="login-page"
-          exact path="/login"
-          component={LoginPage} />
+          key="signin-page"
+          exact path="/signin"
+          component={SigninPage} />
         <Route
           key="sign-up"
           exact path="/sign-up"
