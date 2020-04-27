@@ -123,7 +123,6 @@ export default function SigninPage(props) {
                           .then(
                             user => {
                               history.push("/home-logged-in/projects");
-                              window.location.reload();
                             },
                             error => {
                               alert("Error, " + error);

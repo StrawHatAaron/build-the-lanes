@@ -8,17 +8,11 @@ import {authenticationService} from 'services/authentication.service';
 
 export default function Projects() {
 
-  console.log("signedIn:",localStorage.getItem(authenticationService.signedIn()))
-
   const columns = ProjectsM;
   const [state, setState] = useState(ProjectsM)
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.value });
   };
-
-  function signOut(){
-    localStorage.setItem(authenticationService.signedIn(), false);
-  }
 
   return (
     <div >
@@ -39,13 +33,6 @@ export default function Projects() {
         primary color="info">
         INSERT/POST
       </Button>
-
-      <Button
-        onClick={() => signOut()}
-        primary color="danger">
-        SIGN OUT
-      </Button>
-
       <Table columns={columns} url={ProjectsURL}/>
     </div>
   );

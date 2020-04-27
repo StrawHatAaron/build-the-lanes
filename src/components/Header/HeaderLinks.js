@@ -1,3 +1,4 @@
+//Written By Aaron Miller
 import React, {useState, useEffect} from "react";
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
@@ -25,7 +26,8 @@ import Donates from "views/HomeLoggedIn/Sections/Donates.js";
 import Users from "views/HomeLoggedIn/Sections/Users.js";
 import Admins from "views/HomeLoggedIn/Sections/Admins.js";
 import Engineers from "views/HomeLoggedIn/Sections/Engineers.js";
-
+//put work into the button - would like to have it work with token in furture maybe
+import {SignInOutButton} from "components/Header/SignInOutButton.js";
 
 
 const useStyles = makeStyles(styles);
@@ -33,67 +35,6 @@ const useStyles = makeStyles(styles);
 export default function HeaderLinks() {
 
   const classes = useStyles();
-
-  // localStorage.setItem(authenticationService.signedIn(), false)
-
-  console.log("token:", localStorage.getItem("token"))
-
-  const [signedIn, setSignedIn] = useState(localStorage.getItem(authenticationService.signedIn()));
-  const [toUrl, setToUrl] = useState('/signin');
-  const [btnTxt, setBtnTxt] = useState("Sign In")
-  useEffect(() => {
-    authenticationService.signin(
-      localStorage.getItem("email"),
-      localStorage.getItem("password"))
-    .then(
-      user => {
-        console.log("user email:", localStorage.getItem("email"));
-        console.log("user passw:", localStorage.getItem("password"));
-        console.log("user token:", user["token"]);
-        setBtnTxt("Sign Out");
-      },
-      error => {
-        setBtnTxt("Sign In");
-        alert("Error, " + error);
-      }
-    );
-  },[])
-
-  console.log("signedIn:", signedIn)
-
-  const handleSignInOutClick = () => {
-    console.log("sign in and out button clicked");
-    console.log("am i signed in here:", signedIn);
-    if(signedIn){
-      setBtnTxt("Sign Out")
-      setToUrl("/signin");
-      localStorage.setItem(authenticationService.signedIn(), false)
-
-    } else {
-      setBtnTxt("Sign In");
-      setToUrl("/signin");
-    }
-  }
-
-  const SignInOutBtn = () => {
-    if(signedIn===true) {return(
-      <div>Sign Out</div>
-    )} else {return(
-      <div>Sign In</div>
-    )}
-  }
-
-  const SignInOutLink = () => {
-    console.log("signedIn2:", signedIn);
-    return (
-      <Link
-        to={toUrl}
-        className={classes.dropdownLink}
-        key={"header-link-signin"}
-        onClick={handleSignInOutClick}>
-        <SignInOutBtn/>
-      </Link>
-  )}
 
   const headerData = [
     {
@@ -143,7 +84,7 @@ export default function HeaderLinks() {
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <SignInOutLink/>,
+            <SignInOutButton/>,
             { divider: true },
             <Link
               to="/sign-up"

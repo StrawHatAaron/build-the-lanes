@@ -68,8 +68,6 @@ export default function Table(props){
   };
 
   const handleDelete = () => {
-
-
     var foundCheck, moreThanOneChecked, foundOneCheck = false;
     Object.values(state).map((c) => {
       //check if any boxes are checked
