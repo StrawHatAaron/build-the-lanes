@@ -17,7 +17,7 @@ export default function Users() {
   //need some things to check based off
   //which type of input box to display
   const dontDisplay = ["Id", "PasswordHash", "PasswordSalt"]
-  const intAttributes = ["Id", "AmountDonated"]
+  const intAttributes = ["AmountDonated"]
   const dateAttributes = ["Created"]
   const money = ["AmountDonated"]
 
