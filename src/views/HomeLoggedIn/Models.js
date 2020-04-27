@@ -14,8 +14,9 @@ export function postData(url, data){
   })
   .then((response) => response.json())
   .then((data) => {
+    alert("success");
     console.log('Success:', data);
-    // window.location.reload();
+    window.location.reload();
   })
   .catch((error) => {
     console.error('Error:', error);
@@ -30,11 +31,12 @@ export function deleteData(url, data){
   })
   .then((response) => response.json())
   .then((data) => {
+    alert("success");
     console.log('Success:', data);
     window.location.reload();
   })
   .catch((error) => {
-    console.error('Error:', error);
+    alert('Error:', error);
   });
 }
 

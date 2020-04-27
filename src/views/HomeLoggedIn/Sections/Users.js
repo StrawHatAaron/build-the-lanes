@@ -11,15 +11,16 @@ export default function Users() {
   Array.prototype.contains = function (obj) {
     return this.indexOf(obj) > -1;
   };
-
-  const columns = UsersM;
-  const inputCols = UsersSignUpM;
   //need some things to check based off
   //which type of input box to display
   const dontDisplay = ["Id", "PasswordHash", "PasswordSalt"]
   const intAttributes = ["AmountDonated"]
   const dateAttributes = ["Created"]
   const money = ["AmountDonated"]
+
+  const columns = UsersM;
+  const inputCols = UsersSignUpM;
+
 
 
   const [state, setState] = useState(UsersSignUpM)
@@ -39,9 +40,12 @@ export default function Users() {
       body: JSON.stringify(data),
     })
     .then((response) => {
+      alert("Success");
       console.log('response:', response);
+      window.location.reload();
     })
     .catch((error) => {
+      alert("Error", error);
       console.error('Error:', error);
     });
   }
