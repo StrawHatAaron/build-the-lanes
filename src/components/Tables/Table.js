@@ -102,13 +102,13 @@ export default function Table(props){
           break;
         case Models.ProjectsM:
           // console.log("data",data[indexToDeleteAt]["project_number"]);
-          // Models.deleteDataId(ApiConstants.ProjectsURL, data[indexToDeleteAt]["project_number"]);
+          //Models.deleteDataId(ApiConstants.ProjectsURL, data[indexToDeleteAt]["project_number"]);
           break;
         case Models.ResponsibilitiesM:
           Models.deleteData(ApiConstants.ResponsibilitiesURL, data[indexToDeleteAt])
           break;
         case Models.ApplicableStandardsM:
-          // Models.deleteData(ApiConstants.ApplicableStandardsURL)
+          Models.deleteData(ApiConstants.ApplicableStandardsURL, data[indexToDeleteAt])
           break;
         case Models.DonatesM:
           Models.deleteData(ApiConstants.DonatesURL, data[indexToDeleteAt])

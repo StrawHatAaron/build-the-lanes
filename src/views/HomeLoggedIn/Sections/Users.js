@@ -17,9 +17,9 @@ export default function Users() {
   //need some things to check based off
   //which type of input box to display
   const dontDisplay = ["Id", "PasswordHash", "PasswordSalt"]
-  const intAttributes = ["Id"]
+  const intAttributes = ["Id", "AmountDonated"]
   const dateAttributes = ["Created"]
-  const money = ["Amount Donated"]
+  const money = ["AmountDonated"]
 
 
   const [state, setState] = useState(UsersSignUpM)
