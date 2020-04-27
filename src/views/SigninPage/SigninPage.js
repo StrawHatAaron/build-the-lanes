@@ -35,13 +35,6 @@ export default function SigninPage(props) {
 
   return (
     <div>
-      <Header
-        absolute
-        color="success"
-        brand="Build the Lanes"
-        rightLinks={<HeaderLinks />}
-        {...rest}
-      />
       <div
         className={classes.pageHeader}
         style={{

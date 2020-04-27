@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useReducer} from 'react';
 import { HashRouter, Route, Switch, Link } from "react-router-dom";
 //template designs from material ui and creative time
 import "assets/scss/material-kit-react.scss?v=1.8.0";
@@ -23,23 +23,41 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 
 import Button from "@material-ui/core/Button";
 
-export function App(){
+function reducer(state, action){
 
+  console.log("pressed")
 
+  switch(action.type){
+    case true:
+      localStorage.setItem("signedIn", false);
+      return "sign out";
+    case false:
+      localStorage.setItem("signedIn", true);
+      return "sign in";
+    default:
+      return state;
+  }
+}
+
+const App = () =>{
+
+  const [count, dispatch] = useReducer(reducer, "sign out");
 
 
   return(
     <HashRouter history={history}>
-        <Header
-          color="success"
-          brand="Build The Lanes˚"
-          rightLinks={<HeaderLinks />}
-          fixed
-          changeColorOnScroll={{
-            height: 400,
-            color: "white"
-          }}
-        />
+      <h1>obj: {count}</h1>
+      <button onClick={() => dispatch({type: localStorage.getItem("signedIn")})}>sign</button>
+      <Header
+        color="success"
+        brand="Build The Lanes˚"
+        rightLinks={<HeaderLinks />}
+        fixed
+        changeColorOnScroll={{
+          height: 400,
+          color: "white"
+        }}
+      />
       <Switch>
         <Route
           key="why-bikes"

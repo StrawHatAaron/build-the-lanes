@@ -98,22 +98,23 @@ export default function Table(props){
           Models.deleteData(ApiConstants.EngineerCertificationsURL, data[indexToDeleteAt]);
           break;
         case Models.EngineerDegreesM:
-          Models.deleteData()
+          Models.deleteData(ApiConstants.EngineerDegreesURL, data[indexToDeleteAt]);
           break;
         case Models.ProjectsM:
-          Models.deleteData()
+          // console.log("data",data[indexToDeleteAt]["project_number"]);
+          // Models.deleteDataId(ApiConstants.ProjectsURL, data[indexToDeleteAt]["project_number"]);
           break;
         case Models.ResponsibilitiesM:
-          Models.deleteData()
+          Models.deleteData(ApiConstants.ResponsibilitiesURL, data[indexToDeleteAt])
           break;
         case Models.ApplicableStandardsM:
-          Models.deleteData()
+          // Models.deleteData(ApiConstants.ApplicableStandardsURL)
           break;
         case Models.DonatesM:
-          Models.deleteData()
+          Models.deleteData(ApiConstants.DonatesURL, data[indexToDeleteAt])
           break;
         case Models.UsersM:
-          Models.deleteData()
+          // Models.deleteData(ApiConstants.UsersM)
           break;
       }
     }

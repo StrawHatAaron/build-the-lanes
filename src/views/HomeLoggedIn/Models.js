@@ -39,14 +39,14 @@ export function deleteData(url, data){
 }
 
 export function deleteDataId(url, id){
-  fetch(url, {
+  fetch(url+id, {
     method: 'DELETE', // or 'PUT'
     headers: Headers,
-    body: JSON.stringify(id),
   })
   .then((response) => response.json())
-  .then((id) => {
-    console.log('Success:', id);
+  .then((data) => {
+    console.log('Success:', data);
+    window.location.reload();
   })
   .catch((error) => {
     console.error('Error:', error);
