@@ -101,8 +101,8 @@ export default function Table(props){
           Models.deleteData(ApiConstants.EngineerDegreesURL, data[indexToDeleteAt]);
           break;
         case Models.ProjectsM:
-          // console.log("data",data[indexToDeleteAt]["project_number"]);
-          //Models.deleteDataId(ApiConstants.ProjectsURL, data[indexToDeleteAt]["project_number"]);
+          console.log("data at index",data[indexToDeleteAt]);
+          Models.deleteDataId(ApiConstants.ProjectsURL, data[indexToDeleteAt]["project_number"]);
           break;
         case Models.ResponsibilitiesM:
           Models.deleteData(ApiConstants.ResponsibilitiesURL, data[indexToDeleteAt])
@@ -114,7 +114,8 @@ export default function Table(props){
           Models.deleteData(ApiConstants.DonatesURL, data[indexToDeleteAt])
           break;
         case Models.UsersM:
-          // Models.deleteData(ApiConstants.UsersM)
+          console.log(data[indexToDeleteAt]);
+          Models.deleteDataId(ApiConstants.UserURL, data[indexToDeleteAt]["id"]);
           break;
       }
     }
@@ -127,10 +128,7 @@ export default function Table(props){
         primary color="danger">
         DELETE
       </Button>
-      <Button
-        primary color="warning">
-        UPDATE/PUT
-      </Button>
+
       <table id="customers">
         <tr>
           <th>Check a heart box and click the delete button to remove row. <br/>Note: this column is not a part of the database. It is only used in frontend to easily select database keys.</th>

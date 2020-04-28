@@ -51,7 +51,7 @@ export default function Projects() {
     .then((response) => {
       alert("Success");
       console.log('response:', response);
-      // window.location.reload();
+      window.location.reload();
     })
     .catch((error) => {
       alert("Error");

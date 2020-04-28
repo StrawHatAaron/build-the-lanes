@@ -4,14 +4,16 @@
 const BaseURL = 'http://localhost:4000/apiv1/'
 
 
+
+export const UserURL = BaseURL + 'users/'
 export const RegisterURL = UserURL + 'register/'
 export const AuthenticateUserURL = UserURL + 'authenticate/'
 
-export const UserURL = BaseURL + 'users/'
 export const AdminsURL = BaseURL + 'admins/'
 export const EngineersURL = BaseURL + 'engineers/'
 export const DonatorsURL = BaseURL + 'donators/'
 export const StaffsURL = BaseURL + 'staffs/'
+
 export const ApplicableStandardsURL = BaseURL + 'applicablestandards/'
 export const EngineerCertificationsURL = BaseURL + 'engineercertifications/'
 export const EngineerDegreesURL = BaseURL + 'engineerdegrees/'

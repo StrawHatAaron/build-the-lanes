@@ -41,16 +41,21 @@ export function deleteData(url, data){
 }
 
 export function deleteDataId(url, id){
+
+  console.log('url:',url);
+  console.log('id:',id);
+
   fetch(url+id, {
     method: 'DELETE', // or 'PUT'
     headers: Headers,
   })
-  .then((response) => response.json())
   .then((data) => {
     console.log('Success:', data);
     window.location.reload();
+    alert("Success");
   })
   .catch((error) => {
+    alert("Error");
     console.error('Error:', error);
   });
 }

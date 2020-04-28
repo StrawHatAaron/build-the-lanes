@@ -14,7 +14,8 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import MenuItem from '@material-ui/core/MenuItem';
 import {CssTextField} from "assets/jss/Constants.js";
-import {RoleBasedUsers} from "views/HomeLoggedIn/Models.js";
+import {UserURL} from "utils/ApiConstants.js"
+import {UsersM, UsersSignUpM, Headers, RoleBasedUsers} from "views/HomeLoggedIn/Models.js";
 import styles from "assets/jss/material-kit-react/views/signinPage.js";
 import {history} from "helpers/history";
 import {authenticationService} from "services/authentication.service";
@@ -24,6 +25,75 @@ const useStyles = makeStyles(styles);
 
 export default function SignUp(props){
 
+  Array.prototype.contains = function (obj) {
+    return this.indexOf(obj) > -1;
+  };
+  //need some things to check based off
+  //which type of input box to display
+  const dontDisplay = ["Id", "PasswordHash", "PasswordSalt", "Title", "Type", "Created", "AmountDonated"]
+  const intAttributes = ["AmountDonated"]
+  const dateAttributes = ["Created"]
+  const money = ["AmountDonated"]
+
+  const columns = UsersM;
+  const inputCols = UsersSignUpM;
+
+  const [inputShow, setInputShow] = useState([]);
+  const [state, setState] = useState(UsersSignUpM)
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.value });
+
+    if(event.target.name==="Roles"){
+      switch(event.target.value){
+        case 'd':
+        console.log("set to donator");
+        setInputShow(["AmountDonated"]);
+        break;
+        case 's':
+        console.log("set to staff");
+        setInputShow(["Title", "Type", "Created"]);
+        break;
+        case 'e':
+        setInputShow(["Title", "Type"]);
+        break;
+        case 'a':
+        setInputShow(["Title", "Created"]);
+        break;
+        case 'sd':
+        setInputShow(["Title", "Type", "Created", "AmountDonated"]);
+        break;
+        case 'ed':
+        setInputShow(["Title", "Type", "AmountDonated"]);
+        break;
+        case 'ad':
+        setInputShow(["Title", "Created", "AmountDonated"]);
+        break;
+      }
+    }
+
+  };
+
+  function postData(url, data){
+
+    data.AmountDonated = 10.50;
+    data.Created = new Date(data.Created).toISOString()
+
+    fetch(url, {
+      method: 'POST', // or 'PUT'
+      headers: Headers,
+      body: JSON.stringify(data),
+    })
+    .then((response) => {
+      alert("Success");
+      console.log('response:', response);
+      window.location.reload();
+    })
+    .catch((error) => {
+      alert("Error", error);
+      console.error('Error:', error);
+    });
+  }
+
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
     setCardAnimation("");
@@ -31,14 +101,7 @@ export default function SignUp(props){
   const classes = useStyles();
   const { ...rest } = props;
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  useEffect(() => {
-    if (authenticationService.currentUserValue) {
-      history.push('/');
-    }
-  })
 
   return (
     <div>
@@ -96,99 +159,94 @@ export default function SignUp(props){
                   </CardHeader>
                   <p className={classes.divider}>Enter your Credentials</p>
                   <CardBody>
-                  <CssTextField
-                      variant="outlined"
-                      margin="normal"
-                      id="email"
-                      label="Email Address"
-                      name="email"
-                      autoComplete="email"
-                      onChange={(e) => setEmail(e.target.value)} />
-                  <CssTextField
-                      type = "password"
-                      variant="outlined"
-                      margin="normal"
-                      id="password"
-                      label="Password"
-                      name="password"
-                      autoComplete="current-password"
-                      onChange={(e) => setPassword(e.target.value)}/>
-                  <CssTextField
-                      type = "first-name"
-                      variant="outlined"
-                      margin="normal"
-                      id="first-name"
-                      label="First Name"
-                      name="first-name"
-                      autoComplete="first-name"
-                      onChange={(e) => setPassword(e.target.value)}/>
-                  <CssTextField
-                      type = "family-name"
-                      variant="outlined"
-                      margin="normal"
-                      id="last-name"
-                      label="Last Name"
-                      name="password"
-                      autoComplete="current-password"
-                      onChange={(e) => setPassword(e.target.value)}/>
-                  <CssTextField
-                    variant="outlined"
-                    margin="normal"
-                    id={"Roles"}
-                    select label="Choose Type of User"
-                    name={"Roles"}
-                    helperText="User type choosen will trigger the material user views to be populated">
-                    {RoleBasedUsers.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                    ))}
-                  </CssTextField>
-
-                  <CssTextField
-                      type = "password"
-                      variant="outlined"
-                      margin="normal"
-                      id="password"
-                      label="Password"
-                      name="password"
-                      autoComplete="current-password"
-                      onChange={(e) => setPassword(e.target.value)}/>
-                  <CssTextField
-                      type = "password"
-                      variant="outlined"
-                      margin="normal"
-                      id="password"
-                      label="Password"
-                      name="password"
-                      autoComplete="current-password"
-                      onChange={(e) => setPassword(e.target.value)}/>
+                  {Object.keys(inputCols).map((key, i) => {
+                    if(dontDisplay.contains(key)){}//do nothing because we don't want it displayed
+                    else if(key==="Roles") {return(
+                      [<CssTextField
+                        variant="outlined"
+                        margin="normal"
+                        id={key}
+                        select label="Choose Type of User"
+                        value={state.Roles}
+                        name={key}
+                        onChange={handleChange}
+                        helperText="User type choosen will trigger the material user views to be populated">
+                        {RoleBasedUsers.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                        ))}
+                      </CssTextField>]
+                    )} else if (intAttributes.contains(key)) {return(
+                      <CssTextField
+                        variant="outlined"
+                        margin="normal"
+                        id={key}
+                        type="number"
+                        label={Object.values(inputCols)[i]}
+                        name={key}
+                        onChange={handleChange} />
+                    )} else if(dateAttributes.contains(key)) {return(
+                      <CssTextField
+                        variant="outlined"
+                        margin="normal"
+                        id={key}
+                        name={key}
+                        label="Created"
+                        type="datetime-local"
+                        defaultValue="2017-05-24T09:18:54.092Z"
+                        InputLabelProps={{shrink: true,}}
+                        onChange={handleChange}/>
+                    )} else {return(
+                      <CssTextField
+                        variant="outlined"
+                        margin="normal"
+                        id={key}
+                        label={Object.values(inputCols)[i]}
+                        name={key}
+                        onChange={handleChange} />
+                    )}
+                  })}
+                  {Object.keys(inputCols).map((key, i) => {
+                    if(inputShow.contains(key)) {
+                      if (intAttributes.contains(key)) {return(
+                        <CssTextField
+                          variant="outlined"
+                          margin="normal"
+                          id={key}
+                          type="number"
+                          label={Object.values(inputCols)[i]}
+                          name={key}
+                          onChange={handleChange} />
+                      )} else if(dateAttributes.contains(key)) {return(
+                        <CssTextField
+                          variant="outlined"
+                          margin="normal"
+                          id={key}
+                          name={key}
+                          label="Created"
+                          type="datetime-local"
+                          defaultValue="2017-05-24T09:18:54.092Z"
+                          InputLabelProps={{shrink: true,}}
+                          onChange={handleChange}/>
+                      )} else {return(
+                        <CssTextField
+                          variant="outlined"
+                          margin="normal"
+                          id={key}
+                          label={Object.values(inputCols)[i]}
+                          name={key}
+                          onChange={handleChange} />
+                      )}
+                    }
+                  })}
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button
-                      simple color="primary"
-                      size="lg"
-                      onClick={() => {
-                        console.log(email);
-                        console.log(password);
-                        if(email.trim() === ""){
-                          alert("Email Cannot Be Empty")
-                        } else if(password.trim() === ""){
-                          alert("Password Cannot Be Empty")
-                        } else {
-                          authenticationService.signin(email, password)
-                          .then(
-                            user => {
-                              history.push("/home-logged-in/users");
-                            },
-                            error => {
-                              alert("Error, " + error);
-                            }
-                          );
-                        }
-                      }}>
-                      Get started
-                    </Button>
+                  <Button
+                    onClick={() => postData(UserURL+"register/", state)}
+                    primary color="info">
+                    INSERT/POST
+                  </Button>
                   </CardFooter>
                 </form>
               </Card>
