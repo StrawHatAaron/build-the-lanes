@@ -36,10 +36,14 @@ export default function Responsibilities() {
     })
     .then((response) => response.json())
     .then((data) => {
+      alert("success");
       console.log('Success:', data);
+      window.location.reload();
     })
     .catch((error) => {
+      alert("success", error);
       console.error('Error:', error);
+
     });
   }
 

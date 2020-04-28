@@ -2,11 +2,12 @@ import React, {useState, useEffect} from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Table from "components/Tables/Table.js"
 import {ProjectsURL} from "utils/ApiConstants.js"
-import {ProjectsM, postData} from "views/HomeLoggedIn/Models.js";
+import {ProjectsM, Headers} from "views/HomeLoggedIn/Models.js";
 import {CssTextField} from "assets/jss/Constants.js";
 import {authenticationService} from 'services/authentication.service';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
+
 
 export default function Projects() {
 
@@ -29,16 +30,31 @@ export default function Projects() {
 
 
   function postData(url, data){
-    data.Created = new Date(data.Created).toISOString()
+
+    console.log("start_date:", data["StartDate"]);
+    const startDate = data.StartDate;
+    const dateArray = startDate.split('-');
+    const startDateF = dateArray[1]+'-'+dateArray[2]+'-'+dateArray[0]
+    console.log("startDateF:", startDateF);
+    // console.log("formatted date month:", startDateF);
+    const send = {
+    	"start_date":startDateF,
+    	"status":data.Status,
+    	"city":data.City,
+    	"zip_code":data.ZipCode
+    };
     fetch(url, {
       method: 'POST', // or 'PUT'
       headers: Headers,
-      body: JSON.stringify(data),
+      body: JSON.stringify(send),
     })
     .then((response) => {
+      alert("Success");
       console.log('response:', response);
+      // window.location.reload();
     })
     .catch((error) => {
+      alert("Error");
       console.error('Error:', error);
     });
   }
@@ -52,9 +68,9 @@ export default function Projects() {
             variant="outlined"
             margin="normal"
             id={key}
+            name={key}
             type="number"
             label={Object.values(inputCols)[i]}
-            name={key}
             onChange={handleChange} />
         )} else if(dateAttributes.contains(key)) {return(
           <CssTextField
@@ -62,24 +78,24 @@ export default function Projects() {
             margin="normal"
             id={key}
             name={key}
-            label="Next appointment"
-            type="datetime-local"
-            defaultValue="2017-05-24T09:18:54.092Z"
+            label={Object.values(inputCols)[i]}
+            type="date"
             InputLabelProps={{shrink: true,}}
-            onChange={handleChange}/>
+            onChange={handleChange}
+         />
         )} else {return(
           <CssTextField
             variant="outlined"
             margin="normal"
             id={key}
-            label={Object.values(inputCols)[i]}
             name={key}
+            label={Object.values(inputCols)[i]}
             autoComplete="email"
             onChange={handleChange} />
         )}
       })}
       <Button
-        onClick={() => postData(ProjectsURL+"register/", state)}
+        onClick={() => postData(ProjectsURL, state)}
         primary color="info">
         INSERT/POST
       </Button>

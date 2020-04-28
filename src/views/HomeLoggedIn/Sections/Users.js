@@ -86,7 +86,7 @@ export default function Users() {
             margin="normal"
             id={key}
             name={key}
-            label="Next appointment"
+            label="Created"
             type="datetime-local"
             defaultValue="2017-05-24T09:18:54.092Z"
             InputLabelProps={{shrink: true,}}
