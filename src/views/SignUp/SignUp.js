@@ -75,8 +75,15 @@ export default function SignUp(props){
 
   function postData(url, data){
 
-    data.AmountDonated = 10.50;
-    data.Created = new Date(data.Created).toISOString()
+    data.AmountDonated = parseInt(data.AmountDonated);
+
+    console.log("date Created:", data.Created);
+    if(data.Created==="Created"){
+      data.Created = "2017-05-11T09:18:54.092Z"
+    } else {
+      data.Created = new Date(data.Created).toISOString()
+    }
+
 
     fetch(url, {
       method: 'POST', // or 'PUT'
@@ -84,9 +91,9 @@ export default function SignUp(props){
       body: JSON.stringify(data),
     })
     .then((response) => {
-      alert("Success");
       console.log('response:', response);
-      window.location.reload();
+      alert("Success. Go see the entry for user.");
+      history.push("/home-logged-in/users");
     })
     .catch((error) => {
       alert("Error", error);

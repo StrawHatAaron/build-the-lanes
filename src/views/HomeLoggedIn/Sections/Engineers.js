@@ -5,7 +5,7 @@ import {EngineersURL} from "utils/ApiConstants.js"
 import {EngineersM, postData} from "views/HomeLoggedIn/Models.js";
 
 
-export default function Engineers() {
+export default function Engineers(props) {
 
   const columns = EngineersM;
   const [state, setState] = useState(EngineersM)
@@ -19,6 +19,7 @@ export default function Engineers() {
     We should only select from the Materialized View Engineers
     </h2>
       <Button
+        allowDelete={props.allowDelete}
         primary color="success">
         SELECT/GET Users
       </Button>

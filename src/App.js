@@ -42,12 +42,12 @@ function reducer(state, action){
 const App = () =>{
 
   const [count, dispatch] = useReducer(reducer, "sign out");
-
+  // <h1>obj: {count}</h1>
+  // <button onClick={() => dispatch({type: localStorage.getItem("signedIn")})}>sign</button>
 
   return(
     <HashRouter history={history}>
-      <h1>obj: {count}</h1>
-      <button onClick={() => dispatch({type: localStorage.getItem("signedIn")})}>sign</button>
+
       <Header
         color="success"
         brand="Build The Lanes˚"

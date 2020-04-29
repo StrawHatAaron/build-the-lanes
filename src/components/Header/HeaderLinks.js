@@ -84,7 +84,12 @@ export default function HeaderLinks() {
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <SignInOutButton/>,
+            <Link
+              to="/signin"
+              className={classes.dropdownLink}
+              key={"header-link-sign-up"}>
+              Sign in
+            </Link>,
             { divider: true },
             <Link
               to="/sign-up"
@@ -108,57 +113,57 @@ export const DatabasePages = [{
   title:'Users',
   path:homeLoggedInPath+'users',
   explanation:'Info',
-  componentSection:Users
+  componentSection:() => <Users allowDelete={false}/>
 },{
   title:'Admins',
   path:homeLoggedInPath+'admins',
   explanation:'Info',
-  componentSection:Admins
+  componentSection:() => <Admins allowDelete={false}/>
 },{
   title: 'Staffs',
   path:homeLoggedInPath+'staffs',
   explanation:'Info',
-  componentSection:Staffs
+  componentSection:() => <Staffs allowDelete={false}/>
 },{
   title:'Engineers',
   path:homeLoggedInPath+'engineers',
   explanation:'Info',
-  componentSection:Engineers
+  componentSection:() => <Engineers allowDelete={false}/>
 },{
   title:'Donators',
   path:homeLoggedInPath+'donators',
   explanation:' Info',
-  componentSection:Donators
+  componentSection:() => <Donators allowDelete={false}/>
 },{
   title:'Projects',
   path:homeLoggedInPath+'projects',
   explanation:' Info',
-  componentSection:Projects
+  componentSection:() => <Projects allowDelete={true}/>
 },{
   title:'Responsibilities',
   path:homeLoggedInPath+'responsibilities',
   explanation:' Info',
-  componentSection:Responsibilities
+  componentSection:() => <Responsibilities allowDelete={true}/>
 },{
   title:'Donates',
   path:homeLoggedInPath+'donates',
   explanation:' Info',
-  componentSection:Donates
+  componentSection:() => <Donates allowDelete={true}/>
 },{
   title:'Applicable Standards',
   path:homeLoggedInPath+'applicable-standards',
   explanation:' Info',
-  componentSection:ApplicableStandards
+  componentSection:() => <ApplicableStandards allowDelete={true}/>
 },{
   title:'Engineer Certifications',
   path:homeLoggedInPath+'engineer-certifications',
   explanation:'Engineer Database Info',
-  componentSection:EngineerCertifications
+  componentSection:() => <EngineerCertifications allowDelete={true}/>
 },{
   title:'Engineer Degrees',
   path:homeLoggedInPath+'engineer-degrees',
   explanation:'Engineer Database Info',
-  componentSection:EngineerDegrees
+  componentSection:() => <EngineerDegrees allowDelete={true}/>
 }];
 
 const DatabaseButtonStyle = {

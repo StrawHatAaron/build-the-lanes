@@ -5,7 +5,7 @@ import {ApplicableStandardsURL} from "utils/ApiConstants.js"
 import {ApplicableStandardsM, Headers} from "views/HomeLoggedIn/Models.js";
 import {CssTextField} from "assets/jss/Constants.js";
 
-export default function ApplicableStandards() {
+export default function ApplicableStandards(props) {
 
   Array.prototype.contains = function (obj) {
     return this.indexOf(obj) > -1;
@@ -42,6 +42,7 @@ export default function ApplicableStandards() {
 
   return (
     <div >
+    <div> Make sure the Project Number is a valid Project Number in Projects.</div>
     {Object.keys(columns).map((key, i) => {
       if (intAttributes.contains(key)) {return(
         <CssTextField
@@ -70,6 +71,7 @@ export default function ApplicableStandards() {
         INSERT/POST
       </Button>
       <Table
+        allowDelete={props.allowDelete}
         columns={columns}
         url={ApplicableStandardsURL}/>
     </div>

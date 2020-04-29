@@ -5,7 +5,7 @@ import {StaffsURL} from "utils/ApiConstants.js"
 import {StaffsM, Headers} from "views/HomeLoggedIn/Models.js";
 
 
-export default function Staffs() {
+export default function Staffs(props) {
 
   const columns = StaffsM
   const [state, setState] = useState(StaffsM)
@@ -16,13 +16,13 @@ export default function Staffs() {
   return (
     <div >
       <h2>
-        We should only select from the Materialized View Engineers
+        We should only select from the Materialized Staffs
       </h2>
       <Button
         primary color="success">
         SELECT/GET Users
       </Button>
-      <Table columns={columns} url={StaffsURL}/>
+      <Table allowDelete={props.allowDelete} columns={columns} url={StaffsURL}/>
     </div>
   );
 }

@@ -20,12 +20,16 @@ export default function TeamSection() {
     classes.imgFluid
   );
 
-  const aboutUsData = [
-    {
+  const aboutUsData = [{
       name: "Steffen Berr",
       title: "Transportation Engineer",
       description: "Planning, traffic analysis, roadway design",
       pic: "steffen.png"
+    },{
+      name: "Aaron Miller",
+      title: "Software Developer and Systems Analyst",
+      description: "Safety and Health Contract Managment",
+      pic: "aaron.png"
     },{
       name: "Luis Martin",
       title: "Transportation Engineer",
@@ -41,11 +45,6 @@ export default function TeamSection() {
       title: "Civil Engineer",
       description: "Safety and Health Contract Managment",
       pic: "mark.jpg"
-    },{
-      name: "Aaron Miller",
-      title: "Software Developer and Systems Analyst",
-      description: "Safety and Health Contract Managment",
-      pic: "aaron.png"
     }
   ];
 
@@ -54,9 +53,9 @@ export default function TeamSection() {
       <GridItem xs={12} sm={12} md={6}>
         <Card plain>
           <GridItem xs={12} sm={12} md={12} className={classes.itemGrid}>
-            <img 
-              src={require("assets/img/faces/"+c.pic)} 
-              alt="..." 
+            <img
+              src={require("assets/img/faces/"+c.pic)}
+              alt="..."
               className={imageClasses} />
           </GridItem>
           <h4 className={classes.cardTitle}>
@@ -75,7 +74,7 @@ export default function TeamSection() {
     <div className={classes.section}>
       <h2 className={classes.title}>About Us</h2>
       <div className={classes.section}>
-      We are a 501(c)(3) corporation committed to lowering costs and delivery time for bicycle infrastructure projects in American cities. We partner with your town to donate the required engineering work to bring unfunded projects to life and fastrack their construction. 
+      We are a 501(c)(3) corporation committed to lowering costs and delivery time for bicycle infrastructure projects in American cities. We partner with your town to donate the required engineering work to bring unfunded projects to life and fastrack their construction.
       </div>
       <GridContainer>
         {aboutUsContent}

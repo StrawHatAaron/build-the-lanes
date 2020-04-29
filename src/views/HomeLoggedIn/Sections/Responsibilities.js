@@ -5,7 +5,7 @@ import {ResponsibilitiesURL} from "utils/ApiConstants.js"
 import {ResponsibilitiesM, Headers} from "views/HomeLoggedIn/Models.js";
 import {CssTextField} from "assets/jss/Constants.js";
 
-export default function Responsibilities() {
+export default function Responsibilities(props) {
 
 
   Array.prototype.contains = function (obj) {
@@ -49,6 +49,8 @@ export default function Responsibilities() {
 
   return (
     <div >
+    <div> Make sure the Project Number is a valid Project Number in Projects.</div>
+    <div>Remember to input an email inside of the Staff table/materialized view</div>
     {Object.keys(columns).map((key, i) => {
       if(dontDisplay.contains(key)){}
       else if (intAttributes.contains(key)) {return(
@@ -77,7 +79,7 @@ export default function Responsibilities() {
         primary color="info">
         INSERT/POST
       </Button>
-      <Table columns={columns} url={ResponsibilitiesURL}/>
+      <Table allowDelete={props.allowDelete} columns={columns} url={ResponsibilitiesURL}/>
     </div>
   );
 }

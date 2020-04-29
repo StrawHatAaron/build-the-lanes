@@ -4,7 +4,7 @@ import Table from "components/Tables/Table.js";
 import {DonatorsURL} from "utils/ApiConstants.js";
 import {DonatorsM, Headers} from "views/HomeLoggedIn/Models.js";
 
-export default function Donators() {
+export default function Donators(props) {
 
   const columns = DonatorsM;
   const [state, setState] = useState(DonatorsM)
@@ -15,13 +15,13 @@ export default function Donators() {
   return (
     <div >
     <h2>
-    We should only select from the Materialized View Engineers
+    We should only select from the Materialized View Donators
     </h2>
     <Button
       primary color="success">
       SELECT/GET Users
     </Button>
-      <Table columns={columns} url={DonatorsURL}/>
+      <Table allowDelete={props.allowDelete} columns={columns} url={DonatorsURL}/>
     </div>
   );
 }

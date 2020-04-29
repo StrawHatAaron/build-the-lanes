@@ -6,33 +6,77 @@ import {UsersM, UsersSignUpM, Headers, RoleBasedUsers} from "views/HomeLoggedIn/
 import {CssTextField} from "assets/jss/Constants.js";
 import MenuItem from '@material-ui/core/MenuItem';
 
-export default function Users() {
+export default function Users(props) {
 
   Array.prototype.contains = function (obj) {
     return this.indexOf(obj) > -1;
   };
   //need some things to check based off
   //which type of input box to display
-  const dontDisplay = ["Id", "PasswordHash", "PasswordSalt"]
+  const dontDisplay = ["Id", "PasswordHash", "PasswordSalt", "Title", "Type", "Created", "AmountDonated"]
   const intAttributes = ["AmountDonated"]
   const dateAttributes = ["Created"]
   const money = ["AmountDonated"]
 
+  const specialUserAtrs = ["AmountDonated", "Title", "Type", "Created", "AmountDonated"]
+
   const columns = UsersM;
   const inputCols = UsersSignUpM;
 
-
-
+  const [inputShow, setInputShow] = useState([]);
   const [state, setState] = useState(UsersSignUpM)
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.value });
+
+    if(event.target.name==="Roles"){
+      switch(event.target.value){
+        case 'd':
+        console.log("set to donator");
+        setInputShow(["AmountDonated"]);
+        break;
+        case 's':
+        console.log("set to staff");
+        setInputShow(["Title", "Type", "Created"]);
+        break;
+        case 'e':
+        setInputShow(["Title", "Type"]);
+        break;
+        case 'a':
+        setInputShow(["Title", "Created"]);
+        break;
+        case 'sd':
+        setInputShow(["Title", "Type", "Created", "AmountDonated"]);
+        break;
+        case 'ed':
+        setInputShow(["Title", "Type", "AmountDonated"]);
+        break;
+        case 'ad':
+        setInputShow(["Title", "Created", "AmountDonated"]);
+        break;
+      }
+    }
+
   };
-
-
   function postData(url, data){
 
-    data.AmountDonated = 10.50;
-    data.Created = new Date(data.Created).toISOString()
+    //take care of user error displays
+    console.log('inputShow:', inputShow)
+
+    if(!inputShow.contains(specialUserAtrs)){
+      console.log(true);
+      console.log(inputShow);
+      alert("just tried to post with no user type choosen.");
+    }
+
+    data.AmountDonated = parseInt(data.AmountDonated);
+
+    console.log("date Created:", data.Created);
+    if(data.Created==="Created"){
+      data.Created = "2017-05-11T09:18:54.092Z"
+    } else {
+      data.Created = new Date(data.Created).toISOString()
+    }
+
 
     fetch(url, {
       method: 'POST', // or 'PUT'
@@ -102,13 +146,46 @@ export default function Users() {
             onChange={handleChange} />
         )}
       })}
+      {Object.keys(inputCols).map((key, i) => {
+        if(inputShow.contains(key)) {
+          if (intAttributes.contains(key)) {return(
+            <CssTextField
+              variant="outlined"
+              margin="normal"
+              id={key}
+              type="number"
+              label={Object.values(inputCols)[i]}
+              name={key}
+              onChange={handleChange} />
+          )} else if(dateAttributes.contains(key)) {return(
+            <CssTextField
+              variant="outlined"
+              margin="normal"
+              id={key}
+              name={key}
+              label="Created"
+              type="datetime-local"
+              defaultValue="2017-05-24T09:18:54.092Z"
+              InputLabelProps={{shrink: true,}}
+              onChange={handleChange}/>
+          )} else {return(
+            <CssTextField
+              variant="outlined"
+              margin="normal"
+              id={key}
+              label={Object.values(inputCols)[i]}
+              name={key}
+              onChange={handleChange} />
+          )}
+        }
+      })}
       <Button
         onClick={() => postData(UserURL+"register/", state)}
         primary color="info">
         INSERT/POST
       </Button>
 
-      <Table columns={columns} url={UserURL}/>
+      <Table allowDelete={props.allowDelete} columns={columns} url={UserURL}/>
     </div>
   );
 }

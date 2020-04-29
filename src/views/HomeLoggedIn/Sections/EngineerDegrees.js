@@ -5,7 +5,7 @@ import {EngineerDegreesURL} from "utils/ApiConstants.js";
 import {CssTextField} from "assets/jss/Constants.js";
 import {EngineerDegreesM, postData} from "views/HomeLoggedIn/Models.js";
 
-export default function EngineerDegrees() {
+export default function EngineerDegrees(props) {
 
   const columns = EngineerDegreesM;
 
@@ -16,6 +16,7 @@ export default function EngineerDegrees() {
 
   return (
     <div >
+    <div>Remember to input an email inside of the Engineers table/materialized view</div>
       {Object.keys(columns).map((c, i) => {
         return(
           <CssTextField
@@ -29,11 +30,12 @@ export default function EngineerDegrees() {
         )
       })}
       <Button
+        allowDelete={props.allowDelete}
         onClick={() => postData(EngineerDegreesURL, state)}
         primary color="info">
         INSERT/POST
       </Button>
-      <Table columns={columns} url={EngineerDegreesURL}/>
+      <Table allowDelete={props.allowDelete} columns={columns} url={EngineerDegreesURL}/>
     </div>
   );
 }

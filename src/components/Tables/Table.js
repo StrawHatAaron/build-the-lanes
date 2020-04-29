@@ -113,9 +113,8 @@ export default function Table(props){
         case Models.DonatesM:
           Models.deleteData(ApiConstants.DonatesURL, data[indexToDeleteAt])
           break;
-        case Models.UsersM:
-          console.log(data[indexToDeleteAt]);
-          Models.deleteDataId(ApiConstants.UserURL, data[indexToDeleteAt]["id"]);
+        default:
+          alert("Model does not delete.")
           break;
       }
     }
@@ -123,15 +122,36 @@ export default function Table(props){
 
   return(
     <div>
+    {props.allowDelete?
       <Button
         onClick={() => handleDelete()}
         primary color="danger">
         DELETE
       </Button>
+      :
+       <h5>
+       For security, User profiles are not only properly password
+       encrypted but also very hard to delete as well
+       becuase they are locked through forgien keys of
+       materialized views. This will help prevent harm of
+       the user data by normal application users. While removing
+       a profile may be done by a higher privlieged user such as
+       a DBA.
+       <br/>
+       I will try to provide an update option.
+       </h5>
+    }
+
+
 
       <table id="customers">
         <tr>
-          <th>Check a heart box and click the delete button to remove row. <br/>Note: this column is not a part of the database. It is only used in frontend to easily select database keys.</th>
+          <th>
+          Check a heart box and click the delete button to remove row.
+          <br/>
+          Note: this column is not a part of the database. It is only used
+          in frontend to easily select database keys.
+          </th>
           {TopColumns}
         </tr>
 

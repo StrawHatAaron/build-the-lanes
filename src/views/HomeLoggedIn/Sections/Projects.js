@@ -9,7 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 
 
-export default function Projects() {
+export default function Projects(props) {
 
   Array.prototype.contains = function (obj) {
     return this.indexOf(obj) > -1;
@@ -100,7 +100,7 @@ export default function Projects() {
         INSERT/POST
       </Button>
 
-      <Table columns={columns} url={ProjectsURL}/>
+      <Table allowDelete={props.allowDelete} columns={columns} url={ProjectsURL}/>
     </div>
   );
 }

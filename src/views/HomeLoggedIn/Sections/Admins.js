@@ -5,7 +5,7 @@ import {AdminsURL} from "utils/ApiConstants.js"
 import {AdminsM, Headers} from "views/HomeLoggedIn/Models.js";
 
 
-export default function Admins() {
+export default function Admins(props) {
 
   const columns = AdminsM;
   const [state, setState] = useState(AdminsM)
@@ -16,13 +16,14 @@ export default function Admins() {
   return (
     <div >
     <h2>
-    We should only select from the Materialized View Engineers
+    We should only select from the Materialized View Admins
     </h2>
     <Button
       primary color="success">
       SELECT/GET Users
     </Button>
       <Table
+        allowDelete={props.allowDelete}
         buttons={false}
         columns={AdminsM}
         url={AdminsURL}/>
