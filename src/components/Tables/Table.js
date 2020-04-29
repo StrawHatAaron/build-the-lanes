@@ -1,7 +1,7 @@
 //Aaron Miller
 import React, {useState, useEffect,} from "react";
 import Rows from "components/Tables/Rows.js";
-import "components/Tables/Table.css";
+import "./Table.css";
 import {Headers} from "views/HomeLoggedIn/Models.js"
 import Button from "components/CustomButtons/Button.js";
 
