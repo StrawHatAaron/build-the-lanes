@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "components/Tables/Table.css";
+import "components/Tables/Table.scss";
 // import Columns from "components/Tables/Columns.js";
 //Material UI
 import { withStyles } from '@material-ui/core/styles';
