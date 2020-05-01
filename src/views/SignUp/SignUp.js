@@ -251,8 +251,8 @@ export default function SignUp(props){
                   <CardFooter className={classes.cardFooter}>
                   <Button
                     onClick={() => postData(UserURL+"register/", state)}
-                    primary color="info">
-                    INSERT/POST
+                    primary color="success">
+                    Submit
                   </Button>
                   </CardFooter>
                 </form>

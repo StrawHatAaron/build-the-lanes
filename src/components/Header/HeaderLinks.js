@@ -28,7 +28,7 @@ import Admins from "views/HomeLoggedIn/Sections/Admins.js";
 import Engineers from "views/HomeLoggedIn/Sections/Engineers.js";
 //put work into the button - would like to have it work with token in furture maybe
 import {SignInOutButton} from "components/Header/SignInOutButton.js";
-
+import EditUser from 'views/HomeLoggedIn/Sections/EditUser.js';
 
 const useStyles = makeStyles(styles);
 
@@ -164,6 +164,11 @@ export const DatabasePages = [{
   path:homeLoggedInPath+'engineer-degrees',
   explanation:'Engineer Database Info',
   componentSection:() => <EngineerDegrees allowDelete={true}/>
+}, {
+  title:'Edit User Now',
+  path:homeLoggedInPath+'users/:id/',
+  explanation:'Edit User Info Route',
+  componentSection:() => <EditUser />
 }];
 
 const DatabaseButtonStyle = {

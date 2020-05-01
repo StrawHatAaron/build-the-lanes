@@ -57,8 +57,8 @@ export default function Users(props) {
     }
 
   };
-  function postData(url, data){
 
+  function postData(url, data){
     //take care of user error displays
     console.log('inputShow:', inputShow)
 
@@ -76,8 +76,6 @@ export default function Users(props) {
     } else {
       data.Created = new Date(data.Created).toISOString()
     }
-
-
     fetch(url, {
       method: 'POST', // or 'PUT'
       headers: Headers,

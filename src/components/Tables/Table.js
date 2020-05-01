@@ -4,6 +4,8 @@ import Rows from "components/Tables/Rows.js";
 import "components/Tables/Table.scss";
 import {Headers} from "views/HomeLoggedIn/Models.js"
 import Button from "components/CustomButtons/Button.js";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {history} from 'helpers/history';
 
 import * as Models from "views/HomeLoggedIn/Models.js";
 import * as ApiConstants from "utils/ApiConstants.js";
@@ -18,6 +20,9 @@ import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
+
+import {UserURL} from 'utils/ApiConstants.js';
+import {DatabasePages} from 'components/Header/HeaderLinks.js'
 
 
 const RoseCheckbox = withStyles({
@@ -130,49 +135,59 @@ export default function Table(props){
       </Button>
       :
        <h5>
-       For security, User profiles are not only properly password
-       encrypted but also very hard to delete as well
-       becuase they are locked through forgien keys of
-       materialized views. This will help prevent harm of
-       the user data by normal application users. While removing
-       a profile may be done by a higher privlieged user such as
-       a DBA.
+         For security, User profiles are not only properly password
+         encrypted but also very hard to delete as well
+         becuase they are locked through forgien keys of
+         materialized views. This will help prevent harm of
+         the user data by normal application users. While removing
+         a profile may be done by a higher privlieged user such as
+         a DBA.
        <br/>
-       I will try to provide an update option.
+        I will try to provide an update option for users.
        </h5>
     }
-
-
-
       <table id="customers">
         <tr>
-          <th>
-          Check a heart box and click the delete button to remove row.
-          <br/>
-          Note: this column is not a part of the database. It is only used
-          in frontend to easily select database keys.
-          </th>
+          {props.url===UserURL ?
+            <th>
+              Click the link to edit/put/update the user
+            </th>
+            :
+            <th>
+              Check a heart box and click the delete button to remove a row.
+            <br/>
+              Note: this column is not a part of the database. It is only used
+              in frontend to easily select database keys.
+            </th>
+          }
           {TopColumns}
         </tr>
 
         {Object.values(data).map((row, row_i) => {
           return(
             <tr>
-            <FormControlLabel
-              label={row_i}
-              onChange={handleChange(row_i)}
-              control={<RoseCheckbox
-                icon={<FavoriteBorder />}
-                checked={state.checked}
-                checkedIcon={<Favorite />}
-                name={`checked`}/>
+              {props.url===UserURL ?
+                <Link
+                  to={`${DatabasePages[0].title}/${row_i+1}/`}>
+                  click to update
+                </Link>
+              :
+                <FormControlLabel
+                  label={row_i}
+                  onChange={handleChange(row_i)}
+                  control={<RoseCheckbox
+                    icon={<FavoriteBorder />}
+                    checked={state.checked}
+                    checkedIcon={<Favorite />}
+                    name={`checked`}/>
+                  }
+                />
               }
-            />
-            {Object.values(row).map((cell, cell_i) => {
-              return(
-                <td>{cell}</td>
-              )
-            })}
+              {Object.values(row).map((cell, cell_i) => {
+                return(
+                  <td>{cell}</td>
+                )
+              })}
             </tr>
           )
         })}

@@ -20,6 +20,7 @@ import {authenticationService} from 'services/authentication.service';
 import {PrivateRoute} from 'utils/PrivateRoute';
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
+import EditUser from 'views/HomeLoggedIn/Sections/EditUser.js'
 
 import Button from "@material-ui/core/Button";
 
@@ -91,6 +92,15 @@ const App = () =>{
           key="home-page"
           path="/home-logged-in"
           component={HomeLoggedIn} />
+        <Route
+          key="home-page"
+          path="/home-logged-in"
+          component={HomeLoggedIn} />
+
+        <Route
+          key="edit-user"
+          path={"/home-logged-in/users/:id/"}
+          component= {() => <EditUser/>}/>
       </Switch>
     </HashRouter>
   )

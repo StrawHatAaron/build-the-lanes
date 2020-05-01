@@ -4,6 +4,7 @@ export const Headers = {
   'Accept': '*/*',
   'Accept-Encoding': 'gzip, deflate, br',
   'Connection': 'keep-alive',
+  'Access-Control-Allow-Origin': "*",
 }
 
 export function postData(url, data){

@@ -19,7 +19,7 @@ function signin(email, password) {
         body: JSON.stringify({ "email":email, "password":password })
     };
 
-    return fetch("http://localhost:4000/apiv1/users/authenticate", requestOptions)
+    return fetch(AuthenticateUserURL, requestOptions)
         .then(handleResponse)
         .then(user => {
             localStorage.setItem(signedIn(), true);
