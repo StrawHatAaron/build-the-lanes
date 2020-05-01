@@ -18,7 +18,6 @@ import {history} from "helpers/history";
 import {authenticationService} from "services/authentication.service"
 import image from "assets/img/sign-in.jpeg";
 
-
 const useStyles = makeStyles(styles);
 
 export default function SigninPage(props) {
