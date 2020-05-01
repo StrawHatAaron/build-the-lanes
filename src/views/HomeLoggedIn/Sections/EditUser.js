@@ -4,16 +4,11 @@ import Button from "components/CustomButtons/Button.js";
 import {DatabasePages} from 'components/Header/HeaderLinks';
 import {history} from 'helpers/history';
 import {CssTextField} from "assets/jss/Constants.js";
-import {UsersSignUpM, UsersM, Header} from 'views/HomeLoggedIn/Models.js';
+import {UsersSignUpM, UsersM, Headers} from 'views/HomeLoggedIn/Models.js';
 import {UserURL} from "utils/ApiConstants.js";
 
 
 export default function EditUser(){
-
-  const [input, setInput] = useState({});
-  const handleChange = (event) => {
-    setState({...input, [event.target.name]:[event.target.value]})
-  }
 
   const [state, setState] = useState({});
   useEffect(() => {
@@ -26,25 +21,51 @@ export default function EditUser(){
       headers:  Headers
       })
     .then((response) => response.json())
-    .then((state) => {
-      setState(state);
-      console.log('state:', state)
-      console.log('id',state['id'])
+    .then((data) => {
+      setState(data);
+      console.log('data:', data)
+      console.log('id',data['id'])
     })
     .catch((error) => {
       console.error('Error:', error);
     })
   }, []);
 
-  function putData(url){
+
+  const [inputU, setInputU] = useState({});
+  useEffect(() => {
+    setInputU({
+      ...inputU,
+      ['Email']:state['email'],
+      ['Roles']:state['roles'],
+    });
+  }, [state])
+  const handleChange = (event) => {
+    console.log('is this even getting called')
+    setInputU({...inputU, [event.target.name]:event.target.value})
+    console.log(inputU);
+  }
+
+  function putData(url, data){
+    if(data.AmountDonated != null){
+      data.AmountDonated = parseInt(data.AmountDonated);
+    }
+    if(data.Created!= null){
+      data.Created = new Date(data.Created).toISOString()
+    }
+    console.log("putData, inputU:", inputU);
     fetch(UserURL, {
       method: 'PUT',
       headers:  Headers,
-      body:input
+      body:JSON.stringify(data),
     })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log('Data:', data);
+    .then((response) => {
+      console.log('response:', response);
+      if(response.status===200){
+        alert("Success");
+      } else {
+        alert("Error");  
+      }
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -69,8 +90,9 @@ export default function EditUser(){
         variant="outlined"
         margin="normal"
         id="id"
+        name="Id"
         label="can't edit value"
-        name="id"
+        defaultValue={state['id']}
         onChange={handleChange}/>
 
       <div>Email current value: {state['email']}</div>
@@ -79,18 +101,18 @@ export default function EditUser(){
         variant="outlined"
         margin="normal"
         id="email"
+        name="Email"
         label="can't edit value"
-        name="email"
         onChange={handleChange}/>
 
-      <div>Roles current value: {state['Roles']}</div>
+      <div>Roles current value: {state['roles']}</div>
       <CssTextField
         disabled
         variant="outlined"
         margin="normal"
         id="Roles"
-        label="Roles"
         name="Roles"
+        label="Roles"
         onChange={handleChange}/>
 
       <div>Password current value: ****</div>
@@ -98,6 +120,7 @@ export default function EditUser(){
         variant="outlined"
         margin="normal"
         id="password"
+        name="Password"
         label="Password"
         onChange={handleChange}/>
 
@@ -106,8 +129,8 @@ export default function EditUser(){
         variant="outlined"
         margin="normal"
         id="token"
+        name="Token"
         label="Token"
-        name="token"
         onChange={handleChange}/>
 
       <div>First Name current value: {state['fName']}</div>
@@ -116,43 +139,43 @@ export default function EditUser(){
         margin="normal"
         id="fName"
         label="First Name"
-        name="fName"
+        name="FName"
         onChange={handleChange}/>
 
       <div>Last Name current value: {state['lName']}</div>
       <CssTextField
         variant="outlined"
         margin="normal"
-        id="lName"
+        id="LName"
         label="Last Name"
-        name="lName"
+        name="LName"
         onChange={handleChange}/>
 
-      <div>Amount Donated current value: {state['amountDonated']}</div>
+      <div>Enter Amount Donated </div>
       <CssTextField
         variant="outlined"
         margin="normal"
         id="Amount Donated"
-        name="amountDonated"
+        name="AmountDonated"
         type="number"
         onChange={handleChange}/>
 
-      <div>Title current value: {state['Title']}</div>
+      <div>Title current value: {state['title']}</div>
       <CssTextField
         variant="outlined"
         margin="normal"
         id="title"
+        name="Title"
         label="Title"
-        name="title"
         onChange={handleChange}/>
 
-      <div>Type current value: {state['Type']}</div>
+      <div>Type current value: {state['type']}</div>
       <CssTextField
         variant="outlined"
         margin="normal"
         id="type"
+        name="Type"
         label="Type"
-        name="type"
         onChange={handleChange}/>
 
       <div>Created current value: {state['Created']}</div>
@@ -160,15 +183,15 @@ export default function EditUser(){
         variant="outlined"
         margin="normal"
         id="Created"
-        name="Created"
         label="Created"
+        name="Created"
         type="datetime-local"
         defaultValue="2017-05-24T09:18:54.092Z"
         InputLabelProps={{shrink: true,}}
         onChange={handleChange}/>
 
       <Button
-        onClick={() => putData(UserURL)}
+        onClick={() => putData(UserURL, inputU)}
         primary color="warning">
         UPDATE/PUT
       </Button>

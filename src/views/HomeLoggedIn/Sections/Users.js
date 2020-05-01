@@ -82,8 +82,8 @@ export default function Users(props) {
       body: JSON.stringify(data),
     })
     .then((response) => {
-      alert("Success");
       console.log('response:', response);
+      alert("Success");
       window.location.reload();
     })
     .catch((error) => {
