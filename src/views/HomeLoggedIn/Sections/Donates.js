@@ -31,9 +31,14 @@ export default function Donates(props) {
       body: JSON.stringify(data),
     })
     .then((response) => {
-      alert("Success");
-      window.location.reload();
-      console.log('response:', response);
+      if(response.status === 200) {
+        alert("Success! Inserted");
+        window.location.reload();
+      } else {
+        alert("Make sure the email belongs to a Donator"+
+              " and that you don't have duplicate foreign key"+
+              " entries for Donator's Email and Project Number.");
+      }
     })
     .catch((error) => {
       alert("Error", error)

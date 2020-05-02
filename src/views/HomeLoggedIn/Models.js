@@ -1,3 +1,26 @@
+export const RoleBasedUsers = [{
+  value:'d',
+  label:'Donator'
+},{
+  value:'s',
+  label:'Staff'
+},{
+  value:'e',
+  label:'Engineer'
+},{
+  value:'a',
+  label:'Admin'
+},{
+  value:'sd',
+  label:'Staff Donator'
+},{
+  value:'ed',
+  label:'Engineer Donator'
+},{
+  value:'ad',
+  label:'Admin Donator'
+},]
+
 export const Headers = {
   'Content-Type': 'application/json',
   'Cache-Control': 'no-cache',
@@ -13,11 +36,16 @@ export function postData(url, data){
     headers: Headers,
     body: JSON.stringify(data),
   })
-  .then((response) => response.json())
-  .then((data) => {
-    alert("success");
-    console.log('Success:', data);
-    window.location.reload();
+  .then((response) =>{
+    console.log("res:",response);
+    if(response.status === 200) {
+      alert("Success! Inserted");
+      window.location.reload();
+    } else {
+      alert("Make sure the email belongs to an Engineer"+
+            " and that you don't have duplicate key"+
+            " entries for Email and Degrees.");
+    }
   })
   .catch((error) => {
     console.error('Error:', error);
@@ -61,29 +89,6 @@ export function deleteDataId(url, id){
     console.error('Error:', error);
   });
 }
-
-export const RoleBasedUsers = [{
-  value:'d',
-  label:'Donator'
-},{
-  value:'s',
-  label:'Staff'
-},{
-  value:'e',
-  label:'Engineer'
-},{
-  value:'a',
-  label:'Admin'
-},{
-  value:'sd',
-  label:'Staff Donator'
-},{
-  value:'ed',
-  label:'Engineer Donator'
-},{
-  value:'ad',
-  label:'Admin Donator'
-},]
 
 export const AdminsM = {
   Id: "Id",

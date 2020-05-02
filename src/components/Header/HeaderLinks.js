@@ -176,8 +176,8 @@ const DatabaseButtonStyle = {
   margin:"20px"
 }
 
-export const MapedDatabasePages = DatabasePages.map((c) => {
-  return(
+export const MapedDatabasePages = DatabasePages.map((c, i) => {
+  if (i<=10) { return(
     <Link to={c.path}>
       <Button
         style={DatabaseButtonStyle}
@@ -187,5 +187,5 @@ export const MapedDatabasePages = DatabasePages.map((c) => {
         {"Select "+c.title}
       </Button>
     </Link>
-  )
+  )}
 })

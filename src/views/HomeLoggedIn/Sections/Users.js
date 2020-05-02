@@ -82,9 +82,15 @@ export default function Users(props) {
       body: JSON.stringify(data),
     })
     .then((response) => {
-      console.log('response:', response);
-      alert("Success");
-      window.location.reload();
+      console.log("res:",response);
+      if(response.status === 200) {
+        alert("Success! Inserted");
+        window.location.reload();
+      } else {
+        alert("Make sure the email belongs to an Engineer"+
+              " and that you don't have duplicate key"+
+              " entries for Email and Degrees.");
+      }
     })
     .catch((error) => {
       alert("Error", error);

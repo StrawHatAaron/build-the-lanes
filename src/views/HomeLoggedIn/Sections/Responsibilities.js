@@ -34,11 +34,16 @@ export default function Responsibilities(props) {
       headers: Headers,
       body: JSON.stringify(send),
     })
-    .then((response) => response.json())
-    .then((data) => {
-      alert("success");
-      console.log('Success:', data);
-      window.location.reload();
+    .then((response) => {
+      console.log("res:",response);
+      if(response.status === 200) {
+        alert("Success! Inserted");
+        window.location.reload();
+      } else {
+        alert("Make sure the email belongs to a Staff Member"+
+              " and that you don't have duplicate key"+
+              " entries for Staff Email and Project Number .");
+      }
     })
     .catch((error) => {
       alert("success", error);

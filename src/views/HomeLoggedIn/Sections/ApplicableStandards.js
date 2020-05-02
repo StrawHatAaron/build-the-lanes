@@ -30,9 +30,14 @@ export default function ApplicableStandards(props) {
       body: JSON.stringify(data),
     })
     .then((response) => {
-      alert("Success");
-      console.log('response:', response);
-      window.location.reload();
+      if(response.status === 200) {
+        alert("Success! Inserted");
+        window.location.reload();
+      } else {
+        alert("Make sure the Project Number belongs to a Project"+
+              " and that you don't have duplicate key"+
+              " entries for Project Number and Data Link.");
+      }
     })
     .catch((error) => {
       alert("Error", error);

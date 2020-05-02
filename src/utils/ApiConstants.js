@@ -1,7 +1,7 @@
 // Code written by Aaron Miller
 
-const BaseURL = 'https://buildthelanesapi.azurewebsites.net/apiv1/'
-// const BaseURL = 'http://localhost:4000/apiv1/'
+// const BaseURL = 'https://buildthelanesapi.azurewebsites.net/apiv1/'
+const BaseURL = 'http://localhost:4000/apiv1/'
 
 export const UserURL = BaseURL + 'users/'
 

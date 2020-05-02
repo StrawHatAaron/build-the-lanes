@@ -30,6 +30,13 @@ export default function Projects(props) {
 
 
   function postData(url, data){
+    if(data.StartDate   == undefined ||
+       data.Status      == undefined ||
+       data.City        == undefined ||
+       data.ZipCode     == undefined) {
+         alert("All Fields are required in project. None can be NULL.")
+         return;
+       }
 
     console.log("start_date:", data["StartDate"]);
     const startDate = data.StartDate;
@@ -49,9 +56,15 @@ export default function Projects(props) {
       body: JSON.stringify(send),
     })
     .then((response) => {
-      alert("Success");
-      console.log('response:', response);
-      window.location.reload();
+      console.log("res:",response);
+      if(response.status === 200) {
+        alert("Success! Inserted");
+        window.location.reload();
+      } else {
+        alert("Make sure the email belongs to an Engineer"+
+              " and that you don't have duplicate key"+
+              " entries for Email and Degrees.");
+      }
     })
     .catch((error) => {
       alert("Error");

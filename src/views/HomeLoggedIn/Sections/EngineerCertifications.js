@@ -21,9 +21,15 @@ export default function EngineerCertifications(props) {
       body: JSON.stringify(data),
     })
     .then((response) => {
-      alert("Success");
-      console.log('response:', response);
-      window.location.reload();
+      console.log("res:",response);
+      if(response.status === 200){
+        alert("Success! Inserted");
+        window.location.reload();
+      } else {
+        alert("Make sure the email belongs to an Engineer"+
+              " and that you don't have duplicate entries for" +
+              " Email and Certification fields.");
+      }
     })
     .catch((error) => {
       alert("Error", error);

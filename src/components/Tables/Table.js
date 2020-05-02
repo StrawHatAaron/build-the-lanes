@@ -166,9 +166,10 @@ export default function Table(props){
         {Object.values(data).map((row, row_i) => {
           return(
             <tr>
+
               {props.url===UserURL ?
                 <Link
-                  to={`${DatabasePages[0].title}/${row_i+1}/`}>
+                  to={`${DatabasePages[0].title}/${row.id}/`}>
                   click to update
                 </Link>
               :
@@ -183,11 +184,13 @@ export default function Table(props){
                   }
                 />
               }
+
               {Object.values(row).map((cell, cell_i) => {
                 return(
                   <td>{cell}</td>
                 )
               })}
+
             </tr>
           )
         })}
