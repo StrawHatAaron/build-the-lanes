@@ -13,47 +13,47 @@ import LoginPage from "views/LoginPage/LoginPage.js";
 import ContactUs from "views/ContactUs/ContactUs.js";
 import Approach from "views/Approach/Approach.js";
 import UnderConstruction from "views/UnderConstruction/UnderConstruction";
-//font awesome 
+//font awesome
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCarCrash, faSmog, faChartLine, faSmileWink} from "@fortawesome/free-solid-svg-icons";
 library.add(faCarCrash, faSmog, faChartLine, faSmileWink);
- 
+
 var hist = createBrowserHistory();
 
 ReactDOM.render(
   <HashRouter history={hist}>
     <Switch>
-      <Route 
+      <Route
         key="why-bikes"
-        exact path="/why-bikes" 
+        exact path="/why-bikes"
         component={WhyBikes} />
-      <Route 
+      <Route
         key="login-page"
-        exact path="/login-page" 
+        exact path="/login-page"
         component={LoginPage} />
-      <Route 
+      <Route
         key="about-us"
-        exact path="/about-us" 
-        component={AboutUs} />
-      <Route  
+        exact path="/about-us"
+        component={AboutUs} /> 
+      <Route
         key="contact-us"
-        exact path="/contact-us" 
+        exact path="/contact-us"
         component={ContactUs} />
-      <Route 
+      <Route
         key="login"
         exact path="/login"
         component={UnderConstruction} />
-      <Route 
+      <Route
         key="sign-up"
         exact path="/sign-up"
         component={UnderConstruction} />
-      <Route 
+      <Route
         key="home-page"
-        exact path="/" 
+        exact path="/"
         component={OurMission} />
       <Route
         key="approach"
-        exact path="/approach" 
+        exact path="/approach"
         component={Approach} />
     </Switch>
   </HashRouter>,
