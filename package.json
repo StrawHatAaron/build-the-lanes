@@ -1,5 +1,6 @@
 {
-  "name": "material-kit-react",
+  "homepage": "http://StrawHatAaron.github.io/build-the-lanes",
+  "name": "build-the-lanes",
   "version": "1.8.0",
   "description": "Build the Lanes. Coded by Creative Tim and Aaron Miller",
   "private": true,
@@ -11,6 +12,7 @@
     "@material-ui/core": "4.3.2",
     "@material-ui/icons": "4.2.1",
     "classnames": "2.2.6",
+    "gh-pages": "^3.1.0",
     "history": "4.9.0",
     "moment": "2.24.0",
     "node-sass": "4.12.0",
@@ -40,6 +42,8 @@
     "typescript": "3.7.3"
   },
   "scripts": {
+    "deploy": "gh-pages -b love-aws6 -d build",
+    "predeploy": "npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build && gulp licenses",
     "test": "react-scripts test --env=jsdom",
