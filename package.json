@@ -1,5 +1,5 @@
 {
-  "homepage": "http://StrawHatAaron.github.io/build-the-lanes",
+  "homepage": "https://StrawHatAaron.github.io/build-the-lanes",
   "name": "build-the-lanes",
   "version": "1.8.0",
   "description": "Build the Lanes. Coded by Creative Tim and Aaron Miller",
@@ -42,7 +42,7 @@
     "typescript": "3.7.3"
   },
   "scripts": {
-    "deploy": "gh-pages -b love-aws6 -d build",
+    "deploy": "gh-pages -b master -d build",
     "predeploy": "npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build && gulp licenses",
